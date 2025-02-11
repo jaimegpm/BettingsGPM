@@ -13,14 +13,14 @@ El proyecto cuenta con una interfaz moderna inspirada en plataformas populares c
 ---
 
 ## 🚀 **Accede a la Página en Vivo**
-🖥️ Puedes ver el sitio en línea a través de **GitHub Pages**:  
-🔗 **[BettingsGPM en GitHub Pages](https://jaimegpm.github.io/BettingsGPM/)**  
+🔗 **GitHub Pages:**  
+[![Abrir en GitHub Pages](https://img.shields.io/badge/🌍-Abrir%20BettingsGPM%20en%20GitHub%20Pages-green)](https://jaimegpm.github.io/BettingsGPM/)
 
 ---
 
 ## 🎨 **Diseño en Figma**
-El diseño inicial del proyecto fue creado en **Figma** antes de su implementación. Puedes ver el diseño aquí:  
-🔗 **[Diseño en Figma](https://www.figma.com/design/oFC4jX0ie7VfHecTxFaxLd/BettingsGPM?node-id=1-4&t=gAFC61COkCCUPOrH-1)**  
+🔗 **Diseño del Proyecto en Figma:**  
+[![Ver Diseño en Figma](https://img.shields.io/badge/🎨-Ver%20Diseño%20en%20Figma-blue)](https://www.figma.com/design/oFC4jX0ie7VfHecTxFaxLd/BettingsGPM?node-id=1-4&t=gAFC61COkCCUPOrH-1)
 
 ---
 
@@ -31,7 +31,3 @@ El diseño inicial del proyecto fue creado en **Figma** antes de su implementaci
 ✅ **Panel de Usuario con Datos y Historial**  
 ✅ **Promociones y Bonos**  
 ✅ **Fondo Animado con Efecto Neón**  
-
----
-
-## 📂 **Estructura del Proyecto**
