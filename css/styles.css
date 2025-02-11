@@ -1,0 +1,563 @@
+:root {
+    --primary-green: #00FF00;
+    --dark-bg: #1E1E1E;
+    --card-bg: #2A2A2A;
+    --text-white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('../img/fondomain.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: var(--text-white);
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Barra superior */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 4rem;
+    background-color: rgba(0, 0, 0, 0.9);
+    height: 110px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+}
+
+.logo img {
+    height: 110px;
+    width: auto;
+    object-fit: contain;
+    margin-top: 0.5rem;
+}
+
+/* Ajuste del top-menu */
+.top-menu {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    flex: 1;
+    justify-content: flex-end;
+    margin-left: 12rem;
+    padding-right: 2rem;
+}
+
+/* Contenedor para los elementos del centro */
+.top-menu-items {
+    display: flex;
+    justify-content: center;
+    gap: 13rem;
+    flex: 1;
+    margin-right: 2rem;
+    padding: 0 12rem;
+}
+
+/* Ajuste de los elementos dentro del top-menu */
+.top-menu-items > div {
+    color: #CCCCCC;
+    white-space: nowrap;
+    text-align: center;
+}
+
+/* Contenedor específico para los botones */
+.top-menu-buttons {
+    display: flex;
+    gap: 2.5rem;
+}
+
+/* Ajuste de los botones */
+.login-btn, .register-btn {
+    padding: 0.5rem 1.5rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    background-color: var(--primary-green);
+    color: black;
+}
+
+/* Efectos hover para ambos botones */
+.login-btn:hover, .register-btn:hover {
+    transform: translateY(-1px);
+}
+
+/* Eliminar los estilos específicos anteriores */
+.login-btn {
+    /* Eliminados los estilos específicos */
+}
+
+.register-btn {
+    /* Eliminados los estilos específicos */
+}
+
+/* Nuevo estilo para el menú de navegación */
+.main-nav {
+    background-color: transparent;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    padding: 0 4rem;
+    position: relative;
+}
+
+.nav-container {
+    background-color: #000000;
+    padding: 1.5rem 2.5rem;
+    border-radius: 20px;
+    width: calc(100% - 950px);
+    margin: 0 auto;
+}
+
+.main-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 7.5rem;
+    width: 100%;
+}
+
+.main-nav a {
+    color: var(--text-white);
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.main-nav a.active {
+    background-color: transparent;
+    color: var(--text-white);
+}
+
+.main-nav a:hover {
+    color: var(--primary-green);
+}
+
+/* Contenido principal */
+.main-content {
+    display: grid;
+    grid-template-columns: 450px 1fr 450px;
+    gap: 1.5rem;
+    padding: 2rem 4rem;
+    margin-top: 0rem;
+    position: relative;
+    height: auto;
+    margin-bottom: 0.1rem;
+}
+
+/* Paneles laterales */
+.left-sidebar, .right-sidebar, .center-content {
+    background-color: #000000;
+    padding: 2rem;
+    border-radius: 25px;
+    height: auto;
+    min-height: 880px;
+    max-height: calc(100vh - 170px);
+    overflow-y: auto;
+}
+
+/* Ajustes comunes para ambos paneles laterales */
+.left-sidebar h3, .right-sidebar h3 {
+    color: var(--text-white);
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    text-align: center; /* Centrado de títulos */
+}
+
+/* Ajustes del panel izquierdo */
+.left-sidebar > div {
+    margin-bottom: 2.5rem; /* Mismo espaciado que el panel derecho */
+}
+
+/* Ajuste de los rectángulos/cajas del panel izquierdo */
+.sport-buttons, .promotions ul {
+    background-color: #2A2A2A;
+    padding: 1.5rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    height: 350px; /* Misma altura que los rectángulos del panel derecho */
+    overflow-y: auto;
+}
+
+/* Ajuste específico para los botones de deportes */
+.sport-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Grid de 2 columnas */
+    grid-template-rows: 1fr 1fr; /* Grid de 2 filas */
+    gap: 1.5rem;
+    padding: 2rem;
+    place-items: center; /* Centra los elementos en sus celdas */
+}
+
+.sport-buttons button {
+    width: 100%;
+    height: 120px;
+    background-color: white;
+    border: none;
+    color: black;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), /* Sombra exterior */
+                inset 0 -4px 4px rgba(0, 0, 0, 0.1); /* Sombra interior para efecto 3D */
+}
+
+.sport-buttons button:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3),
+                inset 0 -4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sport-buttons button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2),
+                inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajuste específico para la sección de promociones */
+.promotions {
+    margin-top: 2rem;
+}
+
+.promotions ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.promotions li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 0;
+    width: 100%;
+    color: #CCCCCC;
+    font-size: 1rem;
+    line-height: 1.4;
+    font-weight: normal;
+}
+
+/* Eliminar el overlay anterior que podría estar causando problemas */
+.main-content::before {
+    display: none;
+}
+
+/* Ajuste para el contenido dentro de los paneles */
+.matches-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem 2rem;
+    padding: 1.5rem 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-content: space-evenly;
+    position: relative;
+}
+
+/* Añadir línea separadora vertical */
+.matches-grid::after {
+    content: '';
+    position: absolute;
+    top: 5%;
+    bottom: 5%;
+    left: 50%;
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.7); /* Aumentado la opacidad de 0.5 a 0.7 */
+    transform: translateX(-50%);
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.4); /* Aumentado el resplandor */
+}
+
+.match-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 1.2rem 1.5rem;
+    width: 85%;
+    margin: 0 auto;
+    display: block;
+}
+
+.match-teams {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem; /* Vuelto al gap original */
+}
+
+.team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem; /* Vuelto al gap original */
+}
+
+.team img {
+    width: 50px; /* Vuelto al tamaño original */
+    height: 50px;
+    object-fit: contain;
+}
+
+.team span {
+    font-size: 1rem; /* Reducido de 1.1rem */
+    color: black;
+}
+
+.match-odds {
+    display: flex;
+    gap: 1rem; /* Vuelto al gap original */
+}
+
+.match-odds button {
+    padding: 0.6rem 1.2rem; /* Vuelto al padding original */
+    font-size: 1rem; /* Vuelto al tamaño original */
+}
+
+.match-odds button:hover {
+    background-color: black;
+    color: white;
+}
+
+.team-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+}
+
+.team-info img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.odds button {
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    border: 1px solid var(--primary-green);
+    color: var(--text-white);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin: 0 0.25rem;
+}
+
+/* Ajustes adicionales */
+.promotions ul {
+    list-style: none;
+}
+
+.promotions li {
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+    color: #CCCCCC;
+}
+
+.live-match {
+    background-color: #2A2A2A;
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.login-required {
+    text-align: center;
+    padding: 1rem;
+    background-color: #2A2A2A;
+    border-radius: 12px;
+    font-size: 0.9rem;
+}
+
+/* Footer */
+footer {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 1.5rem 4rem;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    height: 80px;
+    width: 100%;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content p {
+    color: #888;
+}
+
+footer nav {
+    display: flex;
+    gap: 2rem;
+}
+
+footer nav a {
+    color: #888;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+footer nav a:hover {
+    color: var(--primary-green);
+}
+
+/* Eliminar las restricciones del panel central */
+.center-content {
+    width: 100%;
+    overflow-y: auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ajustes del panel derecho */
+.right-sidebar h3 {
+    color: var(--text-white);
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+/* Contenedor para cada sección del panel derecho */
+.right-sidebar > div {
+    margin-bottom: 2.5rem;
+}
+
+/* Ajuste de los rectángulos/cajas */
+.live-match, .login-required {
+    background-color: #2A2A2A;
+    padding: 1.5rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    height: 350px;
+    overflow-y: auto;
+}
+
+/* Ajuste específico para la sección de apuestas en vivo */
+.live-match {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+/* Estilo para el título del partido */
+.live-match p:first-child {
+    text-align: center;
+    width: 100%;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Estilo para las cuotas */
+.live-match p:not(:first-child) {
+    text-align: left;
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+/* Ajuste específico para la sección de apuestas recientes */
+.recent-bets {
+    margin-top: 2rem;
+}
+
+.login-required {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Ajuste común para todos los rectángulos */
+.promotions ul, .live-match, .login-required {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* Ajuste específico para las promociones */
+.promotions li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 0;
+    width: 100%;
+    color: #CCCCCC;
+    font-size: 1rem;
+    line-height: 1.4;
+    font-weight: normal;
+}
+
+/* Eliminar los estilos que estaban forzando un tamaño más grande */
+.promotions ul {
+    font-size: 1rem;
+}
+
+/* Eliminar los !important que estaban causando conflictos */
+.promotions li, .promotions ul {
+    font-family: Arial, sans-serif;
+}
+
+/* Ajuste específico para el mensaje de login required */
+.login-required {
+    font-size: 1.3rem; /* Un poco más grande para el mensaje de login */
+    color: #CCCCCC;
+}
+
+/* Ajuste del título del panel central */
+.center-content h2 {
+    text-align: center;
+    color: var(--text-white);
+    margin-bottom: 2rem;
+    font-size: 1.3rem;
+} 
