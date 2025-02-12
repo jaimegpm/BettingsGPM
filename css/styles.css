@@ -109,15 +109,6 @@ body {
     transform: translateY(-1px);
 }
 
-/* Eliminar los estilos específicos anteriores */
-.login-btn {
-    /* Eliminados los estilos específicos */
-}
-
-.register-btn {
-    /* Eliminados los estilos específicos */
-}
-
 /* Nuevo estilo para el menú de navegación */
 .main-nav {
     background-color: transparent;
@@ -1031,42 +1022,76 @@ footer nav a:hover {
 /* Media query para 1920x1080 */
 @media screen and (max-width: 1920px) {
     html {
-        zoom: 75%;
-        -moz-transform: scale(0.75);
+        zoom: 67%;
+        -moz-transform: scale(0.67);
         -moz-transform-origin: 0 0;
     }
 
-    /* Ajustes para la página de perfil */
-    .profile-container {
-        min-height: 600px; /* Aumentar altura mínima */
-        margin-bottom: 3rem; /* Espacio adicional antes del footer */
-        padding-bottom: 2rem; /* Más espacio interno en la parte inferior */
+    /* Estilos específicos SOLO para la página de perfil */
+    body.profile-page .center-content {
+        width: 55%;
+        min-height: 900px;
+        margin: 4rem auto;
+        padding: 3rem;
     }
 
-    /* Ajuste del contenedor negro principal */
-    .main-container {
-        min-height: calc(100vh - 100px);
-        padding-bottom: 4rem;
+    /* Estilos específicos SOLO para páginas de login y registro */
+    body.login-page .login-page {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh; /* Centra verticalmente en toda la pantalla */
     }
 
-    /* Mantener ocultas las scrollbars */
+    body.login-page .center-content {
+        width: 50%;
+        padding: 4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Ajustes generales */
     .left-sidebar,
-    .right-sidebar,
-    .live-odds-container {
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-        overflow-y: auto;
+    .right-sidebar {
+        height: auto;
+        min-height: 950px;
     }
 
-    .left-sidebar::-webkit-scrollbar,
-    .right-sidebar::-webkit-scrollbar,
-    .live-odds-container::-webkit-scrollbar {
-        display: none;
+    /* Ajuste específico para el panel central de inicio/apuestas */
+    body:not(.profile-page):not(.login-page) .center-content {
+        height: auto;
+        min-height: 950px;
     }
 
-    .live-odds-container {
-        height: 100%;
-        overflow-x: hidden;
+    .main-content {
+        min-height: 950px;
+        margin-bottom: 2.75rem;
+        padding: 0 2rem;
+        justify-content: center;
+    }
+
+    /* Ajustes del texto de cuotas en vivo */
+    .right-sidebar .live-match p {
+        font-size: 0.96rem;
+    }
+
+    .right-sidebar .live-match > p:first-child {
+        font-size: 1rem;
+    }
+
+    .right-sidebar .live-match p:not(:first-child) {
+        font-size: 0.96rem;
+    }
+
+    /* Footer */
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        padding-top: 0.85rem;
+        background-color: rgba(0, 0, 0, 0.9);
     }
 }
 
