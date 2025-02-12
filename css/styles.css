@@ -279,7 +279,7 @@ body {
     display: none;
 }
 
-/* Ajuste para el contenido dentro de los paneles */
+/* Estilo para el grid de tarjetas en index.html */
 .matches-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -293,7 +293,7 @@ body {
     position: relative;
 }
 
-/* Añadir línea separadora vertical */
+/* Línea separadora vertical solo para index */
 .matches-grid::after {
     content: '';
     position: absolute;
@@ -301,58 +301,82 @@ body {
     bottom: 5%;
     left: 50%;
     width: 1px;
-    background-color: rgba(255, 255, 255, 0.7); /* Aumentado la opacidad de 0.5 a 0.7 */
+    background-color: rgba(255, 255, 255, 0.7);
     transform: translateX(-50%);
-    box-shadow: 0 0 4px rgba(255, 255, 255, 0.4); /* Aumentado el resplandor */
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
 }
 
+/* Tarjetas para index.html */
 .match-card {
     background-color: white;
     border-radius: 15px;
     padding: 1.2rem 1.5rem;
     width: 85%;
     margin: 0 auto;
-    display: block;
 }
 
 .match-teams {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1.5rem; /* Vuelto al gap original */
+    gap: 1.5rem;
 }
 
 .team {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem; /* Vuelto al gap original */
+    gap: 1rem;
 }
 
 .team img {
-    width: 50px; /* Vuelto al tamaño original */
+    width: 50px;
     height: 50px;
     object-fit: contain;
 }
 
 .team span {
-    font-size: 1rem; /* Reducido de 1.1rem */
+    font-size: 1rem;
     color: black;
 }
 
 .match-odds {
     display: flex;
-    gap: 1rem; /* Vuelto al gap original */
+    gap: 1rem;
 }
 
 .match-odds button {
-    padding: 0.6rem 1.2rem; /* Vuelto al padding original */
-    font-size: 1rem; /* Vuelto al tamaño original */
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    cursor: pointer;
 }
 
 .match-odds button:hover {
     background-color: black;
     color: white;
+}
+
+/* Estilo específico para el grid de apuestas */
+.bet-matches-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 7rem 2rem;
+    padding: 2rem;
+    justify-items: center;
+    align-content: center;
+    height: 100%;
+}
+
+/* Tarjetas para la página de apuestas */
+.bet-match-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    width: 210px;
+    margin: 0 auto;
 }
 
 .team-info {
@@ -444,13 +468,30 @@ footer nav a:hover {
     color: var(--primary-green);
 }
 
-/* Eliminar las restricciones del panel central */
+/* Ajustar el contenedor central */
 .center-content {
-    width: 100%;
-    overflow-y: auto;
-    padding: 2rem;
     display: flex;
     flex-direction: column;
+    padding: 2rem;
+}
+
+.center-content h2 {
+    text-align: center;
+    color: var(--text-white);
+    margin-bottom: 3rem;
+    font-size: 1.3rem;
+}
+
+/* Restaurar estilos de las tarjetas */
+.bet-match-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    width: 210px;
+    margin: 0 auto;
 }
 
 /* Ajustes del panel derecho */
@@ -504,7 +545,7 @@ footer nav a:hover {
 
 /* Ajuste específico para la sección de apuestas recientes */
 .recent-bets {
-    margin-top: 2rem;
+    margin-top: 2.5rem; /* Ajustado para mantener el mismo espaciado que los otros paneles */
 }
 
 .login-required {
@@ -554,10 +595,250 @@ footer nav a:hover {
     color: #CCCCCC;
 }
 
-/* Ajuste del título del panel central */
-.center-content h2 {
+/* Estilos específicos para la página de inicio de sesión */
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 200px);
+    padding: 2rem;
+}
+
+.login-page .center-content {
+    background-color: #000000;
+    border-radius: 25px;
+    padding: 3.5rem;
+    width: 1200px;
+    min-height: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente todo el contenido */
+    align-items: center; /* Centra horizontalmente todo el contenido */
+}
+
+.login-page .center-content h2 {
     text-align: center;
     color: var(--text-white);
-    margin-bottom: 2rem;
-    font-size: 1.3rem;
+    margin-bottom: 3rem;
+    font-size: 1.5rem;
+}
+
+.login-form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 2.5rem;
+}
+
+.form-group label {
+    display: block;
+    color: var(--text-white);
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-white);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 2px rgba(0, 255, 0, 0.1);
+}
+
+.form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.form-buttons button {
+    flex: 1;
+    padding: 0.9rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(145deg, #00ff00, #00e600);
+    color: rgba(0, 0, 0, 0.9);
+    box-shadow: 0 2px 4px rgba(0, 255, 0, 0.15);
+}
+
+.btn-secondary {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(0, 255, 0, 0.3);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    background: linear-gradient(145deg, #00ff00, #00ff00);
+    box-shadow: 0 3px 8px rgba(0, 255, 0, 0.2);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(0, 255, 0, 0.05);
+    border-color: rgba(0, 255, 0, 0.5);
+    transform: translateY(-1px);
+}
+
+.btn-primary:active, .btn-secondary:active {
+    transform: translateY(0);
+    transition: transform 0.1s;
+}
+
+/* Estilos para el botón de usuario */
+.user-profile {
+    margin-left: 2rem;
+    margin-right: 3rem; /* Ajustado para que quede en la misma posición que los botones de login/register */
+}
+
+.user-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 1.2rem;
+    background-color: transparent;
+    border: 1px solid var(--primary-green);
+    border-radius: 6px;
+    color: var(--text-white);
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.user-btn:hover {
+    background-color: rgba(0, 255, 0, 0.05);
+    border-color: rgba(0, 255, 0, 0.8);
+    transform: translateY(-1px);
+}
+
+.user-icon {
+    font-size: 1rem;
+    color: var(--primary-green);
+}
+
+/* Estilos para la lista de apuestas - usando los mismos estilos que los otros paneles */
+.bet-list {
+    background-color: #2A2A2A;
+    padding: 2rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    height: 350px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center; /* Solo centrado vertical */
+}
+
+.bet-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 1rem;
+    color: #CCCCCC;
+    font-size: 0.95rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    /* Eliminados justify-content: center y text-align: center */
+}
+
+.bet-status {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.bet-item.win .bet-status {
+    color: var(--primary-green);
+}
+
+.bet-item.loss .bet-status {
+    color: #ff3333;
+}
+
+/* Ajuste del espacio entre los elementos */
+.recent-bets {
+    margin-top: 2.5rem; /* Ajustado para mantener el mismo espaciado que los otros paneles */
+}
+
+/* Ajuste del título para mantener consistencia */
+.recent-bets h3 {
+    color: var(--text-white);
+    margin-bottom: 1.5rem; /* Aumentado de 1rem a 1.5rem para coincidir con los otros paneles */
+    font-size: 1.2rem;
+}
+
+.match-time {
+    color: #666666;
+    font-size: 1.05rem;
+    text-align: center;
+    margin-bottom: 0.45rem;
+    border-bottom: 3px solid #ddd;
+    padding-bottom: 0.65rem;
+}
+
+.team-row {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    padding: 0.45rem 0;
+    justify-content: center;
+    width: 100%;
+}
+
+.team-row img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.team-row span {
+    color: #333333;
+    font-size: 1.05rem;
+    min-width: 72px;
+    text-align: left;
+}
+
+.access-button {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 0.75rem 1.8rem;
+    margin-top: 0.45rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    width: fit-content;
+    align-self: center;
+}
+
+.access-button:hover {
+    background-color: #1a1a1a;
+    transform: translateY(-1px);
 } 

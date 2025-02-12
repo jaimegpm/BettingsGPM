@@ -19,9 +19,11 @@
                 <div class="deposit">Depositar</div>
                 <div class="balance">Saldo: No disponible</div>
             </div>
-            <div class="top-menu-buttons">
-                <button class="login-btn">Iniciar Sesión</button>
-                <button class="register-btn">Registrarse</button>
+            <div class="user-profile">
+                <button class="user-btn">
+                    <span class="user-icon">●</span>
+                    jaimegpm
+                </button>
             </div>
         </div>
     </div>
@@ -41,7 +43,6 @@
 
     <!-- Contenido principal -->
     <div class="main-content">
-        
         <!-- Sidebar izquierdo -->
         <aside class="left-sidebar">
             <h3>Highlights</h3>
@@ -229,8 +230,23 @@
             
             <div class="recent-bets">
                 <h3>Mis apuestas recientes</h3>
-                <div class="login-required">
-                    Es necesario iniciar sesión
+                <div class="bet-list">
+                    <div class="bet-item win">
+                        <span class="bet-status">✓</span>
+                        PSG vs Bayern - $50 → $110
+                    </div>
+                    <div class="bet-item loss">
+                        <span class="bet-status">✕</span>
+                        Lakers vs Heat - $20
+                    </div>
+                    <div class="bet-item loss">
+                        <span class="bet-status">✕</span>
+                        G.S. Warriors vs Miami Heat - $40
+                    </div>
+                    <div class="bet-item win">
+                        <span class="bet-status">✓</span>
+                        M. United vs Chelsea - $30 → $75
+                    </div>
                 </div>
             </div>
         </aside>
@@ -248,6 +264,5 @@
             </nav>
         </div>
     </footer>
-    <script src="js/main.js"></script>
 </body>
 </html> 
