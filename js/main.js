@@ -21,21 +21,26 @@ document.addEventListener('DOMContentLoaded', function() {
     // Enlaces de navegación
     document.querySelectorAll('.main-nav a').forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const text = this.textContent.trim();
-            
-            if (text === 'Inicio') {
-                window.location.href = 'index.html';
-            } else if (text === 'Apuestas') {
-                window.location.href = 'Apuestas.html';
+            // Si el enlace tiene la clase active o href es #, prevenir la navegación
+            if (this.classList.contains('active') || this.getAttribute('href') === '#') {
+                e.preventDefault();
+                
+                if (this.getAttribute('href') === '#') {
+                    alert('Sección en desarrollo');
+                }
             }
         });
     });
 
     // Logo
-    document.querySelector('.logo').addEventListener('click', function() {
-        window.location.href = 'index.html';
-    });
+    const logo = document.querySelector('.logo');
+    if (logo) {
+        logo.style.cursor = 'pointer';
+        logo.addEventListener('click', function() {
+            const isLoggedIn = document.querySelector('.user-btn') !== null;
+            window.location.href = isLoggedIn ? 'InicioConSesion.html' : 'index.html';
+        });
+    }
 
     // Botones de acceso en las tarjetas de apuestas
     const accessButtons = document.querySelectorAll('.access-button');
@@ -55,14 +60,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Manejo del botón de usuario
-    const userBtn = document.querySelector('.user-btn');
-    if (userBtn) {
-        userBtn.addEventListener('click', function() {
-            // Por ahora solo mostraremos una alerta
-            alert('Perfil de usuario en desarrollo');
-        });
-    }
+    // Manejo del botón de usuario (perfil)
+    document.querySelectorAll('.user-btn').forEach(btn => {
+        if (btn) {
+            btn.style.cursor = 'pointer';
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = 'Perfil.html';
+            });
+        }
+    });
 
     // Manejo de otros elementos del top-menu
     const notifications = document.querySelector('.notifications');
@@ -85,5 +92,17 @@ document.addEventListener('DOMContentLoaded', function() {
         language.addEventListener('click', function() {
             alert('Selección de idioma en desarrollo');
         });
+    }
+
+    // Manejo del saldo
+    const balanceElement = document.querySelector('.balance');
+    if (balanceElement) {
+        // Verificar si el usuario está en una página con sesión iniciada
+        const isLoggedIn = document.querySelector('.user-btn') !== null;
+        
+        if (isLoggedIn) {
+            balanceElement.textContent = 'Saldo: $7,450';
+            balanceElement.classList.add('has-balance');
+        }
     }
 }); 

@@ -841,4 +841,112 @@ footer nav a:hover {
 .access-button:hover {
     background-color: #1a1a1a;
     transform: translateY(-1px);
+}
+
+/* Estilos para el perfil */
+.profile-container {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    min-height: 500px; /* Reducida la altura */
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 2rem; /* Reducido el margen */
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.profile-avatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.avatar-icon {
+    font-size: 3rem;
+    color: var(--primary-green);
+}
+
+.profile-name {
+    font-size: 1.5rem;
+    color: var(--text-white);
+    font-weight: 600;
+}
+
+.account-badge {
+    background-color: rgba(0, 255, 0, 0.1);
+    color: var(--primary-green);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.profile-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dividir en dos columnas */
+    gap: 2rem;
+    padding: 0 1rem;
+}
+
+/* Grupos de información que ocupan todo el ancho */
+.info-group.full-width {
+    grid-column: 1 / -1;
+}
+
+/* Ajustar el espaciado vertical */
+.info-group {
+    margin-bottom: 1.5rem;
+}
+
+.info-value {
+    color: var(--text-white);
+    font-size: 1.1rem;
+    padding: 0.3rem 0;
+}
+
+/* Ajustar el espaciado de las filas de información */
+.info-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.status-active {
+    color: var(--primary-green);
+}
+
+.win-rate {
+    color: #ffd700;
+}
+
+.profile-actions {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Ajustar los botones existentes */
+.profile-actions .btn-secondary,
+.profile-actions .btn-primary {
+    padding: 0.8rem 1.5rem;
+}
+
+/* Estilo para el saldo cuando está disponible */
+.balance {
+    color: #CCCCCC;
+    white-space: nowrap;
+    text-align: center;
+}
+
+/* Estilo específico para cuando hay saldo */
+.balance.has-balance {
+    color: var(--primary-green);
+    font-weight: 500;
 } 
