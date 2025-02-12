@@ -21,12 +21,24 @@ document.addEventListener('DOMContentLoaded', function() {
     // Enlaces de navegación
     document.querySelectorAll('.main-nav a').forEach(link => {
         link.addEventListener('click', function(e) {
-            // Si el enlace tiene la clase active o href es #, prevenir la navegación
-            if (this.classList.contains('active') || this.getAttribute('href') === '#') {
-                e.preventDefault();
-                
-                if (this.getAttribute('href') === '#') {
-                    alert('Sección en desarrollo');
+            e.preventDefault();
+            
+            // Verificar si estamos en la página de inicio sin sesión
+            const isIndex = window.location.pathname.includes('index.html') || 
+                          window.location.pathname.endsWith('/');
+            
+            if (isIndex) {
+                if (confirm('No has iniciado sesión, ¿desea hacerlo ahora?')) {
+                    window.location.href = 'InicioSesion.html';
+                }
+            } else {
+                // Comportamiento normal para otras páginas
+                if (this.classList.contains('active') || this.getAttribute('href') === '#') {
+                    if (this.getAttribute('href') === '#') {
+                        alert('Sección en desarrollo');
+                    }
+                } else {
+                    window.location.href = this.getAttribute('href');
                 }
             }
         });
@@ -83,8 +95,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (deposit) {
+        deposit.style.cursor = 'pointer';
         deposit.addEventListener('click', function() {
-            alert('Sistema de depósito en desarrollo');
+            // Verificar si estamos en index.html
+            const isIndex = window.location.pathname.includes('index.html') || 
+                          window.location.pathname.endsWith('/');
+            
+            if (isIndex) {
+                window.location.href = 'InicioConSesion.html';
+            } else {
+                alert('Sistema de depósito en desarrollo');
+            }
         });
     }
 
