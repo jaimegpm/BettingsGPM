@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BettingsGPM</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Barra superior -->
+    <div class="top-bar">
+        <div class="logo">
+            <img src="img/logo.png" alt="BettingsGPM">
+        </div>
+        <div class="top-menu">
+            <div class="top-menu-items">
+                <div class="notifications">Notificaciones</div>
+                <div class="language">Idioma: Español</div>
+                <div class="deposit">Depositar</div>
+                <div class="balance">Saldo: $7,450</div>
+            </div>
+            <div class="user-profile">
+                <button class="user-btn">
+                    <span class="user-icon">●</span>
+                    jaimegpm
+                </button>
+                <button class="logout-btn" title="Cerrar sesión">
+                    <span class="logout-icon">⇥</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menú principal -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul>
+                <li><a href="InicioConSesion.html">Inicio</a></li>
+                <li><a href="Apuestas.html">Apuestas</a></li>
+                <li><a href="Rankings.html" class="active">Rankings</a></li>
+                <li><a href="#">Deportes</a></li>
+                <li><a href="#">Historial</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="main-content">
+        <!-- Sidebar izquierdo -->
+        <aside class="left-sidebar">
+            <h3>Highlights</h3>
+            <div class="sport-buttons">
+                <button>Fútbol</button>
+                <button>Tenis</button>
+                <button>Baloncesto</button>
+                <button>Pádel</button>
+            </div>
+            
+            <div class="promotions">
+                <h3>Promociones & Bonos</h3>
+                <ul>
+                    <li>🎁 Bono de Bienvenida = $150</li>
+                    <li>⚡ Apuesta Gratis = $10 sin riesgo</li>
+                    <li>🔥 Super Cuotas - Para Champions</li>
+                    <li>🔒 Cashback Semanal - Recupera 10%</li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Contenido central -->
+        <main class="center-content">
+            <h2>RANKINGS</h2>
+            <div class="rankings-container">
+                <div class="rankings-header">
+                    <h3>Equipos más Apostados</h3>
+                    <span class="update-time">Última actualización: Hace 5 minutos</span>
+                </div>
+                
+                <table class="rankings-table">
+                    <thead>
+                        <tr>
+                            <th>Posición</th>
+                            <th>Escudo</th>
+                            <th>Equipo</th>
+                            <th>Apuestas Recibidas</th>
+                            <th>Cuota Media</th>
+                            <th>Tendencia</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="position">1</td>
+                            <td class="team-logo">
+                                <img src="img/MadridEscudo.png" alt="Real Madrid">
+                            </td>
+                            <td class="team-name">Real Madrid</td>
+                            <td class="bets">145,732</td>
+                            <td class="odds">1.85</td>
+                            <td class="trend up">↑</td>
+                        </tr>
+                        <tr>
+                            <td class="position">2</td>
+                            <td class="team-logo">
+                                <img src="img/BarcelonaEscudo.png" alt="Barcelona">
+                            </td>
+                            <td class="team-name">Barcelona</td>
+                            <td class="bets">132,451</td>
+                            <td class="odds">1.95</td>
+                            <td class="trend up">↑</td>
+                        </tr>
+                        <tr>
+                            <td class="position">3</td>
+                            <td class="team-logo">
+                                <img src="img/AtletiMadridEscudo.png" alt="Atlético Madrid">
+                            </td>
+                            <td class="team-name">Atlético Madrid</td>
+                            <td class="bets">98,234</td>
+                            <td class="odds">2.15</td>
+                            <td class="trend down">↓</td>
+                        </tr>
+                        <tr>
+                            <td class="position">4</td>
+                            <td class="team-logo">
+                                <img src="img/SevillaEscudo.png" alt="Sevilla">
+                            </td>
+                            <td class="team-name">Sevilla</td>
+                            <td class="bets">87,654</td>
+                            <td class="odds">2.45</td>
+                            <td class="trend up">↑</td>
+                        </tr>
+                        <tr>
+                            <td class="position">5</td>
+                            <td class="team-logo">
+                                <img src="img/ValenciaEscudo.png" alt="Valencia">
+                            </td>
+                            <td class="team-name">Valencia</td>
+                            <td class="bets">76,543</td>
+                            <td class="odds">2.75</td>
+                            <td class="trend down">↓</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+        <!-- Sidebar derecho -->
+        <aside class="right-sidebar">
+            <h3>Cuotas en Vivo</h3>
+            <div class="live-match">
+                <p>Manchester United vs Chelsea</p>
+                <p>Gana Manchester: 2.10 ⚽</p>
+                <p>Empate: 3.50 ⚽</p>
+                <p>Gana Chelsea: 2.90 ⚽</p>
+            </div>
+            
+            <div class="recent-bets">
+                <h3>Mis apuestas recientes</h3>
+                <div class="bet-list">
+                    <div class="bet-item win">
+                        <span class="bet-status">✓</span>
+                        PSG vs Bayern - $50 → $110
+                    </div>
+                    <div class="bet-item loss">
+                        <span class="bet-status">✕</span>
+                        Lakers vs Heat - $20
+                    </div>
+                    <div class="bet-item loss">
+                        <span class="bet-status">✕</span>
+                        G.S. Warriors vs Miami Heat - $40
+                    </div>
+                    <div class="bet-item win">
+                        <span class="bet-status">✓</span>
+                        M. United vs Chelsea - $30 → $75
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>© 2024 BettingsGPM. Todos los derechos reservados.</p>
+            <nav>
+                <a href="#">Contacto atención al cliente</a>
+                <a href="#">Nuestras redes</a>
+                <a href="#">Política de privacidad</a>
+                <a href="#">Términos y condiciones</a>
+            </nav>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+    <div id="logout-modal" class="modal">
+        <div class="modal-content">
+            <h3>Cerrar Sesión</h3>
+            <p>¿Estás seguro de que quieres cerrar la sesión?</p>
+            <div class="modal-buttons">
+                <button class="btn-secondary" id="cancel-logout">No, me quedo</button>
+                <button class="btn-primary" id="confirm-logout">Sí, quiero salir</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

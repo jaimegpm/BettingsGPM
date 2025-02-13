@@ -90,23 +90,72 @@ body {
     gap: 2.5rem;
 }
 
-/* Ajuste de los botones */
-.login-btn, .register-btn {
-    padding: 0.5rem 1.5rem;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: bold;
-    white-space: nowrap;
-    transition: all 0.3s ease;
-    background-color: var(--primary-green);
-    color: black;
+/* Estilos mejorados para los botones del header (login/registro) */
+.auth-buttons {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
 }
 
-/* Efectos hover para ambos botones */
-.login-btn:hover, .register-btn:hover {
-    transform: translateY(-1px);
+.login-btn, .register-btn {
+    padding: 0.7rem 1.8rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    margin: 0 0.5rem;
+}
+
+.login-btn {
+    background-color: transparent;
+    color: #2ecc71;
+    border: 2px solid #2ecc71;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.login-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #2ecc71;
+    transition: width 0.3s ease;
+    z-index: -1;
+}
+
+.login-btn:hover {
+    color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.2);
+}
+
+.login-btn:hover::before {
+    width: 100%;
+}
+
+.register-btn {
+    background: #2ecc71;
+    color: #000000;
+    border: none;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.2);
+}
+
+.register-btn:hover {
+    background: #25a65c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.3);
+}
+
+.login-btn:active, .register-btn:active {
+    transform: translateY(1px);
 }
 
 /* Nuevo estilo para el menú de navegación */
@@ -184,12 +233,12 @@ body {
     color: var(--text-white);
     margin-bottom: 1.5rem;
     font-size: 1.2rem;
-    text-align: center; /* Centrado de títulos */
+    text-align: center;
 }
 
 /* Ajustes del panel izquierdo */
 .left-sidebar > div {
-    margin-bottom: 2.5rem; /* Mismo espaciado que el panel derecho */
+    margin-bottom: 2.5rem;
 }
 
 /* Ajuste de los rectángulos/cajas del panel izquierdo */
@@ -198,7 +247,7 @@ body {
     padding: 1.5rem;
     border-radius: 12px;
     font-size: 0.9rem;
-    height: 350px; /* Misma altura que los rectángulos del panel derecho */
+    height: 350px;
     overflow-y: auto;
 }
 
@@ -217,11 +266,11 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.07);
     border-radius: 10px;
     padding: 1.2rem;
-    width: 150px; /* Aumentado de 130px */
-    height: 130px; /* Aumentado de 110px */
+    width: 150px;
+    height: 130px;
     color: rgba(255, 255, 255, 0.9);
     cursor: pointer;
-    font-size: 1.1rem; /* Aumentado ligeramente */
+    font-size: 1.1rem;
     font-weight: 500;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
@@ -739,7 +788,7 @@ footer nav a:hover {
 
 /* Ajuste específico para la sección de apuestas recientes */
 .recent-bets {
-    margin-top: 2.5rem; /* Ajustado para mantener el mismo espaciado que los otros paneles */
+    margin-top: 2.5rem;
 }
 
 .login-required {
@@ -785,7 +834,7 @@ footer nav a:hover {
 
 /* Ajuste específico para el mensaje de login required */
 .login-required {
-    font-size: 1.3rem; /* Un poco más grande para el mensaje de login */
+    font-size: 1.3rem;
     color: #CCCCCC;
 }
 
@@ -880,8 +929,8 @@ footer nav a:hover {
     letter-spacing: 0.3px;
     position: relative;
     z-index: 1;
-    transform: translateZ(0); /* Activar aceleración por hardware */
-    will-change: color; /* Optimizar cambios de color */
+    transform: translateZ(0);
+    will-change: color;
 }
 
 .btn-primary::before {
@@ -892,9 +941,9 @@ footer nav a:hover {
     width: 0;
     height: 100%;
     background-color: #2ecc71;
-    transition: width 0.3s ease; /* Simplificar la transición */
+    transition: width 0.3s ease;
     z-index: -1;
-    will-change: width; /* Optimizar cambios de ancho */
+    will-change: width;
 }
 
 .btn-primary:hover {
@@ -963,7 +1012,7 @@ footer nav a:hover {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    justify-content: center; /* Solo centrado vertical */
+    justify-content: center;
 }
 
 .bet-item {
@@ -975,7 +1024,6 @@ footer nav a:hover {
     font-size: 0.95rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     width: 100%;
-    /* Eliminados justify-content: center y text-align: center */
 }
 
 .bet-status {
@@ -993,13 +1041,13 @@ footer nav a:hover {
 
 /* Ajuste del espacio entre los elementos */
 .recent-bets {
-    margin-top: 2.5rem; /* Ajustado para mantener el mismo espaciado que los otros paneles */
+    margin-top: 2.5rem;
 }
 
 /* Ajuste del título para mantener consistencia */
 .recent-bets h3 {
     color: var(--text-white);
-    margin-bottom: 1.5rem; /* Aumentado de 1rem a 1.5rem para coincidir con los otros paneles */
+    margin-bottom: 1.5rem;
     font-size: 1.2rem;
 }
 
@@ -1069,7 +1117,7 @@ footer nav a:hover {
 
 .profile-header {
     text-align: center;
-    margin-bottom: 2rem; /* Reducido el margen */
+    margin-bottom: 2rem;
     padding-bottom: 1.5rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -1107,7 +1155,7 @@ footer nav a:hover {
     width: 100%;
     padding: 0 2rem;
     margin-top: 1rem;
-    padding-left: 5.5rem; /* Aumentado de 4rem a 5.5rem para centrar mejor */
+    padding-left: 5.5rem;
 }
 
 .profile-column {
@@ -1150,8 +1198,8 @@ footer nav a:hover {
     display: flex;
     justify-content: center;
     gap: 1rem;
-    width: 100%; /* Aseguramos que ocupa todo el ancho */
-    padding: 1.5rem 0 0 0; /* Eliminamos el padding lateral */
+    width: 100%;
+    padding: 1.5rem 0 0 0;
 }
 
 /* Estilos mejorados para los botones del perfil */
@@ -1278,7 +1326,7 @@ footer nav a:hover {
         height: auto !important;
         padding: 5rem;
         width: 55%;
-        margin: 4rem auto 2.5rem; /* Aumentado el margen superior de 2.5rem a 4rem */
+        margin: 4rem auto 2.5rem;
         position: static;
         transform: none;
     }
@@ -1436,7 +1484,7 @@ body.login-page .login-page {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Centra verticalmente en toda la pantalla */
+    min-height: 100vh;
 }
 
 body.login-page .center-content {
@@ -1453,12 +1501,12 @@ body.login-page .center-content {
 /* Estilos para el botón de cerrar sesión */
 .logout-btn {
     background: transparent;
-    border: 1px solid rgba(255, 0, 0, 0.3); /* Borde rojo suave */
+    border: 1px solid rgba(255, 0, 0, 0.3);
     color: var(--text-white);
     cursor: pointer;
     padding: 0.6rem 0.8rem;
     margin-left: 0.5rem;
-    border-radius: 6px; /* Mismo radio que el botón de usuario */
+    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1484,7 +1532,7 @@ body.login-page .center-content {
     font-size: 1.2rem;
     transform: rotate(180deg);
     display: inline-block;
-    font-family: Arial, sans-serif; /* Asegurar compatibilidad */
+    font-family: Arial, sans-serif;
 }
 
 /* Estilos para el modal de cerrar sesión */
@@ -1497,7 +1545,6 @@ body.login-page .center-content {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.85);
     z-index: 1000;
-    /* Eliminar backdrop-filter que causa lag */
 }
 
 .modal-content {
@@ -1509,7 +1556,7 @@ body.login-page .center-content {
     text-align: center;
     border: 1px solid rgba(0, 255, 0, 0.1);
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
-    transform: translateZ(0); /* Activar aceleración por hardware */
+    transform: translateZ(0);
 }
 
 .modal-content h3 {
@@ -1529,7 +1576,7 @@ body.login-page .center-content {
     display: flex;
     justify-content: center;
     gap: 2.5rem;
-    margin-top: 1rem; /* Añadir margen superior */
+    margin-top: 1rem;
 }
 
 /* Optimizar transiciones de los botones del modal */
@@ -1540,7 +1587,7 @@ body.login-page .center-content {
     cursor: pointer;
     transition: transform 0.2s ease;
     will-change: transform;
-    min-width: 180px; /* Mantener el ancho mínimo */
+    min-width: 180px;
     font-weight: 500;
 }
 
@@ -1550,16 +1597,16 @@ body.login-page .center-content {
     border: 2px solid #2ecc71;
     position: relative;
     z-index: 1;
-    padding: 1rem 2rem; /* Aumentar el padding */
-    font-size: 1rem; /* Aumentar el tamaño de fuente */
+    padding: 1rem 2rem;
+    font-size: 1rem;
 }
 
 .modal-buttons .btn-secondary {
     background-color: transparent;
     border: 1px solid rgba(255, 255, 255, 0.3);
     color: #ffffff;
-    padding: 1rem 2rem; /* Aumentar el padding */
-    font-size: 1rem; /* Aumentar el tamaño de fuente */
+    padding: 1rem 2rem;
+    font-size: 1rem;
 }
 
 .modal-buttons .btn-primary:hover {
@@ -1568,4 +1615,201 @@ body.login-page .center-content {
 
 .modal-buttons .btn-primary:active {
     transform: translateY(1px);
+}
+
+/* Estilos mejorados para los botones de login y registro */
+.login-form .form-buttons button {
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 200px;
+    letter-spacing: 0.5px;
+}
+
+.login-form .btn-primary {
+    background-color: transparent;
+    color: #2ecc71;
+    border: 2px solid #2ecc71;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.login-form .btn-primary:hover {
+    background-color: #2ecc71;
+    color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.2);
+}
+
+.login-form .btn-primary:active {
+    transform: translateY(1px);
+}
+
+.login-form .btn-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.login-form .btn-secondary:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
+}
+
+.login-form .btn-secondary:active {
+    transform: translateY(1px);
+}
+
+/* Estilos mejorados para los paneles de login y registro */
+#inicio-sesion-panel, #registro-panel {
+    background-color: #000000;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1),
+                0 0 40px rgba(255, 255, 255, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+#inicio-sesion-panel::before, #registro-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent);
+}
+
+/* Ajuste específico para el panel de inicio de sesión */
+#inicio-sesion-panel {
+    min-height: 950px !important;
+    height: auto !important;
+    padding: 5rem;
+    width: 55%;
+    margin: 4rem auto 2.5rem;
+    position: relative;
+}
+
+/* Ajuste específico para el panel de registro */
+#registro-panel {
+    min-height: 1050px !important;
+    height: auto !important;
+    padding: 5rem;
+    width: 55%;
+    margin: 2.5rem auto;
+    position: relative;
+}
+
+/* Estilos para la tabla de rankings */
+.rankings-container {
+    background: linear-gradient(145deg, #1c1c1c, #242424);
+    border-radius: 15px;
+    padding: 2.5rem;
+    margin: 3rem 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.rankings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rankings-header h3 {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.update-time {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+}
+
+.rankings-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 1rem;
+}
+
+.rankings-table th {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+    padding: 1rem 0.8rem;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+.rankings-table td {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1.3rem 1rem;
+    color: #ffffff;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.rankings-table .position {
+    width: 10%;
+    color: #2ecc71;
+    font-weight: 600;
+}
+
+.rankings-table .team-logo {
+    width: 15%;
+}
+
+.rankings-table .team-logo img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+.rankings-table .team-name {
+    width: 20%;
+}
+
+.rankings-table .bets {
+    width: 30%;
+}
+
+.rankings-table .odds {
+    width: 12.5%;
+    color: #2ecc71;
+    font-weight: 500;
+}
+
+.rankings-table .trend {
+    width: 12.5%;
+}
+
+.rankings-table .trend.up {
+    color: #2ecc71;
+}
+
+.rankings-table .trend.down {
+    color: #ff3333;
+}
+
+/* Ajustes de los headers */
+.rankings-table th:nth-child(2),
+.rankings-table th:nth-child(3) {
+    text-align: center;
+    padding: 0.8rem;
 }
