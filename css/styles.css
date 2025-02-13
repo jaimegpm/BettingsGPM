@@ -202,44 +202,92 @@ body {
     overflow-y: auto;
 }
 
-/* Ajuste específico para los botones de deportes */
+/* Estilos para el panel de Highlights */
 .sport-buttons {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Grid de 2 columnas */
-    grid-template-rows: 1fr 1fr; /* Grid de 2 filas */
-    gap: 1.5rem;
-    padding: 2rem;
-    place-items: center; /* Centra los elementos en sus celdas */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+    padding: 1rem;
+    height: 350px;
+    place-content: center;
 }
 
 .sport-buttons button {
-    width: 100%;
-    height: 120px;
-    background-color: white;
-    border: none;
-    color: black;
-    border-radius: 12px;
+    background: linear-gradient(145deg, #1c1c1c, #242424);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 10px;
+    padding: 1.2rem;
+    width: 150px; /* Aumentado de 130px */
+    height: 130px; /* Aumentado de 110px */
+    color: rgba(255, 255, 255, 0.9);
     cursor: pointer;
-    font-size: 1.1rem;
-    font-weight: bold;
-    transition: all 0.3s ease;
+    font-size: 1.1rem; /* Aumentado ligeramente */
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), /* Sombra exterior */
-                inset 0 -4px 4px rgba(0, 0, 0, 0.1); /* Sombra interior para efecto 3D */
+    letter-spacing: 0.5px;
+    margin: 0 auto;
+}
+
+.sport-buttons button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent,
+        rgba(46, 204, 113, 0.15),
+        transparent);
+}
+
+.sport-buttons button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #2ecc71;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
 }
 
 .sport-buttons button:hover {
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3),
-                inset 0 -4px 4px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(145deg, #1e1e1e, #262626);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    color: #2ecc71;
+}
+
+.sport-buttons button:hover::after {
+    width: 80%;
 }
 
 .sport-buttons button:active {
     transform: translateY(1px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2),
-                inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo activo para el botón seleccionado */
+.sport-buttons button.active {
+    background: linear-gradient(145deg, #1a1a1a, #222222);
+    border-color: rgba(46, 204, 113, 0.3);
+    color: #2ecc71;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.1),
+                inset 0 1px 0 rgba(46, 204, 113, 0.05);
+}
+
+.sport-buttons button.active::after {
+    width: 80%;
 }
 
 /* Ajuste específico para la sección de promociones */
@@ -301,13 +349,35 @@ body {
     box-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
 }
 
-/* Tarjetas para index.html */
+/* Estilos para las tarjetas de partidos */
 .match-card {
-    background-color: white;
+    background: linear-gradient(145deg, #1c1c1c, #242424);
     border-radius: 15px;
     padding: 1.2rem 1.5rem;
     width: 85%;
     margin: 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.match-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent);
 }
 
 .match-teams {
@@ -315,6 +385,8 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 1.5rem;
+    padding: 0.5rem 0;
+    flex: 1;
 }
 
 .team {
@@ -322,36 +394,106 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    position: relative;
+    z-index: 1;
 }
 
 .team img {
     width: 50px;
     height: 50px;
     object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    transition: transform 0.3s ease;
+}
+
+.match-card:hover .team img {
+    transform: scale(1.05);
 }
 
 .team span {
     font-size: 1rem;
-    color: black;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .match-odds {
     display: flex;
+    justify-content: center;
     gap: 1rem;
+    margin-top: 0.5rem;
+    position: relative;
+    z-index: 1;
+    padding-bottom: 0.2rem;
 }
 
 .match-odds button {
-    padding: 0.6rem 1.2rem;
-    font-size: 1rem;
+    background: rgba(46, 204, 113, 0.05);
+    border: 1px solid rgba(46, 204, 113, 0.2);
+    border-radius: 8px;
+    padding: 0;
+    min-width: 70px;
+    font-size: 1.1rem;
+    color: #2ecc71;
     cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    line-height: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.match-odds button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        transparent 0%,
+        rgba(46, 204, 113, 0.1) 50%,
+        transparent 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .match-odds button:hover {
-    background-color: black;
-    color: white;
+    background: rgba(46, 204, 113, 0.1);
+    border-color: rgba(46, 204, 113, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.15);
 }
 
-/* Estilo específico para el grid de apuestas */
+.match-odds button:hover::after {
+    opacity: 1;
+}
+
+.match-odds button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 6px rgba(46, 204, 113, 0.1);
+}
+
+/* Indicador de partido en vivo */
+.match-card.live::before {
+    content: '• EN VIVO';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 0.9rem;
+    color: #2ecc71;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    background: rgba(46, 204, 113, 0.1);
+    border: 1px solid rgba(46, 204, 113, 0.2);
+}
+
+/* Estilo para el grid de apuestas */
 .bet-matches-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -364,38 +506,95 @@ body {
 
 /* Tarjetas para la página de apuestas */
 .bet-match-card {
-    background-color: white;
-    border-radius: 12px;
+    background: linear-gradient(145deg, #1c1c1c, #242424);
+    border-radius: 15px;
     padding: 1.6rem;
     display: flex;
     flex-direction: column;
     gap: 1.1rem;
     width: 210px;
     margin: 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
 }
 
-.team-info {
+.bet-match-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent);
+}
+
+.match-time {
+    color: #ffffff !important;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.team-row {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    font-size: 1.2rem;
+    gap: 1.2rem;
+    padding: 1rem;
+    justify-content: flex-start;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
 }
 
-.team-info img {
-    width: 40px;
-    height: 40px;
+.team-row img {
+    width: 35px;
+    height: 35px;
     object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
-.odds button {
-    padding: 0.5rem 1rem;
-    background-color: transparent;
-    border: 1px solid var(--primary-green);
-    color: var(--text-white);
-    border-radius: 4px;
+.team-row span {
+    color: #ffffff !important;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.access-button {
+    background: rgba(46, 204, 113, 0.08);
+    color: #2ecc71;
+    border: 1px solid rgba(46, 204, 113, 0.25);
+    border-radius: 8px;
+    padding: 1rem 0;
+    margin-top: 0.8rem;
     cursor: pointer;
     font-size: 0.9rem;
-    margin: 0 0.25rem;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+    text-align: center;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.access-button:hover {
+    background: rgba(46, 204, 113, 0.15);
+    border-color: rgba(46, 204, 113, 0.4);
+    transform: translateY(-1px);
+}
+
+.access-button:active {
+    transform: translateY(1px);
 }
 
 /* Ajustes adicionales */
