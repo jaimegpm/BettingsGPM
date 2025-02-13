@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BettingsGPM</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Barra superior -->
+    <div class="top-bar">
+        <div class="logo">
+            <img src="img/logo.png" alt="BettingsGPM">
+        </div>
+        <div class="top-menu">
+            <div class="top-menu-items">
+                <div class="notifications">Notificaciones</div>
+                <div class="language">Idioma: Español</div>
+                <div class="deposit">Depositar</div>
+                <div class="balance">Saldo: $7,450</div>
+            </div>
+            <div class="user-profile">
+                <button class="user-btn">
+                    <span class="user-icon">●</span>
+                    jaimegpm
+                </button>
+                <button class="logout-btn" title="Cerrar sesión">
+                    <span class="logout-icon">⇥</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menú principal -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul>
+                <li><a href="InicioConSesion.html">Inicio</a></li>
+                <li><a href="Apuestas.html">Apuestas</a></li>
+                <li><a href="Rankings.html">Rankings</a></li>
+                <li><a href="Social.html" class="active">Social</a></li>
+                <li><a href="#">Historial</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="main-content">
+        <!-- Sidebar izquierdo -->
+        <aside class="left-sidebar">
+            <h3>Highlights</h3>
+            <div class="sport-buttons">
+                <button>Fútbol</button>
+                <button>Tenis</button>
+                <button>Baloncesto</button>
+                <button>Pádel</button>
+            </div>
+            
+            <div class="promotions">
+                <h3>Promociones & Bonos</h3>
+                <ul>
+                    <li>🎁 Bono de Bienvenida = $150</li>
+                    <li>⚡ Apuesta Gratis = $10 sin riesgo</li>
+                    <li>🔥 Super Cuotas - Para Champions</li>
+                    <li>🔒 Cashback Semanal - Recupera 10%</li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Contenido central -->
+        <main class="center-content">
+            <h2>SOCIAL</h2>
+            
+            <!-- Panel de Personas -->
+            <div class="social-panel active" id="people-panel">
+                <div class="social-header">
+                    <h3>Personas que quizás conozcas...</h3>
+                    <button class="nav-arrow next" title="Ver grupos">
+                        <span>→</span>
+                    </button>
+                </div>
+                
+                <div class="users-grid">
+                    <!-- Usuario 1 -->
+                    <div class="user-card">
+                        <div class="user-avatar">👤</div>
+                        <div class="user-info">
+                            <h4>Carlos_Bet</h4>
+                            <p>12 amigos en común</p>
+                        </div>
+                        <button class="add-friend-btn">Agregar</button>
+                    </div>
+                    
+                    <!-- Usuario 2 -->
+                    <div class="user-card">
+                        <div class="user-avatar">👤</div>
+                        <div class="user-info">
+                            <h4>Maria_Sports</h4>
+                            <p>8 amigos en común</p>
+                        </div>
+                        <button class="add-friend-btn">Agregar</button>
+                    </div>
+                    
+                    <!-- Usuario 3 -->
+                    <div class="user-card">
+                        <div class="user-avatar">👤</div>
+                        <div class="user-info">
+                            <h4>Betting_King</h4>
+                            <p>15 amigos en común</p>
+                        </div>
+                        <button class="add-friend-btn">Agregar</button>
+                    </div>
+                    
+                    <!-- Usuario 4 -->
+                    <div class="user-card">
+                        <div class="user-avatar">👤</div>
+                        <div class="user-info">
+                            <h4>Ana_Winner</h4>
+                            <p>5 amigos en común</p>
+                        </div>
+                        <button class="add-friend-btn">Agregar</button>
+                    </div>
+
+                    <!-- Usuario 5 -->
+                    <div class="user-card">
+                        <div class="user-avatar">👤</div>
+                        <div class="user-info">
+                            <h4>Pablo_Bets</h4>
+                            <p>20 amigos en común</p>
+                        </div>
+                        <button class="add-friend-btn">Agregar</button>
+                    </div>
+
+                    <!-- Usuario 6 -->
+                    <div class="user-card">
+                        <div class="user-avatar">👤</div>
+                        <div class="user-info">
+                            <h4>Laura_Win</h4>
+                            <p>7 amigos en común</p>
+                        </div>
+                        <button class="add-friend-btn">Agregar</button>
+                    </div>
+
+                    <!-- Usuario 7 -->
+                    <div class="user-card">
+                        <div class="user-avatar">👤</div>
+                        <div class="user-info">
+                            <h4>BetMaster_23</h4>
+                            <p>18 amigos en común</p>
+                        </div>
+                        <button class="add-friend-btn">Agregar</button>
+                    </div>
+
+                    <!-- Usuario 8 -->
+                    <div class="user-card">
+                        <div class="user-avatar">👤</div>
+                        <div class="user-info">
+                            <h4>Elena_Sports</h4>
+                            <p>10 amigos en común</p>
+                        </div>
+                        <button class="add-friend-btn">Agregar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel de Grupos -->
+            <div class="social-panel" id="groups-panel">
+                <div class="social-header">
+                    <button class="nav-arrow prev" title="Ver personas">
+                        <span>←</span>
+                    </button>
+                    <h3>Grupos a los que te interesaría unirte</h3>
+                </div>
+                
+                <div class="groups-grid">
+                    <!-- Grupo 1 -->
+                    <div class="group-card">
+                        <div class="group-avatar">👥</div>
+                        <div class="group-info">
+                            <h4>Expertos en LaLiga</h4>
+                            <p>2.5k miembros</p>
+                        </div>
+                        <button class="join-group-btn">Unirse</button>
+                    </div>
+                    
+                    <!-- Grupo 2 -->
+                    <div class="group-card">
+                        <div class="group-avatar">👥</div>
+                        <div class="group-info">
+                            <h4>Premier League Fans</h4>
+                            <p>1.8k miembros</p>
+                        </div>
+                        <button class="join-group-btn">Unirse</button>
+                    </div>
+                    
+                    <!-- Grupo 3 -->
+                    <div class="group-card">
+                        <div class="group-avatar">👥</div>
+                        <div class="group-info">
+                            <h4>Champions Predictions</h4>
+                            <p>3.2k miembros</p>
+                        </div>
+                        <button class="join-group-btn">Unirse</button>
+                    </div>
+                    
+                    <!-- Grupo 4 -->
+                    <div class="group-card">
+                        <div class="group-avatar">👥</div>
+                        <div class="group-info">
+                            <h4>NBA Betting Pro</h4>
+                            <p>1.5k miembros</p>
+                        </div>
+                        <button class="join-group-btn">Unirse</button>
+                    </div>
+
+                    <!-- Grupo 5 -->
+                    <div class="group-card">
+                        <div class="group-avatar">👥</div>
+                        <div class="group-info">
+                            <h4>Serie A Masters</h4>
+                            <p>2.1k miembros</p>
+                        </div>
+                        <button class="join-group-btn">Unirse</button>
+                    </div>
+
+                    <!-- Grupo 6 -->
+                    <div class="group-card">
+                        <div class="group-avatar">👥</div>
+                        <div class="group-info">
+                            <h4>Tennis Elite Bets</h4>
+                            <p>1.3k miembros</p>
+                        </div>
+                        <button class="join-group-btn">Unirse</button>
+                    </div>
+
+                    <!-- Grupo 7 -->
+                    <div class="group-card">
+                        <div class="group-avatar">👥</div>
+                        <div class="group-info">
+                            <h4>Bundesliga Experts</h4>
+                            <p>1.7k miembros</p>
+                        </div>
+                        <button class="join-group-btn">Unirse</button>
+                    </div>
+
+                    <!-- Grupo 8 -->
+                    <div class="group-card">
+                        <div class="group-avatar">👥</div>
+                        <div class="group-info">
+                            <h4>F1 Betting Club</h4>
+                            <p>950 miembros</p>
+                        </div>
+                        <button class="join-group-btn">Unirse</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Sidebar derecho -->
+        <aside class="right-sidebar">
+            <h3>Cuotas en Vivo</h3>
+            <div class="live-match">
+                <p>Manchester United vs Chelsea</p>
+                <p>Gana Manchester: 2.10 ⚽</p>
+                <p>Empate: 3.50 ⚽</p>
+                <p>Gana Chelsea: 2.90 ⚽</p>
+            </div>
+            
+            <div class="recent-bets">
+                <h3>Mis apuestas recientes</h3>
+                <div class="bet-list">
+                    <div class="bet-item win">
+                        <span class="bet-status">✓</span>
+                        PSG vs Bayern - $50 → $110
+                    </div>
+                    <div class="bet-item loss">
+                        <span class="bet-status">✕</span>
+                        Lakers vs Heat - $20
+                    </div>
+                    <div class="bet-item loss">
+                        <span class="bet-status">✕</span>
+                        G.S. Warriors vs Miami Heat - $40
+                    </div>
+                    <div class="bet-item win">
+                        <span class="bet-status">✓</span>
+                        M. United vs Chelsea - $30 → $75
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>© 2024 BettingsGPM. Todos los derechos reservados.</p>
+            <nav>
+                <a href="#">Contacto atención al cliente</a>
+                <a href="#">Nuestras redes</a>
+                <a href="#">Política de privacidad</a>
+                <a href="#">Términos y condiciones</a>
+            </nav>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+    <script src="js/social.js"></script>
+    <div id="logout-modal" class="modal">
+        <div class="modal-content">
+            <h3>Cerrar Sesión</h3>
+            <p>¿Estás seguro de que quieres cerrar la sesión?</p>
+            <div class="modal-buttons">
+                <button class="btn-secondary" id="cancel-logout">No, me quedo</button>
+                <button class="btn-primary" id="confirm-logout">Sí, quiero salir</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
