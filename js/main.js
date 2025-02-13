@@ -1,3 +1,16 @@
+// Control de versión y caché
+(function() {
+    const currentVersion = '1.0.1';
+    const savedVersion = localStorage.getItem('appVersion');
+    
+    if (savedVersion !== currentVersion) {
+        localStorage.setItem('appVersion', currentVersion);
+        if (savedVersion) { // Solo recargar si había una versión anterior
+            window.location.reload(true);
+        }
+    }
+})();
+
 // Función de navegación
 function navigateTo(page) {
     window.location.href = page;
