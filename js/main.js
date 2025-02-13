@@ -18,60 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Enlaces de navegación
-    document.querySelectorAll('.main-nav a').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Verificar si estamos en la página de inicio sin sesión
-            const isIndex = window.location.pathname.includes('index.html') || 
-                          window.location.pathname.endsWith('/');
-            
-            if (isIndex) {
-                if (confirm('No has iniciado sesión, ¿desea hacerlo ahora?')) {
-                    window.location.href = 'InicioSesion.html';
-                }
-            } else {
-                // Comportamiento normal para otras páginas
-                if (this.classList.contains('active') || this.getAttribute('href') === '#') {
-                    if (this.getAttribute('href') === '#') {
-                        alert('Sección en desarrollo');
-                    }
-                } else {
-                    window.location.href = this.getAttribute('href');
-                }
-            }
-        });
-    });
-
-    // Logo
-    const logo = document.querySelector('.logo');
-    if (logo) {
-        logo.style.cursor = 'pointer';
-        logo.addEventListener('click', function() {
-            const isLoggedIn = document.querySelector('.user-btn') !== null;
-            window.location.href = isLoggedIn ? 'InicioConSesion.html' : 'index.html';
-        });
-    }
-
-    // Botones de acceso en las tarjetas de apuestas
-    const accessButtons = document.querySelectorAll('.access-button');
-    accessButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Por ahora solo mostraremos una alerta
-            alert('Funcionalidad de acceso a la apuesta en desarrollo');
-        });
-    });
-
-    // Botones de deportes en el sidebar
-    const sportButtons = document.querySelectorAll('.sport-buttons button');
-    sportButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Por ahora solo mostraremos una alerta
-            alert(`Categoría ${this.textContent} seleccionada`);
-        });
-    });
-
     // Manejo del botón de usuario (perfil)
     document.querySelectorAll('.user-btn').forEach(btn => {
         if (btn) {
@@ -83,47 +29,103 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Manejo de otros elementos del top-menu
-    const notifications = document.querySelector('.notifications');
+    // Manejo del depósito (caso especial)
     const deposit = document.querySelector('.deposit');
-    const language = document.querySelector('.language');
-
-    if (notifications) {
-        notifications.addEventListener('click', function() {
-            alert('Centro de notificaciones en desarrollo');
-        });
-    }
-
     if (deposit) {
         deposit.style.cursor = 'pointer';
-        deposit.addEventListener('click', function() {
-            // Verificar si estamos en index.html
+        deposit.addEventListener('click', function(e) {
+            e.preventDefault();
             const isIndex = window.location.pathname.includes('index.html') || 
                           window.location.pathname.endsWith('/');
             
             if (isIndex) {
                 window.location.href = 'InicioConSesion.html';
-            } else {
-                alert('Sistema de depósito en desarrollo');
             }
-        });
-    }
-
-    if (language) {
-        language.addEventListener('click', function() {
-            alert('Selección de idioma en desarrollo');
         });
     }
 
     // Manejo del saldo
     const balanceElement = document.querySelector('.balance');
     if (balanceElement) {
-        // Verificar si el usuario está en una página con sesión iniciada
         const isLoggedIn = document.querySelector('.user-btn') !== null;
-        
         if (isLoggedIn) {
             balanceElement.textContent = 'Saldo: $7,450';
             balanceElement.classList.add('has-balance');
         }
     }
+
+    // Prevenir comportamiento por defecto en todos los enlaces del nav
+    document.querySelectorAll('.main-nav a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const isIndex = window.location.pathname.includes('index.html') || 
+                          window.location.pathname.endsWith('/');
+            
+            if (isIndex && !link.href.includes('index.html')) {
+                e.preventDefault();
+                document.getElementById('login-required-modal').style.display = 'block';
+            }
+        });
+    });
+
+    // Manejo de elementos que requieren login (modal personalizado)
+    const elementsRequiringLogin = document.querySelectorAll(`
+        .main-nav a:not([href="index.html"]), 
+        .sport-buttons button, 
+        .notifications, 
+        .language, 
+        .login-required,
+        .recent-bets .login-required
+    `);
+
+    elementsRequiringLogin.forEach(element => {
+        element.addEventListener('click', function(e) {
+            const isIndex = window.location.pathname.includes('index.html') || 
+                          window.location.pathname.endsWith('/');
+            
+            if (isIndex) {
+                e.preventDefault();
+                document.getElementById('login-required-modal').style.display = 'block';
+            }
+            // Si no estamos en index, dejamos que el enlace funcione normalmente
+        });
+    });
+
+    // Manejo de los modales
+    document.getElementById('cancel-login')?.addEventListener('click', function() {
+        document.getElementById('login-required-modal').style.display = 'none';
+    });
+
+    document.getElementById('confirm-login')?.addEventListener('click', function() {
+        window.location.href = 'InicioSesion.html';
+    });
+
+    document.querySelectorAll('.logout-btn').forEach(btn => {
+        if (btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.getElementById('logout-modal').style.display = 'block';
+            });
+        }
+    });
+
+    document.getElementById('cancel-logout')?.addEventListener('click', function() {
+        document.getElementById('logout-modal').style.display = 'none';
+    });
+
+    document.getElementById('confirm-logout')?.addEventListener('click', function() {
+        window.location.href = 'index.html';
+    });
+
+    // Cerrar modales al hacer clic fuera
+    window.addEventListener('click', function(e) {
+        const logoutModal = document.getElementById('logout-modal');
+        const loginModal = document.getElementById('login-required-modal');
+        
+        if (e.target === logoutModal) {
+            logoutModal.style.display = 'none';
+        }
+        if (e.target === loginModal) {
+            loginModal.style.display = 'none';
+        }
+    });
 }); 

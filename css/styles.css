@@ -595,38 +595,34 @@ footer nav a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - 200px);
-    padding: 2rem;
+    min-height: calc(100vh - 190px);
+    padding: 2rem 0;
 }
 
 .login-page .center-content {
+    width: 60%;
+    min-height: 600px;
+    padding: 5rem;
     background-color: #000000;
-    border-radius: 25px;
-    padding: 3.5rem;
-    width: 1200px;
-    min-height: 800px;
-    margin: 0 auto;
+    border-radius: 15px;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centra verticalmente todo el contenido */
-    align-items: center; /* Centra horizontalmente todo el contenido */
+    justify-content: center;
 }
 
 .login-page .center-content h2 {
-    text-align: center;
-    color: var(--text-white);
-    margin-bottom: 3rem;
-    font-size: 1.5rem;
+    margin-bottom: 4rem;
 }
 
 .login-form {
     width: 100%;
-    max-width: 600px;
+    max-width: 650px;
     margin: 0 auto;
+    padding: 1rem 0;
 }
 
 .form-group {
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
 }
 
 .form-group label {
@@ -662,7 +658,7 @@ footer nav a:hover {
     display: flex;
     justify-content: space-between;
     gap: 1.5rem;
-    margin-top: 3rem;
+    margin-top: 4rem;
 }
 
 .form-buttons button {
@@ -707,8 +703,10 @@ footer nav a:hover {
 
 /* Estilos para el botón de usuario */
 .user-profile {
+    display: flex;
+    align-items: center;
     margin-left: 2rem;
-    margin-right: 3rem; /* Ajustado para que quede en la misma posición que los botones de login/register */
+    margin-right: 3rem;
 }
 
 .user-btn {
@@ -716,6 +714,7 @@ footer nav a:hover {
     align-items: center;
     gap: 0.6rem;
     padding: 0.6rem 1.2rem;
+    margin-right: 0.8rem;
     background-color: transparent;
     border: 1px solid var(--primary-green);
     border-radius: 6px;
@@ -1027,6 +1026,60 @@ footer nav a:hover {
         -moz-transform-origin: 0 0;
     }
 
+    /* Panel base para inicio de sesión */
+    .login-page .center-content {
+        width: 55%;
+        min-height: 850px;
+        padding: 5rem;
+        margin: 0 auto;
+    }
+
+    /* Estilo específico para el panel de registro */
+    #registro-panel {
+        min-height: 1050px !important;
+        height: auto !important;
+        padding: 5rem;
+        width: 55%;
+        margin: 2.5rem auto;
+        position: static;
+        transform: none;
+    }
+
+    #registro-panel .login-form {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        gap: 3.5rem;
+    }
+
+    #registro-panel .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    /* Estilo específico para el panel de inicio de sesión */
+    #inicio-sesion-panel {
+        min-height: 950px !important;
+        height: auto !important;
+        padding: 5rem;
+        width: 55%;
+        margin: 4rem auto 2.5rem; /* Aumentado el margen superior de 2.5rem a 4rem */
+        position: static;
+        transform: none;
+    }
+
+    #inicio-sesion-panel .login-form {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        gap: 3.5rem;
+    }
+
+    #inicio-sesion-panel .form-group {
+        margin-bottom: 1.5rem;
+    }
+
     /* Estilos específicos SOLO para la página de perfil */
     body.profile-page .center-content {
         width: 55%;
@@ -1035,32 +1088,10 @@ footer nav a:hover {
         padding: 3rem;
     }
 
-    /* Estilos específicos SOLO para páginas de login y registro */
-    body.login-page .login-page {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh; /* Centra verticalmente en toda la pantalla */
-    }
-
-    body.login-page .center-content {
-        width: 50%;
-        padding: 4rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
     /* Ajustes generales */
     .left-sidebar,
-    .right-sidebar {
-        height: auto;
-        min-height: 950px;
-    }
-
-    /* Ajuste específico para el panel central de inicio/apuestas */
-    body:not(.profile-page):not(.login-page) .center-content {
+    .right-sidebar,
+    .center-content {
         height: auto;
         min-height: 950px;
     }
@@ -1183,4 +1214,109 @@ footer nav a:hover {
         flex-wrap: wrap;
         gap: 1rem;
     }
-} 
+}
+
+/* Estilos específicos SOLO para páginas de login y registro */
+body.login-page .login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Centra verticalmente en toda la pantalla */
+}
+
+body.login-page .center-content {
+    width: 50%;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    border-radius: 15px;
+}
+
+/* Estilos para el botón de cerrar sesión */
+.logout-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 0, 0, 0.3); /* Borde rojo suave */
+    color: var(--text-white);
+    cursor: pointer;
+    padding: 0.6rem 0.8rem;
+    margin-left: 0.5rem;
+    border-radius: 6px; /* Mismo radio que el botón de usuario */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(255, 0, 0, 0.05);
+}
+
+.logout-btn:hover {
+    background-color: rgba(255, 0, 0, 0.1);
+    border-color: rgba(255, 0, 0, 0.8);
+    color: #ff3333;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(255, 0, 0, 0.15);
+}
+
+.logout-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 2px rgba(255, 0, 0, 0.1);
+}
+
+.logout-icon {
+    font-size: 1.2rem;
+    transform: rotate(180deg);
+}
+
+/* Estilos para el modal de cerrar sesión */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: #000000;
+    margin: 15% auto;
+    padding: 3rem;
+    width: 500px;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid rgba(0, 255, 0, 0.1);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
+}
+
+.modal-content h3 {
+    color: var(--text-white);
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+}
+
+.modal-content p {
+    color: #CCCCCC;
+    margin-bottom: 2.5rem;
+    font-size: 1.1rem;
+    padding: 0 1rem;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.modal-buttons button {
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}

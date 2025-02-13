@@ -24,6 +24,9 @@
                     <span class="user-icon">●</span>
                     jaimegpm
                 </button>
+                <button class="logout-btn" title="Cerrar sesión">
+                    <span class="logout-icon">⇥</span>
+                </button>
             </div>
         </div>
     </div>
@@ -113,6 +116,16 @@
             </nav>
         </div>
     </footer>
+    <div id="logout-modal" class="modal">
+        <div class="modal-content">
+            <h3>Cerrar Sesión</h3>
+            <p>¿Estás seguro de que quieres cerrar la sesión?</p>
+            <div class="modal-buttons">
+                <button class="btn-secondary" id="cancel-logout">No, me quedo</button>
+                <button class="btn-primary" id="confirm-logout">Sí, quiero salir</button>
+            </div>
+        </div>
+    </div>
     <script src="js/main.js"></script>
 </body>
 </html> 
