@@ -77,16 +77,21 @@ document.addEventListener('DOMContentLoaded', function() {
         .recent-bets .login-required
     `);
 
+    // Asegurarnos de que la detección de la página funciona en GitHub Pages
+    function isIndexPage() {
+        const path = window.location.pathname;
+        return path.includes('index.html') || 
+               path.endsWith('/') || 
+               path.endsWith('/BettingsGPM/') ||
+               path === '/BettingsGPM';
+    }
+
     elementsRequiringLogin.forEach(element => {
         element.addEventListener('click', function(e) {
-            const isIndex = window.location.pathname.includes('index.html') || 
-                          window.location.pathname.endsWith('/');
-            
-            if (isIndex) {
+            if (isIndexPage()) {
                 e.preventDefault();
                 document.getElementById('login-required-modal').style.display = 'block';
             }
-            // Si no estamos en index, dejamos que el enlace funcione normalmente
         });
     });
 

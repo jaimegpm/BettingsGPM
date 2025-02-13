@@ -1268,6 +1268,8 @@ body.login-page .center-content {
 .logout-icon {
     font-size: 1.2rem;
     transform: rotate(180deg);
+    display: inline-block;
+    font-family: Arial, sans-serif; /* Asegurar compatibilidad */
 }
 
 /* Estilos para el modal de cerrar sesión */
