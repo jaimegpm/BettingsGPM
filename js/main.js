@@ -133,4 +133,23 @@ document.addEventListener('DOMContentLoaded', function() {
             loginModal.style.display = 'none';
         }
     });
+
+    // Añadir funcionalidad al logo
+    const logo = document.querySelector('.logo');
+    if (logo) {
+        logo.style.cursor = 'pointer';
+        logo.addEventListener('click', function() {
+            // Obtener el nombre de la página actual
+            const currentPage = window.location.pathname.split('/').pop();
+            
+            // Si estamos en la página de inicio de sesión o registro
+            if (currentPage === 'InicioSesion.html' || currentPage === 'Registro.html') {
+                window.location.href = 'index.html';
+            } 
+            // Para cualquier otra página (excepto index.html)
+            else if (currentPage !== 'index.html') {
+                window.location.href = 'InicioConSesion.html';
+            }
+        });
+    }
 }); 
