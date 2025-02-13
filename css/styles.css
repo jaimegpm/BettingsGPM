@@ -672,33 +672,50 @@ footer nav a:hover {
     transition: all 0.2s ease;
 }
 
+/* Optimización de los botones */
 .btn-primary {
-    background: linear-gradient(145deg, #00ff00, #00e600);
-    color: rgba(0, 0, 0, 0.9);
-    box-shadow: 0 2px 4px rgba(0, 255, 0, 0.15);
+    background-color: transparent;
+    color: #2ecc71;
+    border: 2px solid #2ecc71;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    position: relative;
+    z-index: 1;
+    transform: translateZ(0); /* Activar aceleración por hardware */
+    will-change: color; /* Optimizar cambios de color */
 }
 
-.btn-secondary {
-    background-color: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(0, 255, 0, 0.3);
-    color: rgba(255, 255, 255, 0.9);
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #2ecc71;
+    transition: width 0.3s ease; /* Simplificar la transición */
+    z-index: -1;
+    will-change: width; /* Optimizar cambios de ancho */
 }
 
 .btn-primary:hover {
-    transform: translateY(-1px);
-    background: linear-gradient(145deg, #00ff00, #00ff00);
-    box-shadow: 0 3px 8px rgba(0, 255, 0, 0.2);
+    color: #000000;
+}
+
+.btn-primary:hover::before {
+    width: 100%;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
 }
 
 .btn-secondary:hover {
-    background-color: rgba(0, 255, 0, 0.05);
-    border-color: rgba(0, 255, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.5);
     transform: translateY(-1px);
-}
-
-.btn-primary:active, .btn-secondary:active {
-    transform: translateY(0);
-    transition: transform 0.1s;
 }
 
 /* Estilos para el botón de usuario */
@@ -953,23 +970,42 @@ footer nav a:hover {
 }
 
 .profile-actions .btn-primary {
-    background: linear-gradient(45deg, #00cc00, #00ff00);
-    border: none;
-    color: #000000;
-    box-shadow: 0 2px 10px rgba(0, 255, 0, 0.15);
+    background-color: transparent;
+    color: #2ecc71;
+    border: 2px solid #2ecc71;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.profile-actions .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #2ecc71;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
 }
 
 .profile-actions .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 255, 0, 0.25);
-    background: linear-gradient(45deg, #00ff00, #00cc00);
+    color: #000000;
+}
+
+.profile-actions .btn-primary:hover::before {
+    width: 100%;
+}
+
+.profile-actions .btn-primary:active {
+    transform: translateY(1px);
 }
 
 .profile-actions .btn-secondary {
     background-color: rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(0, 255, 0, 0.5);
     color: var(--primary-green);
-    backdrop-filter: blur(5px);
 }
 
 .profile-actions .btn-secondary:hover {
@@ -983,26 +1019,6 @@ footer nav a:hover {
 .profile-actions .btn-secondary:active {
     transform: translateY(1px);
     box-shadow: 0 2px 5px rgba(0, 255, 0, 0.2);
-}
-
-.profile-actions .btn-primary::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(255, 255, 255, 0.2),
-        transparent
-    );
-    transition: 0.5s;
-}
-
-.profile-actions .btn-primary:hover::before {
-    left: 100%;
 }
 
 /* Estilo para el saldo cuando está disponible */
@@ -1280,20 +1296,21 @@ body.login-page .center-content {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.85);
     z-index: 1000;
-    backdrop-filter: blur(5px);
+    /* Eliminar backdrop-filter que causa lag */
 }
 
 .modal-content {
     background-color: #000000;
     margin: 15% auto;
     padding: 3rem;
-    width: 500px;
+    width: 600px;
     border-radius: 15px;
     text-align: center;
     border: 1px solid rgba(0, 255, 0, 0.1);
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
+    transform: translateZ(0); /* Activar aceleración por hardware */
 }
 
 .modal-content h3 {
@@ -1312,13 +1329,44 @@ body.login-page .center-content {
 .modal-buttons {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 2.5rem;
+    margin-top: 1rem; /* Añadir margen superior */
 }
 
+/* Optimizar transiciones de los botones del modal */
 .modal-buttons button {
     padding: 0.8rem 1.5rem;
     border-radius: 6px;
     font-size: 0.95rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: transform 0.2s ease;
+    will-change: transform;
+    min-width: 180px; /* Mantener el ancho mínimo */
+    font-weight: 500;
+}
+
+.modal-buttons .btn-primary {
+    background-color: transparent;
+    color: #2ecc71;
+    border: 2px solid #2ecc71;
+    position: relative;
+    z-index: 1;
+    padding: 1rem 2rem; /* Aumentar el padding */
+    font-size: 1rem; /* Aumentar el tamaño de fuente */
+}
+
+.modal-buttons .btn-secondary {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    padding: 1rem 2rem; /* Aumentar el padding */
+    font-size: 1rem; /* Aumentar el tamaño de fuente */
+}
+
+.modal-buttons .btn-primary:hover {
+    transform: translateY(-1px);
+}
+
+.modal-buttons .btn-primary:active {
+    transform: translateY(1px);
 }
