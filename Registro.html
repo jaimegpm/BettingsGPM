@@ -51,18 +51,14 @@
                     <input type="password" id="password2" name="password2" placeholder="Repite tu contraseña" required>
                 </div>
 
-                <div class="form-buttons">
-                    <button type="button" class="btn-secondary" onclick="window.location.href='index.html'">
-                        Volver al inicio
-                    </button>
-                    <button type="button" class="btn-secondary" onclick="window.location.href='InicioSesion.html'">
-                        Iniciar Sesión
-                    </button>
-                    <button type="submit" class="btn-primary">
-                        Confirmar
-                    </button>
+                <div class="register-form-buttons">
+                    <button type="button" id="register-form-back" onclick="window.location.href='index.html'">Volver</button>
+                    <button type="submit" id="register-form-submit">Registrarse</button>
                 </div>
             </form>
+            <p class="register-login-text">
+                ¿Ya tienes una cuenta? <a href="InicioSesion.html" class="register-login-link">Inicia sesión aquí</a>
+            </p>
         </main>
     </div>
 

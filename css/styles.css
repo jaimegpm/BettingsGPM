@@ -1,11 +1,11 @@
 :root {
-    --primary-green: #00FF00;
+    --primary-green: #2ecc71;
     --dark-bg: #1E1E1E;
     --card-bg: #2A2A2A;
     --text-white: #ffffff;
-    --nav-width: calc(100% - 950px);
-    --menu-gap: 13rem;
-    --side-padding: 4rem;
+    --nav-width: min(1200px, 80%);
+    --menu-gap: clamp(2rem, 4vw, 13rem);
+    --side-padding: clamp(1rem, 2vw, 4rem);
     --base-scale: 1;
 }
 
@@ -133,8 +133,6 @@ body {
 
 .login-btn:hover {
     color: #000000;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.2);
 }
 
 .login-btn:hover::before {
@@ -1388,25 +1386,74 @@ footer nav a:hover {
 
     /* Estilo específico para el panel de inicio de sesión */
     #inicio-sesion-panel {
-        min-height: 950px !important;
-        height: auto !important;
-        padding: 5rem;
-        width: 55%;
-        margin: 4rem auto 2.5rem;
-        position: static;
-        transform: none;
+        min-height: 850px !important;
+        width: 52%;
+        padding: 4rem;
+        margin: 3rem auto 2rem;
+        background-color: #000000;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     #inicio-sesion-panel .login-form {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        gap: 3.5rem;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
     }
 
     #inicio-sesion-panel .form-group {
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.8rem;
+    }
+
+    /* Opciones de login */
+    #inicio-sesion-panel .login-options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 1.5rem 0;
+    }
+
+    /* Estilos mejorados para el checkbox de recordar */
+    #inicio-sesion-panel .remember-option {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    #inicio-sesion-panel .remember-checkbox {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 16px;
+        height: 16px;
+        border: 2px solid rgba(46, 204, 113, 0.4);
+        border-radius: 4px;
+        cursor: pointer;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    #inicio-sesion-panel .remember-checkbox:checked {
+        background-color: #2ecc71;
+        border-color: #2ecc71;
+    }
+
+    #inicio-sesion-panel .remember-checkbox:checked::before {
+        content: '✓';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #000;
+        font-size: 12px;
+    }
+
+    #inicio-sesion-panel .remember-text {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.9rem;
     }
 
     /* Estilos específicos SOLO para la página de perfil */
@@ -1453,14 +1500,98 @@ footer nav a:hover {
         padding-top: 0.85rem;
         background-color: rgba(0, 0, 0, 0.9);
     }
+
+    /* Ajustes específicos para el panel de perfil en 1080p */
+    #profile-main-panel {
+        min-height: 850px !important;  /* Aumentado para 1080p */
+        width: 55%;
+        transform: scale(0.67);  /* Ajustado al zoom general */
+        transform-origin: top center;  /* Asegura que la escala se aplica desde arriba */
+        margin: 1rem auto 4rem;  /* Añadido margen inferior para compensar */
+    }
+
+    #profile-main-panel .profile-container {
+        width: 90%;
+        max-width: 900px;
+        margin: 1.5rem auto;
+    }
+
+    /* Panel negro específico de perfil para 1080p */
+    .profile-page #profile-black-panel {
+        min-height: 1000px !important;
+        width: 60%;
+        background: linear-gradient(145deg, #0a0a0a, #000000);
+        margin: 5rem auto;
+        padding: 3.5rem;
+        transform: scale(0.9);  /* Aumentado de 0.87 a 0.9 para hacer todo un poco más grande */
+        transform-origin: center center;
+    }
+
+    /* Ajustes específicos del contenido del panel gris en 1080p */
+    .profile-page .profile-container {
+        transform: scale(1.1);  /* Hacemos el contenido un 10% más grande */
+        transform-origin: center center;
+    }
+
+    /* Media query para 1920x1080 */
+    @media screen and (max-width: 1920px) {
+        /* Centrado específico para el panel de inicio de sesión en 1080p */
+        body:not(.profile-page) #inicio-sesion-panel {
+            width: 55%;
+            min-height: 800px;
+            padding: 4rem;
+            margin: 0 auto;
+            position: relative;
+            top: 50%;
+            transform: translateY(0%) scale(1.1);  /* Ajustado de -5% a 0% */
+            transform-origin: center center;
+        }
+
+        /* Contenedor padre */
+        body:not(.profile-page) .login-page {
+            min-height: calc(100vh - 190px);
+            padding: 10rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    /* Estilos específicos para el panel de inicio de sesión en 1080p */
+    #login-1080-panel {
+        width: 55%;
+        min-height: 800px;
+        padding: 4rem;
+        margin: 20vh auto;  /* Para centrarlo verticalmente */
+        transform: scale(1.1);  /* Hacerlo un poco más grande */
+        transform-origin: center center;
+    }
+
+    /* Ajustes del contenido */
+    #login-1080-panel h2 {
+        font-size: 2.2rem;
+        margin-bottom: 3rem;
+    }
+
+    #login-1080-panel .form-group {
+        margin-bottom: 2.5rem;
+    }
+
+    #login-1080-panel input {
+        font-size: 1.1rem;
+        padding: 1rem 1.2rem;
+    }
+
+    #login-1080-panel .login-options {
+        margin: 2rem 0 3rem;
+    }
 }
 
 /* Media query para laptops (1366x768 y similares) */
 @media screen and (max-width: 1366px) {
     :root {
-        --nav-width: calc(100% - 300px);
-        --menu-gap: 5rem;
-        --side-padding: 1rem;
+        --nav-width: min(1000px, 90%);
+        --menu-gap: clamp(1.5rem, 3vw, 5rem);
     }
 
     .top-bar {
@@ -1520,6 +1651,11 @@ footer nav a:hover {
     .profile-info {
         gap: 4rem;
         padding-left: 3rem;
+    }
+
+    #inicio-sesion-panel {
+        width: min(700px, 90%);
+        padding: clamp(1.5rem, 4vw, 3rem);
     }
 }
 
@@ -1756,24 +1892,68 @@ body.login-page .center-content {
         transparent);
 }
 
-/* Ajuste específico para el panel de inicio de sesión */
+/* Estilos SOLO para el contenido interno del panel de inicio de sesión */
 #inicio-sesion-panel {
-    min-height: 950px !important;
-    height: auto !important;
-    padding: 5rem;
-    width: 55%;
-    margin: 4rem auto 2.5rem;
-    position: relative;
+    min-height: 850px !important;
+    width: 52%;
+    padding: 4rem;
+    margin: 3rem auto 2rem;
+    background-color: #000000;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Ajuste específico para el panel de registro */
-#registro-panel {
-    min-height: 1050px !important;
-    height: auto !important;
-    padding: 5rem;
-    width: 55%;
-    margin: 2.5rem auto;
-    position: relative;
+/* Estilos para el formulario interno */
+#inicio-sesion-panel .login-form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#inicio-sesion-panel .form-group {
+    margin-bottom: 1.8rem;
+}
+
+#inicio-sesion-panel .form-group input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+#inicio-sesion-panel .form-group input:focus {
+    border-color: #2ecc71;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.1);
+}
+
+/* Opciones de login */
+#inicio-sesion-panel .login-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.5rem 0;
+}
+
+/* Texto de registro */
+#inicio-sesion-panel .register-text {
+    text-align: center;
+    margin-top: 2rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#inicio-sesion-panel .register-link {
+    color: #2ecc71;
+    text-decoration: none;
+    margin-left: 0.5rem;
 }
 
 /* Estilos para la tabla de rankings */
@@ -1991,4 +2171,533 @@ body.login-page .center-content {
 .add-friend-btn:hover, .join-group-btn:hover {
     background: #2ecc71;
     color: #000000;
+}
+
+/* Estilos para los enlaces de opciones de login */
+#inicio-sesion-panel .forgot-password,
+#inicio-sesion-panel .guest-login {
+    color: #2ecc71;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+#inicio-sesion-panel .forgot-password:hover,
+#inicio-sesion-panel .guest-login:hover {
+    color: #27ae60;
+    text-decoration: underline;
+}
+
+/* Ajuste específico para el checkbox en 2560x1440 */
+@media screen and (min-width: 2560px) {
+    #inicio-sesion-panel .remember-option {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+    }
+
+    #inicio-sesion-panel .remember-checkbox {
+        width: 24px;
+        height: 24px;
+        border: 2px solid rgba(46, 204, 113, 0.4);
+    }
+
+    #inicio-sesion-panel .remember-checkbox:checked::before {
+        font-size: 16px;
+    }
+
+    #inicio-sesion-panel .remember-text {
+        font-size: 1.2rem;
+    }
+}
+
+/* Diseño profesional SOLO para los botones de inicio de sesión */
+#login-session-back, #login-session-submit {
+    background-color: transparent;
+    color: #2ecc71;
+    border: 2px solid #2ecc71;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    min-width: 140px;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    z-index: 1;
+}
+
+#login-session-back::before, #login-session-submit::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(46, 204, 113, 0.4),
+        transparent
+    );
+    transform: translateX(-100%);
+    transition: 0.6s;
+    z-index: -1;
+}
+
+#login-session-back::after, #login-session-submit::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(
+        -45deg,
+        #2ecc71,
+        #27ae60,
+        #2ecc71
+    );
+    z-index: -2;
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#login-session-back:hover, #login-session-submit:hover {
+    color: #000;
+    background: #2ecc71;
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px -3px rgba(46, 204, 113, 0.4);
+}
+
+#login-session-back:hover::before, #login-session-submit:hover::before {
+    transform: translateX(100%);
+}
+
+#login-session-back:hover::after, #login-session-submit:hover::after {
+    opacity: 1;
+}
+
+#login-session-back:active, #login-session-submit:active {
+    transform: translateY(1px);
+    box-shadow: 0 4px 12px -2px rgba(46, 204, 113, 0.3);
+}
+
+/* Diseño profesional SOLO para los botones de registro */
+#register-form-back, #register-form-submit {
+    background-color: transparent;
+    color: #2ecc71;
+    border: 2px solid #2ecc71;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    min-width: 140px;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    z-index: 1;
+}
+
+#register-form-back::before, #register-form-submit::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(46, 204, 113, 0.4),
+        transparent
+    );
+    transform: translateX(-100%);
+    transition: 0.6s;
+    z-index: -1;
+}
+
+#register-form-back::after, #register-form-submit::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(
+        -45deg,
+        #2ecc71,
+        #27ae60,
+        #2ecc71
+    );
+    z-index: -2;
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#register-form-back:hover, #register-form-submit:hover {
+    color: #000;
+    background: #2ecc71;
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px -3px rgba(46, 204, 113, 0.4);
+}
+
+#register-form-back:hover::before, #register-form-submit:hover::before {
+    transform: translateX(100%);
+}
+
+#register-form-back:hover::after, #register-form-submit:hover::after {
+    opacity: 1;
+}
+
+#register-form-back:active, #register-form-submit:active {
+    transform: translateY(1px);
+    box-shadow: 0 4px 12px -2px rgba(46, 204, 113, 0.3);
+}
+
+/* Estilos para el texto y enlace de inicio de sesión */
+.register-login-text {
+    text-align: center;
+    margin-top: 2rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.register-login-link {
+    color: #2ecc71;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.register-login-link:hover {
+    color: #27ae60;
+    text-decoration: underline;
+}
+
+/* Contenedor de botones del registro */
+.register-form-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+    gap: 2rem;
+}
+
+/* Estilos específicos SOLO para el panel de perfil */
+#profile-main-panel {
+    width: 55%;
+    min-height: 950px !important;  /* Aumentado de 850px a 950px */
+    margin: 3.5rem auto;  /* Aumentado de 2rem a 3.5rem */
+    padding: 3.5rem;
+    background: linear-gradient(145deg, #0a0a0a, #000000);
+    border: 1px solid rgba(46, 204, 113, 0.1);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+#profile-main-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent,
+        rgba(46, 204, 113, 0.2),
+        transparent
+    );
+}
+
+/* Ajustes para el contenedor del perfil */
+#profile-main-panel .profile-container {
+    width: 90%;
+    max-width: 900px;
+    margin: 2rem auto;  /* Aumentado de 1.5rem a 2rem */
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;  /* Aumentado de 2rem a 2.5rem */
+}
+
+/* Media query para 1920x1080 */
+@media screen and (max-width: 1920px) {
+    /* Estilos específicos para el panel de inicio de sesión en 1080p */
+    #login-1080-panel {
+        width: 55%;
+        min-height: 800px;
+        padding: 4rem;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(1.1);
+        transform-origin: center center;
+    }
+
+    /* Contenedor padre */
+    .login-page {
+        position: relative;
+        min-height: calc(100vh - 180px);
+    }
+
+    /* Enlaces y opciones */
+    #login-1080-panel .login-options {
+        display: flex;
+        justify-content: space-between;
+        margin: 2rem 0 3rem;
+    }
+
+    #login-1080-panel .guest-login,
+    #login-1080-panel .forgot-password {
+        color: #2ecc71;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+    }
+
+    #login-1080-panel .guest-login:hover,
+    #login-1080-panel .forgot-password:hover {
+        color: #27ae60;
+        text-decoration: underline;
+    }
+
+    #login-1080-panel .register-text {
+        text-align: center;
+        margin-top: 2rem;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    #login-1080-panel .register-link {
+        color: #2ecc71;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    #login-1080-panel .register-link:hover {
+        color: #27ae60;
+        text-decoration: underline;
+    }
+
+    /* Ajustes del contenido para coincidir con registro */
+    #login-1080-panel h2 {
+        font-size: 2.2rem;
+        margin-bottom: 3rem;
+        text-align: center;
+    }
+
+    #login-1080-panel .form-group {
+        margin-bottom: 2.5rem;
+    }
+
+    #login-1080-panel input {
+        font-size: 1.1rem;
+        padding: 1rem 1.2rem;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        color: white;
+    }
+
+    /* Ajustes del contenido para coincidir con registro */
+    #login-1080-panel h2 {
+        font-size: 1.8rem;  /* Reducido de 2.2rem a 1.8rem */
+        margin-bottom: 3rem;
+        text-align: center;
+    }
+
+    #login-1080-panel .form-group label {
+        font-size: 0.95rem;  /* Reducido a 0.95rem */
+        margin-bottom: 0.5rem;
+    }
+
+    #login-1080-panel input {
+        font-size: 0.95rem;  /* Reducido de 1.1rem a 0.95rem */
+        padding: 0.9rem 1.1rem;  /* Ajustado el padding también */
+        width: 100%;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        color: white;
+    }
+}
+
+/* Estilos para los enlaces y opciones (resolución original) */
+#inicio-sesion-panel .login-options {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0 3rem;
+}
+
+#inicio-sesion-panel .guest-login,
+#inicio-sesion-panel .forgot-password {
+    color: #2ecc71;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+#inicio-sesion-panel .guest-login:hover,
+#inicio-sesion-panel .forgot-password:hover {
+    color: #27ae60;
+    text-decoration: underline;
+}
+
+#inicio-sesion-panel .register-text {
+    text-align: center;
+    margin-top: 2rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#inicio-sesion-panel .register-link {
+    color: #2ecc71;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+#inicio-sesion-panel .register-link:hover {
+    color: #27ae60;
+    text-decoration: underline;
+}
+
+/* Estilos base para el panel de inicio de sesión */
+#inicio-sesion-panel {
+    width: 52%;
+    min-height: 750px;
+    padding: 3.5rem;
+    margin: 2rem auto;
+    background: linear-gradient(145deg, #0a0a0a, #000000);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+}
+
+/* Enlaces y opciones */
+#inicio-sesion-panel .login-options {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 1.5rem 0;
+}
+
+#inicio-sesion-panel .guest-login {
+    color: #2ecc71;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+#inicio-sesion-panel .forgot-password {
+    color: #2ecc71;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+#inicio-sesion-panel .guest-login:hover,
+#inicio-sesion-panel .forgot-password:hover {
+    color: #27ae60;
+    text-decoration: underline;
+}
+
+#inicio-sesion-panel .register-text {
+    text-align: center;
+    margin-top: 2rem;
+    color: #ffffff;
+}
+
+#inicio-sesion-panel .register-link {
+    color: #2ecc71;
+    text-decoration: none;
+    margin-left: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+#inicio-sesion-panel .register-link:hover {
+    color: #27ae60;
+    text-decoration: underline;
+}
+
+#inicio-sesion-panel .form-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+}
+
+/* Media query para 1920x1080 mantiene los mismos estilos que ya teníamos para #login-1080-panel */
+@media screen and (max-width: 1920px) {
+    /* Centrado específico SOLO para el panel de inicio de sesión en 1080p */
+    body:not(.profile-page) #inicio-sesion-panel {
+        width: 55%;
+        min-height: 800px;
+        padding: 4rem;
+        margin: 0 auto;
+        position: relative;
+        top: 50%;
+        transform: translateY(0%) scale(1.1);
+        transform-origin: center center;
+    }
+
+    /* Contenedor padre SOLO para inicio de sesión */
+    body:not(.profile-page) .login-page {
+        min-height: calc(100vh - 190px);
+        padding: 10rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Media query para 1920x1080 */
+@media screen and (max-width: 1920px) {
+    /* Centrado específico para el panel de registro */
+    #registro-panel {
+        min-height: 1050px !important;
+        width: 55%;
+        background: linear-gradient(145deg, #0a0a0a, #000000);
+        margin: 2rem auto;
+        padding: 3.5rem;
+        transform: scale(1.1);
+        transform-origin: center center;
+        position: relative;
+        top: 50%;
+        transform: translateY(0%) scale(1.1);
+    }
+
+    /* Contenedor padre del registro */
+    body:has(#registro-panel) .login-page {
+        min-height: calc(100vh - 190px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 3rem 0;
+    }
+
+    /* Ajuste de los botones del registro */
+    #registro-panel #register-form-back,
+    #registro-panel #register-form-submit {
+        padding: 1rem 2.5rem;
+        font-size: 1.05rem;
+        min-width: 160px;
+    }
+
+    /* Ajuste del contenido del registro */
+    #registro-panel h2 {
+        font-size: 1.8rem;
+    }
+
+    #registro-panel .form-group {
+        margin-bottom: 1.5rem;  /* Reducido de 2.5rem a 1.5rem */
+    }
+
+    #registro-panel input {
+        font-size: 1rem;
+        padding: 1rem 1.2rem;
+    }
 }
