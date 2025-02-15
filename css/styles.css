@@ -2628,7 +2628,6 @@ body.login-page .center-content {
     gap: 2rem;
     margin: 2rem 0;
 }
-}
 
 /* Media query para 1920x1080 mantiene los mismos estilos que ya teníamos para #login-1080-panel */
 @media screen and (max-width: 1920px) {
@@ -2699,5 +2698,814 @@ body.login-page .center-content {
     #registro-panel input {
         font-size: 1rem;
         padding: 1rem 1.2rem;
+    }
+}
+
+/* Media queries para móvil */
+@media screen and (max-width: 768px) {
+    /* Ajustes generales */
+    body {
+        overflow-x: hidden;
+    }
+
+    /* Barra superior */
+    .top-bar {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .mobile-buttons {
+        display: flex;
+        gap: 0.5rem;
+        margin-left: 1rem;
+    }
+
+    .hamburger-nav,
+    .hamburger-header {
+        background: none;
+        border: none;
+        padding: 0.5rem;
+        cursor: pointer;
+    }
+
+    .hamburger-nav span,
+    .hamburger-header span {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background-color: white;
+        margin: 5px 0;
+        transition: 0.3s;
+    }
+
+    /* Ocultar elementos del menú en móvil */
+    .top-menu:not(.active),
+    .main-nav:not(.active),
+    .top-menu-items,
+    .top-menu-buttons,
+    .nav-container ul {
+        display: none;
+    }
+
+    /* Menús desplegables */
+    .top-menu.active {
+        display: flex !important; /* Forzar visualización cuando está activo */
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 80%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.95);
+        z-index: 998;
+        padding-top: 5rem;
+    }
+
+    .main-nav.active {
+        display: block !important; /* Forzar visualización cuando está activo */
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 80%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.95);
+        z-index: 998;
+        padding-top: 5rem;
+    }
+
+    /* Mostrar elementos dentro de los menús cuando están activos */
+    .top-menu.active .top-menu-items {
+        display: flex !important;
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 2rem;
+    }
+
+    .main-nav.active .nav-container ul {
+        display: flex !important;
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 2rem;
+    }
+
+    .top-menu.active .top-menu-buttons {
+        display: flex !important;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 2rem;
+    }
+
+    /* Ajustar elementos dentro del menú */
+    .top-menu-items > div,
+    .nav-container ul li a {
+        padding: 1rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Ajustar botones de login/registro en móvil */
+    .login-btn, 
+    .register-btn {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    /* Ocultar paneles laterales */
+    .main-content {
+        grid-template-columns: 1fr !important;
+        padding: 1rem;
+    }
+
+    .left-sidebar,
+    .right-sidebar {
+        display: none !important;
+    }
+
+    /* Ajustar el contenido central */
+    .center-content {
+        width: 100%;
+        margin: 0;
+        padding: 1rem;
+    }
+
+    /* Asegurar que el contenido central ocupe todo el ancho */
+    .matches-grid,
+    .bet-matches-grid,
+    .rankings-container,
+    .social-panel {
+        width: 100%;
+        margin: 0;
+    }
+
+    /* Overlays */
+    .nav-overlay,
+    .header-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 997;
+    }
+
+    .nav-overlay.active,
+    .header-overlay.active {
+        display: block;
+    }
+
+    /* ... otros estilos existentes ... */
+
+    /* Ajustar menús cuando están activos */
+    .main-nav.active,
+    .top-menu.active {
+        display: block !important;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 250px; /* Reducido de 80% a un ancho fijo más pequeño */
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.95);
+        z-index: 1001;
+        padding-top: 4rem;
+    }
+
+    /* Ajustar elementos dentro del menú */
+    .top-menu.active .top-menu-items,
+    .main-nav.active .nav-container ul {
+        display: flex !important;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+
+    .top-menu-items > div,
+    .nav-container ul li a {
+        padding: 0.8rem;
+        width: 100%;
+        text-align: left; /* Alinear texto a la izquierda */
+        white-space: nowrap; /* Evitar que el texto se rompa */
+    }
+
+    /* Ajustar botones de login/registro en móvil */
+    .top-menu.active .top-menu-buttons {
+        padding: 1rem 1.5rem;
+    }
+
+    .login-btn, 
+    .register-btn {
+        width: 100%;
+        padding: 0.8rem;
+        margin: 0.5rem 0;
+    }
+
+    @media screen and (max-width: 768px) {
+        /* ... otros estilos existentes ... */
+
+        /* Ajustar menú de navegación cuando está activo */
+        .main-nav.active {
+            display: block !important;
+            position: fixed;
+            top: 60px; /* Ajustado para que empiece debajo del header */
+            right: 0;
+            width: 200px;
+            height: auto; /* Altura automática según contenido */
+            max-height: fit-content; /* Se ajusta al contenido */
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 1001;
+            padding: 0.5rem 0;
+            border-radius: 0 0 0 10px;
+        }
+
+        .main-nav.active .nav-container ul {
+            display: flex !important;
+            flex-direction: column;
+            gap: 0.3rem;
+            padding: 0.5rem;
+            margin: 0;
+        }
+
+        .main-nav.active .nav-container ul li a {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            text-align: left;
+            display: block;
+            width: 100%;
+        }
+    }
+}
+
+/* Ocultar elementos móviles por defecto (fuera del media query) */
+.mobile-buttons,
+.nav-overlay,
+.header-overlay,
+.hamburger-nav,
+.hamburger-header {
+    display: none;
+}
+
+/* Asegurar que los menús sean visibles en resoluciones mayores */
+@media screen and (min-width: 769px) {
+    .top-menu,
+    .main-nav,
+    .top-menu-items,
+    .nav-container ul,
+    .top-menu-buttons {
+        display: flex !important;
+    }
+}
+
+/* Media query para móvil */
+@media screen and (max-width: 768px) {
+    /* ... resto del código móvil existente ... */
+
+    /* Ocultar elementos del menú superior en móvil */
+    .top-menu-items,
+    .top-menu-buttons,
+    .nav-container ul {
+        display: none;
+    }
+
+    /* Menús desplegables */
+    .top-menu.active {
+        display: flex !important;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 80%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.95);
+        z-index: 998;
+        padding-top: 5rem;
+    }
+
+    .main-nav.active {
+        display: block !important;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 80%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.95);
+        z-index: 998;
+        padding-top: 5rem;
+    }
+}
+
+/* Ocultar elementos móviles por defecto */
+.mobile-buttons {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    /* Botones hamburguesa */
+    .mobile-buttons {
+        display: flex;
+        gap: 1.5rem;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1001;
+    }
+
+    .hamburger-nav,
+    .hamburger-header {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+        width: 40px;
+        height: 40px;
+        position: relative;
+    }
+
+    .hamburger-nav span,
+    .hamburger-header span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background-color: #ffffff;
+        margin: 6px auto;
+        transition: all 0.3s ease;
+    }
+
+    /* Animación cuando están activos */
+    .hamburger-nav.active span:nth-child(1),
+    .hamburger-header.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .hamburger-nav.active span:nth-child(2),
+    .hamburger-header.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger-nav.active span:nth-child(3),
+    .hamburger-header.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+}
+
+/* Estilos base para móvil - fuera del media query */
+.mobile-buttons {
+    display: none; /* Oculto por defecto */
+}
+
+@media screen and (max-width: 768px) {
+    .top-bar {
+        position: relative;
+        z-index: 1002; /* Asegurar que el header esté por encima */
+    }
+
+    /* Mostrar botones en móvil */
+    .mobile-buttons {
+        display: flex !important; /* Forzar visualización en móvil */
+        gap: 1rem;
+        position: absolute;
+        right: 4rem; /* Ajustar posición */
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1003; /* Mayor que el header */
+    }
+
+    /* Estilos de los botones */
+    .hamburger-nav,
+    .hamburger-header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+    }
+
+    /* Barras de los botones */
+    .hamburger-nav span,
+    .hamburger-header span {
+        display: block;
+        width: 25px;
+        height: 2px;
+        margin: 4px 0;
+        background-color: white;
+        transition: all 0.3s ease;
+    }
+
+    /* Menús cuando están activos */
+    .main-nav.active,
+    .top-menu.active {
+        display: block !important;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 80%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.95);
+        z-index: 1001;
+        padding-top: 4rem;
+    }
+
+    /* Animación de los botones cuando están activos */
+    .hamburger-nav.active span:nth-child(1),
+    .hamburger-header.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger-nav.active span:nth-child(2),
+    .hamburger-header.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger-nav.active span:nth-child(3),
+    .hamburger-header.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Ocultar elementos por defecto en móvil */
+    .main-nav:not(.active),
+    .top-menu:not(.active) {
+        display: none !important;
+    }
+
+    /* Ajustar menú de navegación */
+    .main-nav.active {
+        display: block !important;
+        position: fixed;
+        top: 60px;
+        right: 10px; /* Ajustado para que no esté pegado al borde */
+        width: 150px; /* Reducido el ancho */
+        height: auto;
+        max-height: fit-content;
+        background-color: rgba(0, 0, 0, 0.95);
+        z-index: 1001;
+        padding: 0.5rem 0;
+        border-radius: 4px;
+    }
+
+    /* Ajustar menú del header */
+    .top-menu.active {
+        display: flex !important;
+        flex-direction: column;
+        position: fixed;
+        top: 60px;
+        right: 10px;
+        width: 200px; /* Reducido el ancho */
+        height: auto; /* Cambiado de 100vh a auto */
+        max-height: fit-content;
+        background-color: rgba(0, 0, 0, 0.95);
+        z-index: 1001;
+        padding: 1rem 0;
+        border-radius: 4px;
+    }
+
+    /* Ajustar elementos dentro de los menús */
+    .main-nav.active .nav-container ul,
+    .top-menu.active .top-menu-items {
+        display: flex !important;
+        flex-direction: column;
+        gap: 0.3rem;
+        padding: 0.3rem;
+        margin: 0;
+    }
+
+    .main-nav.active .nav-container ul li a,
+    .top-menu-items > div {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        text-align: left;
+        display: block;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* Ajustar menú de navegación */
+    .main-nav.active {
+        display: block !important;
+        position: fixed;
+        top: 60px;
+        right: 10px;
+        width: 150px;
+        height: auto;
+        max-height: fit-content;
+        background-color: rgba(0, 0, 0, 0.95);
+        z-index: 1001;
+        padding: 0.5rem 0;
+        border-radius: 4px;
+    }
+
+    /* Ajustar elementos dentro del menú de navegación */
+    .main-nav.active .nav-container ul {
+        display: flex !important;
+        flex-direction: column;
+        gap: 0.3rem;
+        padding: 0.3rem;
+        margin: 0;
+    }
+
+    .main-nav.active .nav-container ul li a {
+        padding: 0.5rem 0;
+        font-size: 0.9rem;
+        text-align: center; /* Centrar el texto */
+        display: block;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* ... otros estilos existentes ... */
+
+    /* Ocultar separador en móvil */
+    .matches-separator {
+        display: none !important;
+    }
+
+    /* Ocultar separador vertical en móvil */
+    .matches-separator,
+    .center-content .matches-separator {
+        display: none !important;
+        width: 0;
+        height: 0;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    /* Asegurar que no haya espacio residual */
+    .center-content {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    /* ... otros estilos existentes ... */
+
+    /* Ocultar línea separadora en móvil */
+    .matches-grid::after,
+    .bet-matches-grid::after {
+        display: none !important;
+        content: none;
+    }
+
+    /* Eliminar cualquier espacio residual */
+    .matches-grid,
+    .bet-matches-grid {
+        border: none;
+        background: none;
+        position: relative;
+    }
+
+    /* Asegurar que no haya margen o padding extra */
+    .center-content {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    /* ... otros estilos existentes ... */
+
+    /* Ajustar espaciado del contenido central */
+    .center-content {
+        width: 100%;
+        margin: 2rem 0; /* Añadir margen vertical */
+        padding: 1.5rem;
+        min-height: calc(100vh - 120px); /* Asegurar que ocupe el alto disponible */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    /* Ajustar los paneles dentro del contenido central */
+    .matches-grid,
+    .bet-matches-grid,
+    .rankings-container,
+    .social-panel {
+        width: 100%;
+        margin: 1.5rem 0; /* Aumentado el margen vertical */
+        padding: 1.5rem;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 12px;
+    }
+
+    /* Ajustar el espaciado interno de las tarjetas */
+    .match-card,
+    .ranking-row,
+    .social-item {
+        padding: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Ajustar el espacio entre tarjetas */
+    .matches-grid > *:not(:last-child),
+    .bet-matches-grid > *:not(:last-child) {
+        margin-bottom: 2rem; /* Aumentar espacio entre tarjetas */
+    }
+
+    /* Ajustar el título de la sección */
+    .center-content h2 {
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    /* Ajustar grid de apuestas a 2 columnas */
+    .bet-matches-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        width: 100%;
+    }
+
+    /* Ajustar grid de social a 1 columna */
+    .social-panel .social-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    /* Asegurar que las tarjetas ocupen todo el ancho en social */
+    .social-panel .social-item {
+        width: 100%;
+        margin: 0;
+    }
+
+    /* Ajustar el espacio entre tarjetas de apuestas */
+    .bet-matches-grid .match-card {
+        width: 100%;
+        margin: 0;
+    }
+
+    /* ... otros estilos existentes ... */
+
+    /* Ajustar grid de social a 1 columna */
+    .social-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+
+    /* Asegurar que cada tarjeta social ocupe todo el ancho */
+    .social-item {
+        width: 100% !important;
+        margin: 0 !important;
+        flex: none !important;
+    }
+
+    /* Eliminar cualquier display flex o grid heredado */
+    .social-panel .social-content {
+        display: block;
+        width: 100%;
+    }
+
+    /* ... otros estilos existentes ... */
+
+    /* Ajuste específico para la sección social */
+    .social-grid {
+        display: block !important; /* Cambiar a block en lugar de grid */
+    }
+
+    .social-grid .social-item {
+        display: block !important;
+        width: 100% !important;
+        margin-bottom: 1rem !important;
+        float: none !important;
+    }
+
+    /* Limpiar cualquier estilo que pueda interferir */
+    .social-panel {
+        display: block;
+    }
+
+    .social-panel .social-content {
+        display: block;
+    }
+
+    /* Asegurar que no haya elementos flotantes */
+    .social-grid::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* ... otros estilos existentes ... */
+
+    /* Ajustar grid de apuestas a 2 columnas */
+    .bet-matches-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        width: 100%;
+    }
+
+    /* Ajustar grid de social a 1 columna */
+    .social-panel .social-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    /* Asegurar que las tarjetas ocupen todo el ancho en social */
+    .social-panel .social-item {
+        width: 100%;
+        margin: 0;
+    }
+
+    /* Ajustar el espacio entre tarjetas de apuestas */
+    .bet-matches-grid .match-card {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* ... otros estilos existentes ... */
+
+    /* Ajustar grid de apuestas a 2 columnas */
+    .bet-matches-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        width: 100%;
+    }
+
+    /* Ajustar grid de usuarios en social */
+    .users-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    .user-card {
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0.5rem 0;
+    }
+
+    /* Asegurar que los grupos también se muestren en una columna */
+    .groups-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1rem;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* ... otros estilos existentes ... */
+
+    /* Ajustes específicos para la página de perfil */
+    #profile-black-panel {
+        width: 98% !important;
+        padding: 2rem 1rem;
+        min-height: auto;
+        margin: 0 auto;
+    }
+
+    /* Ajustar el tamaño del panel gris */
+    .profile-container {
+        width: 95% !important;
+        padding: 2rem;
+        margin: 0 auto;
+    }
+
+    /* Ajustar las columnas del perfil */
+    .profile-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        padding: 1rem;
+        width: 100%;
+    }
+
+    .profile-column {
+        max-width: 100%;
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    /* Ajustar la alineación de los botones */
+    .profile-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+        padding: 1rem 0;
+    }
+
+    .profile-actions button {
+        width: 90%;
+        max-width: none;
     }
 }
