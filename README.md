@@ -24,6 +24,12 @@ El proyecto cuenta con una interfaz moderna inspirada en plataformas populares c
 
 ---
 
+## 📝 **Notas**
+La página ofrece la mayor partes de funcionalidades al inciar sesión, para ello puedes hacer click en "iniciar sesión como invitado"
+dentro del panel de inicio de sesión y simulará un inicio con un usario creado por mí.
+
+---
+
 ## 📌 **Características Principales**
 ✅ **Interfaz Moderna y Responsiva**  
 ✅ **Lista de Partidos Destacados con Cuotas**  
