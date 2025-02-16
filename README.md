@@ -37,3 +37,9 @@ dentro del panel de inicio de sesión y simulará un inicio con un usario creado
 ✅ **Panel de Usuario con Datos y Historial**  
 ✅ **Promociones y Bonos**  
 ✅ **Fondo Animado con Efecto Neón**  
+
+---
+
+## 📜 **Licencia**
+Este proyecto está licenciado bajo la licencia **MIT**.  
+Consulta el archivo [LICENSE](LICENSE) para más detalles.
