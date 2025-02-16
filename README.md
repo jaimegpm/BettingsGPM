@@ -24,9 +24,13 @@ El proyecto cuenta con una interfaz moderna inspirada en plataformas populares c
 
 ---
 
-## 📝 **Notas**
-La página ofrece la mayor partes de funcionalidades al inciar sesión, para ello puedes hacer click en "iniciar sesión como invitado"
-dentro del panel de inicio de sesión y simulará un inicio con un usario creado por mí.
+## 📝 **Notas Importantes**
+> La página ofrece la mayoría de sus funcionalidades al iniciar sesión.  
+> Para ello, puedes hacer clic en **"Iniciar sesión como invitado"** dentro del panel de inicio de sesión y  
+> simularás un inicio con un usuario creado previamente.
+>
+> ⚡ **Resolución óptima:** La página está optimizada para **2560x1440p**  
+> Se recomienda **1440p** para una mejor experiencia de usuario.  
 
 ---
 
