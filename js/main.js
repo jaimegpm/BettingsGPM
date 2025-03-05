@@ -42,21 +42,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Manejo del depósito (caso especial)
-    const deposit = document.querySelector('.deposit');
-    if (deposit) {
-        deposit.style.cursor = 'pointer';
-        deposit.addEventListener('click', function(e) {
-            e.preventDefault();
-            const isIndex = window.location.pathname.includes('index.html') || 
-                          window.location.pathname.endsWith('/');
-            
-            if (isIndex) {
-                window.location.href = 'InicioConSesion.html';
-            }
-        });
-    }
-
     // Manejo del saldo
     const balanceElement = document.querySelector('.balance');
     if (balanceElement) {
@@ -210,6 +195,99 @@ document.addEventListener('DOMContentLoaded', function() {
             topMenu?.classList.remove('active');
         }
     });
+
+    // Manejo de notificaciones
+    const notificationsButton = document.querySelector('.notifications');
+    const notificationsMenu = document.querySelector('.notifications-menu');
+
+    if (notificationsButton && notificationsMenu) {
+        notificationsButton.addEventListener('click', function(e) {
+            e.stopPropagation();
+            notificationsMenu.classList.toggle('active');
+        });
+
+        // Cerrar al hacer clic fuera
+        document.addEventListener('click', function(e) {
+            if (!notificationsButton.contains(e.target)) {
+                notificationsMenu.classList.remove('active');
+            }
+        });
+
+        // Prevenir cierre al hacer clic dentro del menú
+        notificationsMenu.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    }
+
+    // Manejo del menú de depósito
+    const depositButton = document.querySelector('.deposit');
+    const depositMenu = document.querySelector('.deposit-menu');
+
+    if (depositButton && depositMenu) {
+        depositButton.addEventListener('click', function(e) {
+            e.stopPropagation();
+            depositMenu.classList.toggle('active');
+        });
+
+        // Cerrar al hacer clic fuera
+        document.addEventListener('click', function(e) {
+            if (!depositButton.contains(e.target)) {
+                depositMenu.classList.remove('active');
+            }
+        });
+
+        // Prevenir cierre al hacer clic dentro del menú
+        depositMenu.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    }
+
+    const chatButton = document.querySelector('.ai-chat-button');
+    const chatContainer = document.querySelector('.ai-chat-container');
+    const minimizeButton = document.querySelector('.ai-chat-minimize');
+
+    // Función para hacer vibrar el botón
+    function pulseButton() {
+        if (!chatContainer.classList.contains('active')) {  // Solo si el chat está cerrado
+            chatButton.classList.add('pulse');
+            setTimeout(() => {
+                chatButton.classList.remove('pulse');
+            }, 800);
+        }
+    }
+
+    // Activar la vibración cada 2.5 segundos
+    setInterval(pulseButton, 2500);
+
+    // Primera vibración después de 2.5 segundos
+    setTimeout(() => {
+        pulseButton();
+    }, 2500);
+
+    chatButton.addEventListener('click', function() {
+        // Añadir clase active al botón para la animación de pulso
+        chatButton.classList.add('active');
+        
+        // Mostrar loading
+        const loading = document.querySelector('.ai-loading');
+        loading.classList.add('active');
+        
+        // Simular tiempo de carga
+        setTimeout(() => {
+            loading.classList.remove('active');
+        }, 800);
+        
+        chatContainer.classList.toggle('active');
+        
+        // Remover la clase active del botón después de la animación
+        setTimeout(() => {
+            chatButton.classList.remove('active');
+        }, 1000);
+    });
+
+    minimizeButton.addEventListener('click', function() {
+        chatContainer.classList.remove('active');
+    });
 }); 
 // Manejo del modal de cierre de sesión
 const logoutModal = document.getElementById('logout-popup__modal');
@@ -344,3 +422,26 @@ document.querySelectorAll('.logo img').forEach(logo => {
         }
     });
 });
+
+// Manejo del menú de idiomas
+const languageButton = document.querySelector('.language');
+const languageMenu = document.querySelector('.language-menu');
+
+if (languageButton && languageMenu) {
+    languageButton.addEventListener('click', function(e) {
+        e.stopPropagation();
+        languageMenu.classList.toggle('active');
+    });
+
+    // Cerrar al hacer clic fuera
+    document.addEventListener('click', function(e) {
+        if (!languageButton.contains(e.target)) {
+            languageMenu.classList.remove('active');
+        }
+    });
+
+    // Prevenir cierre al hacer clic dentro del menú
+    languageMenu.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+}

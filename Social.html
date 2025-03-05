@@ -29,9 +29,117 @@
 
         <div class="top-menu">
             <div class="top-menu-items">
-                <div class="notifications">Notificaciones</div>
-                <div class="language">Idioma: Español</div>
-                <div class="deposit">Depositar</div>
+                <div class="notifications">
+                    Notificaciones
+                    <div class="notifications-menu">
+                        <div class="notifications-header">
+                            <h4>Notificaciones</h4>
+                            <span class="notifications-count">3</span>
+                        </div>
+                        <div class="notifications-list">
+                            <div class="notification-item unread">
+                                <div class="notification-icon">🎉</div>
+                                <div class="notification-content">
+                                    <p>¡Bono de bienvenida activado!</p>
+                                    <span class="notification-time">Ahora</span>
+                                </div>
+                            </div>
+                            <div class="notification-item unread">
+                                <div class="notification-icon">💰</div>
+                                <div class="notification-content">
+                                    <p>Tu apuesta fue ganadora</p>
+                                    <span class="notification-time">Hace 5 min</span>
+                                </div>
+                            </div>
+                            <div class="notification-item">
+                                <div class="notification-icon">📊</div>
+                                <div class="notification-content">
+                                    <p>Nuevas cuotas disponibles</p>
+                                    <span class="notification-time">Hace 15 min</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="language">
+                    Idioma: Español
+                    <div class="language-menu">
+                        <div class="language-list">
+                            <div class="language-item">
+                                <div class="language-name">
+                                    <span class="language-flag">🇪🇸</span>
+                                    <span class="language-text">Español</span>
+                                </div>
+                                <span class="language-status">Activo</span>
+                            </div>
+                            <div class="language-item">
+                                <div class="language-name">
+                                    <span class="language-flag">🇬🇧</span>
+                                    <span class="language-text">English</span>
+                                </div>
+                                <span class="language-status">No disponible</span>
+                            </div>
+                            <div class="language-item">
+                                <div class="language-name">
+                                    <span class="language-flag">🇫🇷</span>
+                                    <span class="language-text">Français</span>
+                                </div>
+                                <span class="language-status">No disponible</span>
+                            </div>
+                            <div class="language-item">
+                                <div class="language-name">
+                                    <span class="language-flag">🇩🇪</span>
+                                    <span class="language-text">Deutsch</span>
+                                </div>
+                                <span class="language-status">No disponible</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="deposit">
+                    Depositar
+                    <div class="deposit-menu">
+                        <div class="deposit-header">
+                            <h4>Métodos de Depósito</h4>
+                        </div>
+                        <div class="deposit-list">
+                            <div class="deposit-item">
+                                <div class="deposit-icon">💳</div>
+                                <div class="deposit-content">
+                                    <p>Tarjeta de Crédito/Débito</p>
+                                    <span class="deposit-info">Instantáneo - Sin comisiones</span>
+                                </div>
+                            </div>
+                            <div class="deposit-item">
+                                <div class="deposit-icon">🏦</div>
+                                <div class="deposit-content">
+                                    <p>Transferencia Bancaria</p>
+                                    <span class="deposit-info">24-48h - Sin comisiones</span>
+                                </div>
+                            </div>
+                            <div class="deposit-item">
+                                <div class="deposit-icon">₿</div>
+                                <div class="deposit-content">
+                                    <p>Criptomonedas</p>
+                                    <span class="deposit-info">Instantáneo - Comisión 1%</span>
+                                </div>
+                            </div>
+                            <div class="deposit-item">
+                                <div class="deposit-icon">📱</div>
+                                <div class="deposit-content">
+                                    <p>Bizum</p>
+                                    <span class="deposit-info">Instantáneo - Sin comisiones</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="deposit-footer">
+                            <button class="deposit-help-btn">
+                                <span class="help-icon">❔</span>
+                                Ayuda con los depósitos
+                            </button>
+                        </div>
+                    </div>
+                </div>
                 <div class="balance">Saldo: $7,450</div>
             </div>
             <div class="user-profile">
@@ -326,6 +434,44 @@
             <div class="modal-buttons">
                 <button class="btn-secondary" id="cancel-logout">No, me quedo</button>
                 <button class="btn-primary" id="confirm-logout">Sí, quiero salir</button>
+            </div>
+        </div>
+    </div>
+    <!-- Widget de Chat IA -->
+    <div class="ai-chat-widget">
+        <button class="ai-chat-button">
+            <svg class="ai-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6M12,8A4,4 0 0,0 8,12A4,4 0 0,0 12,16A4,4 0 0,0 16,12A4,4 0 0,0 12,8Z"/>
+            </svg>
+            <span class="ai-status">AI Assistant</span>
+        </button>
+        <div class="ai-chat-container">
+            <div class="ai-chat-header">
+                <div class="ai-chat-title">
+                    <span class="ai-icon">🤖</span>
+                    <div class="ai-info">
+                        <h4>Asistente BettingsGPM</h4>
+                        <div class="ai-status-wrapper">
+                            <span class="ai-status-text">En línea</span>
+                            <span class="ai-loading"></span>
+                        </div>
+                    </div>
+                </div>
+                <button class="ai-chat-minimize">−</button>
+            </div>
+            <div class="ai-chat-messages">
+                <div class="ai-message">
+                    <span class="ai-icon small">🤖</span>
+                    <div class="ai-message-content">
+                        <p>¡Hola! Soy el asistente de BettingsGPM. ¿En qué puedo ayudarte hoy?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="ai-chat-input">
+                <input type="text" placeholder="Escribe tu mensaje..." disabled>
+                <button class="ai-send-button" disabled>
+                    <span>📤</span>
+                </button>
             </div>
         </div>
     </div>
