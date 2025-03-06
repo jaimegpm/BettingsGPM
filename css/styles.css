@@ -1,3 +1,31 @@
+/* Importar fuentes más profesionales */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Aplicar fuente a toda la página */
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    letter-spacing: -0.01em;
+}
+
+/* Mejorar jerarquía tipográfica */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+/* Mejorar legibilidad de párrafos */
+p, .text-content {
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* Destacar elementos importantes */
+.highlight-text, .important-stat, .featured-text {
+    font-weight: 500;
+    color: #2ecc71;
+}
+
 :root {
     --primary-green: #2ecc71;
     --dark-bg: #1E1E1E;
@@ -28,6 +56,9 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Barra superior */
@@ -210,16 +241,17 @@ body {
     content: '';
     position: absolute;
     bottom: -2px;
-    left: 50%;
-    width: 0;
+    left: 0;
+    width: 100%;
     height: 2px;
-    background: #2ecc71;
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
+    background-color: #2ecc71;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: center;
 }
 
-.main-nav a:hover::after {
-    width: 70%;
+.main-nav a:hover::after, .main-nav a.active::after {
+    transform: scaleX(1);
 }
 
 .main-nav a.active {
@@ -290,9 +322,10 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* Corrección de los botones de deportes - sin línea verde */
 .sport-buttons button {
-    background: linear-gradient(145deg, #1c1c1c, #242424);
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    background: linear-gradient(145deg, #1a1a1a, #0e0e0e);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 10px;
     padding: 1.2rem;
     width: 150px;
@@ -301,16 +334,363 @@ body {
     cursor: pointer;
     font-size: 1.1rem;
     font-weight: 500;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
     letter-spacing: 0.5px;
     margin: 0 auto;
+    text-align: center;
+}
+
+/* Eliminar TODOS los estilos conflictivos */
+.sport-buttons button::before,
+.sport-buttons button::after {
+    display: none !important;
+    content: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* Iconos SVG centrados */
+.sport-buttons button {
+    position: relative;
+    z-index: 1;
+}
+
+.sport-buttons button:nth-child(1) {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232ecc71' opacity='0.3'%3E%3Cpath d='M12,2C6.48,2,2,6.48,2,12c0,5.52,4.48,10,10,10s10-4.48,10-10C22,6.48,17.52,2,12,2z M12,20c-4.42,0-8-3.58-8-8c0-4.42,3.58-8,8-8s8,3.58,8,8C20,16.42,16.42,20,12,20z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50px 50px;
+}
+
+.sport-buttons button:nth-child(2) {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232ecc71' opacity='0.3'%3E%3Cpath d='M12,2C6.48,2,2,6.48,2,12c0,5.52,4.48,10,10,10s10-4.48,10-10C22,6.48,17.52,2,12,2z M12,20c-4.42,0-8-3.58-8-8c0-4.42,3.58-8,8-8s8,3.58,8,8C20,16.42,16.42,20,12,20z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50px 50px;
+}
+
+.sport-buttons button:nth-child(3) {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232ecc71' opacity='0.3'%3E%3Cpath d='M12,2C6.48,2,2,6.48,2,12c0,5.52,4.48,10,10,10s10-4.48,10-10C22,6.48,17.52,2,12,2z M12,20c-4.42,0-8-3.58-8-8c0-4.42,3.58-8,8-8s8,3.58,8,8C20,16.42,16.42,20,12,20z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50px 50px;
+}
+
+.sport-buttons button:nth-child(4) {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232ecc71' opacity='0.3'%3E%3Cpath d='M12,2C6.48,2,2,6.48,2,12c0,5.52,4.48,10,10,10s10-4.48,10-10C22,6.48,17.52,2,12,2z M12,20c-4.42,0-8-3.58-8-8c0-4.42,3.58-8,8-8s8,3.58,8,8C20,16.42,16.42,20,12,20z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50px 50px;
+}
+
+/* Efecto de hover limpio y profesional */
+.sport-buttons button:hover {
+    background: linear-gradient(145deg, #1c1c1c, #0f0f0f);
+    color: #2ecc71;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    border-color: rgba(46, 204, 113, 0.3);
+    text-shadow: 0 0 8px rgba(46, 204, 113, 0.5);
+}
+
+/* Efecto de pulsación */
+.sport-buttons button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Texto centrado sobre el icono */
+.sport-buttons button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Efecto de brillo para el texto */
+.sport-buttons button {
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1), 
+                background-size 0.4s ease;
+}
+
+.sport-buttons button:hover {
+    background-size: 60px 60px;
+    text-shadow: 0 0 8px rgba(46, 204, 113, 0.5);
+}
+
+/* Efecto de brillo interior */
+.sport-buttons button::after {
+    content: '' !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle at center,
+        rgba(46, 204, 113, 0.15) 0%,
+        rgba(46, 204, 113, 0) 70%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+}
+
+.sport-buttons button:hover::after {
+    opacity: 1;
+}
+
+/* Efecto de hover mejorado */
+.sport-buttons button:hover {
+    background: linear-gradient(145deg, #1c1c1c, #0f0f0f);
+    color: #2ecc71;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 0 8px rgba(46, 204, 113, 0.5);
+}
+
+/* Efecto de pulsación */
+.sport-buttons button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Efecto de brillo inferior sutil */
+.sport-buttons button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, 
+        rgba(46, 204, 113, 0) 0%, 
+        rgba(46, 204, 113, 0.7) 50%, 
+        rgba(46, 204, 113, 0) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 3;
+}
+
+.sport-buttons button:hover::after {
+    opacity: 1;
+}
+
+/* Texto con efecto de brillo */
+.sport-buttons button span {
+    position: relative;
+    z-index: 2;
+    transition: transform 0.4s ease, color 0.4s ease, text-shadow 0.4s ease;
+}
+
+.sport-buttons button:hover span {
+    transform: scale(1.05);
+    text-shadow: 0 0 8px rgba(46, 204, 113, 0.5);
+}
+
+/* Efecto de pulsación */
+.sport-buttons button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Añadir línea inferior */
+.sport-buttons button::after {
+    content: '';
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #2ecc71;
+    transition: width 0.4s ease;
+    transform: translateX(-50%);
+    z-index: 3;
+    opacity: 0;
+}
+
+.sport-buttons button:hover::after {
+    width: 50px;
+    opacity: 1;
+}
+
+/* Iconos modernos con SVG */
+.sport-buttons button:nth-child(1)::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232ecc71' opacity='0.2'%3E%3Cpath d='M12,2C6.48,2,2,6.48,2,12c0,5.52,4.48,10,10,10s10-4.48,10-10C22,6.48,17.52,2,12,2z M13,5.3l1.35-0.95c1.82,0.56,3.37,1.76,4.38,3.34l-0.39,1.34l-1.35,0.46L13,6.7V5.3z M9.65,4.35L11,5.3v1.4L7.01,9.49L5.66,9.03L5.27,7.69C6.28,6.12,7.83,4.92,9.65,4.35z M7.08,17.11l-1.14,0.1C4.73,15.81,4,13.99,4,12c0-0.12,0.01-0.23,0.02-0.35l1-0.73L6.4,11.4l1.46,4.34L7.08,17.11z M14.5,19.59C13.71,19.85,12.87,20,12,20s-1.71-0.15-2.5-0.41l-0.69-1.49L9.45,17h5.11l0.64,1.11L14.5,19.59z M14.27,15H9.73l-1.35-4.02L12,8.44l3.63,2.54L14.27,15z M18.06,17.21l-1.14-0.1l-0.79-1.37l1.46-4.34l1.39-0.47l1,0.73C19.99,11.77,20,11.88,20,12C20,13.99,19.27,15.81,18.06,17.21z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.5;
+    transition: all 0.4s ease;
+    z-index: 1;
+}
+
+.sport-buttons button:nth-child(2)::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232ecc71' opacity='0.2'%3E%3Cpath d='M12,2C6.48,2,2,6.48,2,12c0,5.52,4.48,10,10,10s10-4.48,10-10C22,6.48,17.52,2,12,2z M12,20c-4.42,0-8-3.58-8-8c0-4.42,3.58-8,8-8s8,3.58,8,8C20,16.42,16.42,20,12,20z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.5;
+    transition: all 0.4s ease;
+    z-index: 1;
+}
+
+.sport-buttons button:nth-child(3)::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232ecc71' opacity='0.2'%3E%3Cpath d='M12,2C6.48,2,2,6.48,2,12c0,5.52,4.48,10,10,10s10-4.48,10-10C22,6.48,17.52,2,12,2z M12,20c-4.42,0-8-3.58-8-8c0-4.42,3.58-8,8-8s8,3.58,8,8C20,16.42,16.42,20,12,20z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.5;
+    transition: all 0.4s ease;
+    z-index: 1;
+}
+
+.sport-buttons button:nth-child(4)::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232ecc71' opacity='0.2'%3E%3Cpath d='M12,2C6.48,2,2,6.48,2,12c0,5.52,4.48,10,10,10s10-4.48,10-10C22,6.48,17.52,2,12,2z M12,20c-4.42,0-8-3.58-8-8c0-4.42,3.58-8,8-8s8,3.58,8,8C20,16.42,16.42,20,12,20z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.5;
+    transition: all 0.4s ease;
+    z-index: 1;
+}
+
+.sport-buttons button:hover::before {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* Efecto de hover elegante */
+.sport-buttons button:hover {
+    background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+    color: #2ecc71;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    border-color: rgba(46, 204, 113, 0.3);
+    text-shadow: 0 0 8px rgba(46, 204, 113, 0.5);
+}
+
+.sport-buttons button:hover::before {
+    transform: scale(1.15);
+    opacity: 1;
+    filter: grayscale(0%);
+}
+
+/* Efecto de borde brillante */
+.sport-buttons button::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, 
+        rgba(46, 204, 113, 0.5) 0%, 
+        rgba(46, 204, 113, 0.2) 25%, 
+        transparent 50%,
+        rgba(46, 204, 113, 0.2) 75%,
+        rgba(46, 204, 113, 0.5) 100%);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.35s ease;
+}
+
+.sport-buttons button:hover::after {
+    opacity: 1;
+    animation: rotate-border 4s linear infinite;
+}
+
+@keyframes rotate-border {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Efecto de pulsación */
+.sport-buttons button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Efecto de brillo interior */
+.sport-buttons button::before {
+    position: relative;
+    z-index: 2;
+}
+
+.sport-buttons button span {
+    position: relative;
+    z-index: 2;
+}
+
+/* Eliminar animaciones conflictivas */
+.sport-buttons button:hover {
+    animation: none;
+}
+
+/* Añadir línea inferior elegante */
+.sport-buttons button::after {
+    content: '';
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #2ecc71;
+    transition: width 0.35s ease;
+    transform: translateX(-50%);
+    z-index: 3;
+    opacity: 0;
+}
+
+.sport-buttons button:hover::after {
+    width: 50px;
+    opacity: 1;
+}
+
+/* Efecto de pulso sutil */
+@keyframes subtle-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.4); }
+    70% { box-shadow: 0 0 0 6px rgba(46, 204, 113, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
+}
+
+.sport-buttons button:hover {
+    animation: subtle-pulse 2s infinite;
 }
 
 .sport-buttons button::before {
@@ -1115,7 +1495,7 @@ footer nav a:hover {
 
 .form-group input:focus {
     outline: none;
-    border-color: var(--primary-green);
+    border-color: #2ecc71;
     background-color: rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 0 2px rgba(0, 255, 0, 0.1);
 }
@@ -3835,12 +4215,37 @@ body.login-page .center-content {
 }
 
 .notifications-count {
-    background: #2ecc71;
-    color: #000000;
-    padding: 0.2rem 0.6rem;
-    border-radius: 12px;
-    font-size: 0.8rem;
-    font-weight: 500;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    border-radius: 9px;
+    background-color: #2ecc71;
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.notifications-count::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: rgba(46, 204, 113, 0.5);
+    animation: pulse 2s infinite;
+    z-index: -1;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    70% { transform: scale(1.5); opacity: 0; }
+    100% { transform: scale(1.5); opacity: 0; }
 }
 
 .notifications-list {
@@ -4631,4 +5036,2277 @@ body.login-page .center-content {
 #login-session-submit:active {
     transform: translateY(0);
     box-shadow: 0 2px 10px rgba(46, 204, 113, 0.2);
+}
+
+/* Spinner de carga entre páginas */
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+
+.page-loader.active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0s linear;
+}
+
+.loader-spinner {
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top: 3px solid #2ecc71;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    position: relative;
+}
+
+.loader-spinner::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 50%;
+    border: 1px solid rgba(46, 204, 113, 0.3);
+    animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+@keyframes pulse-ring {
+    0% {
+        transform: scale(0.95);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(0.95);
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Añadir al final del archivo CSS */
+.page-transition {
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Aplicar a contenedores principales */
+main, .main-content, .content-section {
+    animation: fadeIn 0.4s ease-out;
+}
+
+/* Efecto de aparición escalonada para elementos de lista */
+.match-card, .ranking-item, .social-card {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Aplicar retrasos escalonados */
+.match-card:nth-child(1), .ranking-item:nth-child(1), .social-card:nth-child(1) { animation-delay: 0.1s; }
+.match-card:nth-child(2), .ranking-item:nth-child(2), .social-card:nth-child(2) { animation-delay: 0.2s; }
+.match-card:nth-child(3), .ranking-item:nth-child(3), .social-card:nth-child(3) { animation-delay: 0.3s; }
+.match-card:nth-child(4), .ranking-item:nth-child(4), .social-card:nth-child(4) { animation-delay: 0.4s; }
+.match-card:nth-child(5), .ranking-item:nth-child(5), .social-card:nth-child(5) { animation-delay: 0.5s; }
+
+/* Mejorar efectos de hover para botones */
+.btn-primary, .bet-button, .match-card-button {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary:before, .bet-button:before, .match-card-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        transparent 100%
+    );
+    transition: left 0.5s ease;
+}
+
+.btn-primary:hover:before, .bet-button:hover:before, .match-card-button:hover:before {
+    left: 100%;
+}
+
+.btn-primary:hover, .bet-button:hover, .match-card-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(46, 204, 113, 0.3);
+}
+
+.btn-primary:active, .bet-button:active, .match-card-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(46, 204, 113, 0.2);
+}
+
+/* Estilos para microinteracciones */
+.ripple-effect {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Animación al hacer scroll */
+.match-card, .ranking-item, .social-card, .profile-section {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.match-card:not(.in-view), .ranking-item:not(.in-view), 
+.social-card:not(.in-view), .profile-section:not(.in-view) {
+    transform: translateY(20px);
+    opacity: 0.6;
+}
+
+.match-card.in-view, .ranking-item.in-view, 
+.social-card.in-view, .profile-section.in-view {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Sistema de notificaciones toast */
+.toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toast {
+    display: flex;
+    align-items: center;
+    min-width: 250px;
+    max-width: 350px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    background: rgba(40, 40, 40, 0.95);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    color: white;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.toast.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.toast-icon {
+    margin-right: 12px;
+    font-size: 18px;
+}
+
+.toast-success .toast-icon {
+    color: #2ecc71;
+}
+
+.toast-error .toast-icon {
+    color: #e74c3c;
+}
+
+.toast-info .toast-icon {
+    color: #3498db;
+}
+
+/* Eliminar las animaciones que causan mareo */
+.page-transition {
+    animation: none;
+}
+
+main, .main-content, .content-section {
+    animation: none;
+}
+
+/* Eliminar la animación escalonada */
+.match-card, .ranking-item, .social-card {
+    opacity: 1;
+    animation: none;
+}
+
+/* Eliminar los retrasos escalonados */
+.match-card:nth-child(n), .ranking-item:nth-child(n), .social-card:nth-child(n) {
+    animation-delay: 0s;
+}
+
+/* Eliminar la animación al hacer scroll */
+.match-card:not(.in-view), .ranking-item:not(.in-view), 
+.social-card:not(.in-view), .profile-section:not(.in-view) {
+    transform: none;
+    opacity: 1;
+}
+
+/* Mejorar el hover de las tarjetas */
+.match-card, .event-card, .promo-card, .social-card {
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.match-card:hover, .event-card:hover, .promo-card:hover, .social-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Efecto de brillo en el borde al hacer hover */
+.match-card::before, .event-card::before, .promo-card::before, .social-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid transparent;
+    border-radius: inherit;
+    pointer-events: none;
+    transition: border-color 0.3s ease;
+}
+
+.match-card:hover::before, .event-card:hover::before, .promo-card:hover::before, .social-card:hover::before {
+    border-color: rgba(46, 204, 113, 0.5);
+}
+
+/* Efecto de brillo sutil */
+.match-card::after, .event-card::after, .promo-card::after, .social-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 100%
+    );
+    transition: left 0.7s ease;
+}
+
+.match-card:hover::after, .event-card:hover::after, .promo-card:hover::after, .social-card:hover::after {
+    left: 100%;
+}
+
+/* Mejorar la transición de los elementos internos */
+.match-card .match-teams, .match-card .match-info,
+.event-card .event-details, .promo-card .promo-content,
+.social-card .social-content {
+    transition: transform 0.2s ease;
+}
+
+.match-card:hover .match-teams, .match-card:hover .match-info,
+.event-card:hover .event-details, .promo-card:hover .promo-content,
+.social-card:hover .social-content {
+    transform: translateY(-2px);
+}
+
+/* Efecto en los botones dentro de las tarjetas */
+.match-card .bet-button, .event-card .card-button, 
+.promo-card .card-button, .social-card .card-button {
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.match-card:hover .bet-button, .event-card:hover .card-button,
+.promo-card:hover .card-button, .social-card:hover .card-button {
+    box-shadow: 0 4px 8px rgba(46, 204, 113, 0.2);
+}
+
+/* Efectos para la tabla de rankings */
+.ranking-table {
+    transition: box-shadow 0.3s ease;
+}
+
+.ranking-table:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Efectos para las filas de la tabla */
+.ranking-row {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.ranking-row:hover {
+    background-color: rgba(46, 204, 113, 0.05);
+}
+
+/* Efecto de línea lateral al hacer hover */
+.ranking-row::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background-color: #2ecc71;
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.ranking-row:hover::before {
+    transform: scaleY(1);
+}
+
+/* Efecto para los elementos dentro de las filas */
+.ranking-row .ranking-position,
+.ranking-row .ranking-team,
+.ranking-row .ranking-points,
+.ranking-row .ranking-stats {
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.ranking-row:hover .ranking-position,
+.ranking-row:hover .ranking-team,
+.ranking-row:hover .ranking-points,
+.ranking-row:hover .ranking-stats {
+    color: #2ecc71;
+}
+
+/* Efecto para los íconos y badges */
+.ranking-row .team-logo,
+.ranking-row .ranking-badge {
+    transition: transform 0.2s ease, filter 0.3s ease;
+}
+
+.ranking-row:hover .team-logo,
+.ranking-row:hover .ranking-badge {
+    transform: scale(1.05);
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.1));
+}
+
+/* Efecto para los botones de filtro y ordenación */
+.ranking-filters button,
+.ranking-sort button {
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.ranking-filters button:hover,
+.ranking-sort button:hover {
+    background-color: rgba(46, 204, 113, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.ranking-filters button::after,
+.ranking-sort button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #2ecc71;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: center;
+}
+
+.ranking-filters button:hover::after,
+.ranking-sort button:hover::after {
+    transform: scaleX(1);
+}
+
+/* Efecto para las pestañas de categorías */
+.ranking-tabs .tab {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.ranking-tabs .tab::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #2ecc71;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.ranking-tabs .tab:hover::after {
+    transform: scaleX(1);
+}
+
+.ranking-tabs .tab.active::after {
+    transform: scaleX(1);
+}
+
+/* Efecto para los elementos de paginación */
+.ranking-pagination .page-item {
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.ranking-pagination .page-item:hover {
+    transform: translateY(-2px);
+    background-color: rgba(46, 204, 113, 0.1);
+}
+
+/* Efecto para el contenedor principal de rankings */
+.rankings-container {
+    transition: opacity 0.3s ease;
+}
+
+/* Efecto para las tarjetas de jugadores destacados */
+.featured-player-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.featured-player-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.featured-player-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid transparent;
+    border-radius: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.featured-player-card:hover::before {
+    border-color: rgba(46, 204, 113, 0.5);
+}
+
+/* Efecto para las estadísticas en hover */
+.ranking-row .stats-detail {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.ranking-row:hover .stats-detail {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Efectos para la sección Social */
+
+/* Tarjetas de amigos y grupos */
+.social-friend-card, .social-group-card {
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.social-friend-card:hover, .social-group-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Efecto de borde brillante */
+.social-friend-card::before, .social-group-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid transparent;
+    border-radius: inherit;
+    pointer-events: none;
+    transition: border-color 0.3s ease;
+}
+
+.social-friend-card:hover::before, .social-group-card:hover::before {
+    border-color: rgba(46, 204, 113, 0.5);
+}
+
+/* Efecto de brillo al pasar el cursor */
+.social-friend-card::after, .social-group-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 100%
+    );
+    transition: left 0.7s ease;
+}
+
+.social-friend-card:hover::after, .social-group-card:hover::after {
+    left: 100%;
+}
+
+/* Efecto para avatares de amigos y grupos */
+.social-friend-avatar, .social-group-avatar {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-friend-card:hover .social-friend-avatar,
+.social-group-card:hover .social-group-avatar {
+    filter: brightness(1.1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Efecto para nombres y detalles */
+.social-friend-name, .social-group-name,
+.social-friend-details, .social-group-details {
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-friend-card:hover .social-friend-name,
+.social-group-card:hover .social-group-name {
+    color: #2ecc71;
+}
+
+/* Efecto para botones de acción social */
+.social-action-btn, .add-friend-btn, .join-group-btn {
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.social-action-btn:hover, .add-friend-btn:hover, .join-group-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(46, 204, 113, 0.2);
+}
+
+.social-action-btn::before, .add-friend-btn::before, .join-group-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        transparent 100%
+    );
+    transition: left 0.5s ease;
+}
+
+.social-action-btn:hover::before, .add-friend-btn:hover::before, .join-group-btn:hover::before {
+    left: 100%;
+}
+
+/* Efecto para pestañas de navegación social */
+.social-tabs .tab {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.social-tabs .tab::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #2ecc71;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.social-tabs .tab:hover::after {
+    transform: scaleX(1);
+}
+
+.social-tabs .tab.active::after {
+    transform: scaleX(1);
+}
+
+/* Efecto para la barra de búsqueda social */
+.social-search-bar {
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.social-search-bar:focus, .social-search-bar:hover {
+    box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.2);
+    border-color: #2ecc71;
+}
+
+/* Efecto para los mensajes y notificaciones sociales */
+.social-message, .social-notification {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    position: relative;
+}
+
+.social-message:hover, .social-notification:hover {
+    background-color: rgba(46, 204, 113, 0.05);
+}
+
+.social-message::before, .social-notification::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background-color: #2ecc71;
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.social-message:hover::before, .social-notification:hover::before {
+    transform: scaleY(1);
+}
+
+/* Efecto para los contadores de actividad */
+.activity-counter, .friends-counter, .groups-counter {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.social-friend-card:hover .activity-counter,
+.social-group-card:hover .friends-counter,
+.social-group-card:hover .groups-counter {
+    transform: scale(1.1);
+    background-color: #2ecc71;
+    color: white;
+}
+
+/* Animación para iconos en hover */
+.icon-btn, .action-icon, .nav-icon {
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.icon-btn:hover, .action-icon:hover, .nav-icon:hover {
+    transform: scale(1.15);
+    color: #2ecc71;
+}
+
+/* Animación para elementos de navegación */
+.nav-item, .tab-item, .menu-item {
+    transition: transform 0.2s ease;
+}
+
+.nav-item:hover, .tab-item:hover, .menu-item:hover {
+    transform: translateY(-2px);
+}
+
+/* Efecto de pulsación para botones */
+.btn, button:not(.no-pulse) {
+    transition: transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.btn:active, button:not(.no-pulse):active {
+    transform: scale(0.97);
+}
+
+/* Efecto de profundidad para secciones principales */
+.main-section, .content-panel, .dashboard-widget {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.main-section:hover, .content-panel:hover, .dashboard-widget:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Efecto de capas para elementos superpuestos */
+.layered-element {
+    position: relative;
+}
+
+.layered-element::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: -8px;
+    bottom: -8px;
+    background: rgba(46, 204, 113, 0.1);
+    border-radius: inherit;
+    z-index: -1;
+}
+
+/* Estilizar campos de formulario */
+input, select, textarea {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    padding: 12px 16px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #2ecc71;
+    box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.2);
+    outline: none;
+}
+
+/* Estilizar etiquetas de formulario */
+label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 6px;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+input:focus + label, select:focus + label, textarea:focus + label {
+    color: #2ecc71;
+}
+
+/* Mejorar checkboxes y radio buttons */
+input[type="checkbox"], input[type="radio"] {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+input[type="checkbox"]:checked, input[type="radio"]:checked {
+    border-color: #2ecc71;
+    background-color: #2ecc71;
+}
+
+/* Efecto de vidrio esmerilado */
+.glass-card, .featured-element, .premium-content {
+    background: rgba(30, 30, 30, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Borde brillante para elementos glass */
+.glass-card::before, .featured-element::before, .premium-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    pointer-events: none;
+}
+
+/* Indicador de página actual mejorado */
+.nav-item.active {
+    position: relative;
+    font-weight: 600;
+}
+
+.nav-item.active::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #2ecc71;
+    box-shadow: 0 0 10px #2ecc71;
+}
+
+/* Menú desplegable mejorado */
+.dropdown-menu {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transform-origin: top center;
+    transform: translateY(10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dropdown:hover .dropdown-menu {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Estilos para el contenedor de partículas */
+.particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Tablas de datos mejoradas */
+.data-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.data-table th {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.data-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background-color 0.2s ease;
+}
+
+.data-table tr:last-child td {
+    border-bottom: none;
+}
+
+.data-table tr:hover td {
+    background-color: rgba(46, 204, 113, 0.05);
+}
+
+/* Celdas con datos destacados */
+.data-table .highlight-cell {
+    color: #2ecc71;
+    font-weight: 500;
+}
+
+/* Filas alternadas */
+.data-table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Loader personalizado */
+.custom-loader {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    border-top-color: #2ecc71;
+    animation: spin 1s ease-in-out infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Efecto de esqueleto para carga de contenido */
+.skeleton-loader {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.05) 25%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0.05) 75%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+    border-radius: 4px;
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+@keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Asegurar que los efectos no modifiquen tamaños ni estructura */
+.match-card, .event-card, .promo-card, .social-card,
+.ranking-row, .social-friend-card, .social-group-card {
+    transform: none !important; /* Prevenir transformaciones que puedan afectar el layout */
+}
+
+/* Asegurar que los efectos de hover sean sutiles */
+.match-card:hover, .event-card:hover, .promo-card:hover, .social-card:hover,
+.ranking-row:hover, .social-friend-card:hover, .social-group-card:hover {
+    transform: none !important; /* Mantener posición exacta */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Ajustar partículas para que sean más sutiles */
+.particles-container {
+    opacity: 0.5; /* Hacer las partículas más sutiles */
+}
+
+/* Restaurar velocidades de animación originales */
+.main-nav a, .sport-item, .category-item {
+    transition: all 0.5s ease; /* Volver a la velocidad original más lenta */
+}
+
+/* Restaurar animaciones de botones del panel izquierdo */
+.sport-item, .category-item {
+    transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease;
+}
+
+.sport-item:hover, .category-item:hover {
+    transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease;
+}
+
+/* Corregir color de texto en botón editar perfil */
+.edit-profile-btn:hover, .profile-action-btn:hover {
+    color: white !important; /* Asegurar que el texto sea blanco en hover */
+    background-color: #25a65c;
+}
+
+/* Restaurar velocidades de animación para otros elementos */
+.btn, .btn-primary, .btn-secondary, .card-button, .action-button {
+    transition: all 0.5s ease;
+}
+
+.btn:hover, .btn-primary:hover, .btn-secondary:hover, .card-button:hover, .action-button:hover {
+    transition: all 0.5s ease;
+}
+
+/* Asegurar que los botones con fondo oscuro tengan texto claro en hover */
+.dark-btn:hover, .btn-dark:hover, .edit-profile-btn:hover {
+    color: white !important;
+}
+
+/* Restaurar velocidades de animación para tarjetas */
+.match-card, .event-card, .promo-card, .social-card {
+    transition: box-shadow 0.5s ease, transform 0.5s ease;
+}
+
+.match-card:hover, .event-card:hover, .promo-card:hover, .social-card:hover {
+    transition: box-shadow 0.5s ease, transform 0.5s ease;
+}
+
+/* Restaurar velocidades de animación para efectos de brillo */
+.match-card::after, .event-card::after, .promo-card::after, .social-card::after,
+.btn-primary:before, .bet-button:before, .match-card-button:before {
+    transition: left 1s ease; /* Más lento para el efecto de brillo */
+}
+
+/* Corrección específica para el botón de editar perfil en Perfil.html */
+.profile-header .edit-profile-btn:hover,
+.profile-header .profile-action-btn:hover,
+button.edit-profile-btn:hover {
+    color: white !important;
+    background-color: #25a65c !important;
+}
+
+/* Eliminar scrollbar en el panel de cuotas en vivo */
+.live-odds-panel {
+    overflow: hidden !important; /* Forzar que no haya scrollbar */
+}
+
+.live-odds-panel .match-info {
+    font-size: 0.95rem; /* Ajustar ligeramente el tamaño de fuente */
+    line-height: 1.4; /* Ajustar el interlineado */
+    margin-bottom: 0.5rem; /* Espacio inferior */
+}
+
+/* Mejorar el aspecto del panel de cuotas sin cambiar tamaños */
+.live-odds-panel .match-title {
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+}
+
+.live-odds-panel .odds-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.live-odds-panel .odds-row:last-child {
+    border-bottom: none;
+}
+
+.live-odds-panel .team-name {
+    flex: 1;
+}
+
+.live-odds-panel .odds-value {
+    font-weight: 600;
+    color: #2ecc71;
+    background-color: rgba(46, 204, 113, 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+}
+
+.live-odds-panel .ball-icon {
+    color: #2ecc71;
+    margin-left: 0.3rem;
+}
+
+/* Asegurar que no haya cambios de tamaño en hover */
+.live-odds-panel .odds-row:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Asegurar que todos los botones de editar perfil tengan texto blanco en hover */
+button[class*="edit-profile"]:hover,
+a[class*="edit-profile"]:hover,
+.edit-profile:hover,
+[class*="edit-profile-btn"]:hover {
+    color: white !important;
+}
+
+/* Forzar color de texto blanco para todos los botones en hover */
+.btn:hover, button:hover, .action-btn:hover {
+    color: white !important;
+}
+
+/* Corrección específica para el panel de cuotas en vivo */
+.live-match {
+    overflow: hidden !important; /* Eliminar scrollbar */
+    height: auto !important; /* Permitir altura natural */
+    max-height: none !important; /* Eliminar límite de altura */
+}
+
+.live-match p {
+    margin: 8px 0 !important; /* Margen vertical fijo */
+    font-size: 0.95rem !important; /* Tamaño de fuente ligeramente reducido */
+    line-height: 1.4 !important; /* Altura de línea controlada */
+    white-space: normal !important; /* Permitir saltos de línea */
+    overflow: visible !important; /* Asegurar que el texto sea visible */
+}
+
+/* Asegurar que el panel gris mantenga sus dimensiones */
+.right-sidebar > div {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+}
+
+/* Mejorar el aspecto del panel sin cambiar dimensiones */
+.live-match p:first-child {
+    font-weight: 600 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding-bottom: 8px !important;
+    margin-bottom: 10px !important;
+}
+
+.live-match p:not(:first-child) {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 4px 0 !important;
+}
+
+.live-match p:not(:first-child)::before {
+    content: '•' !important;
+    color: #2ecc71 !important;
+    margin-right: 8px !important;
+}
+
+/* Microinteracciones para elementos interactivos */
+.btn, button, .nav-item, .sport-item {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de onda al hacer clic */
+.btn::after, button::after, .nav-item::after, .sport-item::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.3) 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform 0.5s, opacity 0.8s;
+}
+
+.btn:active::after, button:active::after, .nav-item:active::after, .sport-item:active::after {
+    transform: scale(0, 0);
+    opacity: 0.3;
+    transition: 0s;
+}
+
+/* Mejorar legibilidad con sombras sutiles para texto sobre fondos variables */
+.match-card h3, .team-name, .match-title, .ranking-header h3, .social-header h3 {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Mejorar contraste para elementos importantes */
+.balance, .win-rate, .status-active, .highlight-text {
+    text-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
+}
+
+/* Indicadores de estado para elementos interactivos */
+.nav-item.active, .tab.active, .sport-item.active {
+    position: relative;
+}
+
+.nav-item.active::before, .tab.active::before, .sport-item.active::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 50%;
+    background-color: #2ecc71;
+    border-radius: 3px;
+}
+
+/* Mejorar apariencia de iconos */
+.notification-icon, .deposit-icon, .user-icon, .logout-icon, .help-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(46, 204, 113, 0.1);
+    margin-right: 8px;
+}
+
+/* Efecto de brillo para iconos en hover */
+.notification-icon:hover, .deposit-icon:hover, .user-icon:hover {
+    box-shadow: 0 0 8px rgba(46, 204, 113, 0.5);
+}
+
+/* Mejoras en las tablas de rankings */
+.rankings-table tr {
+    transition: background-color 0.3s ease;
+}
+
+.rankings-table tr:hover {
+    background-color: rgba(46, 204, 113, 0.05);
+}
+
+/* Destacar posiciones top */
+.rankings-table .position:nth-child(1),
+.rankings-table tr:nth-child(1) .position {
+    color: gold;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+.rankings-table .position:nth-child(2),
+.rankings-table tr:nth-child(2) .position {
+    color: silver;
+    text-shadow: 0 0 5px rgba(192, 192, 192, 0.5);
+}
+
+.rankings-table .position:nth-child(3),
+.rankings-table tr:nth-child(3) .position {
+    color: #cd7f32; /* bronce */
+    text-shadow: 0 0 5px rgba(205, 127, 50, 0.5);
+}
+
+/* Mejorar indicadores de tendencia */
+.trend.up {
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+.trend.down {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* Estilos para el efecto de carga de imágenes */
+.img-loading-wrapper {
+    position: relative;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.img-loading-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        transparent 100%
+    );
+    animation: loading-shine 1.5s infinite;
+}
+
+@keyframes loading-shine {
+    to {
+        left: 100%;
+    }
+}
+
+img.loading {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+img.loaded {
+    opacity: 1;
+}
+
+.img-loading-wrapper.loaded::before {
+    animation: none;
+    opacity: 0;
+}
+
+/* Mejorar feedback en formularios */
+input:focus, select:focus, textarea:focus {
+    border-color: #2ecc71;
+    box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.2);
+}
+
+input:valid, select:valid, textarea:valid {
+    border-color: rgba(46, 204, 113, 0.5);
+}
+
+input:invalid:not(:placeholder-shown), 
+select:invalid:not(:placeholder-shown), 
+textarea:invalid:not(:placeholder-shown) {
+    border-color: rgba(231, 76, 60, 0.5);
+}
+
+/* Indicador de validación */
+.form-group {
+    position: relative;
+}
+
+.form-group::after {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.form-group input:valid:not(:placeholder-shown) + .form-group::after {
+    content: '✓';
+    color: #2ecc71;
+    opacity: 1;
+}
+
+.form-group input:invalid:not(:placeholder-shown) + .form-group::after {
+    content: '✗';
+    color: #e74c3c;
+    opacity: 1;
+}
+
+/* Toggle de tema claro/oscuro */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+    margin-right: auto;
+    position: relative;
+    z-index: 10;
+}
+
+#theme-switch {
+    background: linear-gradient(145deg, #1a1a1a, #0e0e0e);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+#theme-switch:hover {
+    background: linear-gradient(145deg, #1c1c1c, #0f0f0f);
+    box-shadow: 0 0 10px rgba(46, 204, 113, 0.3);
+}
+
+.theme-icon {
+    position: absolute;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.theme-icon.light {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.theme-icon.dark {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estilos para el modo claro */
+body.light-theme {
+    background-image: url('../img/fondomain-light.jpg');
+    color: #333;
+}
+
+body.light-theme .top-bar,
+body.light-theme .nav__main,
+body.light-theme .left-sidebar > div,
+body.light-theme .right-sidebar > div,
+body.light-theme .main-content,
+body.light-theme .sport-buttons,
+body.light-theme .promotions ul,
+body.light-theme .ai-chat-container,
+body.light-theme .modal-content {
+    background: rgba(245, 245, 245, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .sport-buttons button {
+    background: linear-gradient(145deg, #f0f0f0, #e0e0e0);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    color: #333;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .sport-buttons button:hover {
+    background: linear-gradient(145deg, #e8e8e8, #d8d8d8);
+    color: #2ecc71;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+body.light-theme .nav__main a,
+body.light-theme .top-menu-items > div,
+body.light-theme h1, 
+body.light-theme h2, 
+body.light-theme h3, 
+body.light-theme h4 {
+    color: #333;
+}
+
+body.light-theme #theme-switch {
+    background: linear-gradient(145deg, #f0f0f0, #e0e0e0);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.light-theme .theme-icon.light {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+body.light-theme .theme-icon.dark {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+/* Ajustar el layout para que no se mueva nada */
+.top-bar {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    margin-right: 0;
+}
+
+.top-menu {
+    margin-left: auto;
+}
+
+/* Botones específicos con sus iconos */
+.sport-buttons button.futbol {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232ecc71' opacity='0.3'%3E%3Cpath d='M12,2C6.48,2,2,6.48,2,12c0,5.52,4.48,10,10,10s10-4.48,10-10C22,6.48,17.52,2,12,2z M12,20c-4.42,0-8-3.58-8-8c0-4.42,3.58-8,8-8s8,3.58,8,8C20,16.42,16.42,20,12,20z M13.8,14.79l-3.95-2.05l1.96-3.9l3.9,2.05L13.8,14.79z'/%3E%3C/svg%3E");
+}
+
+.sport-buttons button.tenis {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232ecc71' opacity='0.3'%3E%3Cpath d='M12,2C6.48,2,2,6.48,2,12c0,5.52,4.48,10,10,10s10-4.48,10-10C22,6.48,17.52,2,12,2z M17.36,14.3c-1.43-.8-2.32-2.34-2.38-3.96c.06-1.62.95-3.16,2.38-3.96c1.43.8,2.32,2.34,2.38,3.96C19.68,11.96,18.79,13.5,17.36,14.3z M8.64,14.3c-1.43.8-3.16.8-4.59,0c-.15-1.62-.15-3.49,0-5.11c1.43-.8,3.16-.8,4.59,0C8.8,10.81,8.8,12.68,8.64,14.3z'/%3E%3C/svg%3E");
+}
+
+.sport-buttons button.baloncesto {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232ecc71' opacity='0.3'%3E%3Cpath d='M12,2C6.48,2,2,6.48,2,12c0,5.52,4.48,10,10,10s10-4.48,10-10C22,6.48,17.52,2,12,2z M5.23,7.75C6.1,8.62,6.7,9.74,6.91,11H4.07C4.22,9.82,4.63,8.72,5.23,7.75z M4.07,13h2.84c-0.21,1.26-0.81,2.38-1.68,3.25C4.63,15.28,4.22,14.18,4.07,13z M11,19.93c-1.73-0.22-3.29-1-4.49-2.14c1.3-1.14,2.2-2.57,2.56-4.21H11V19.93z'/%3E%3C/svg%3E");
+}
+
+.sport-buttons button.padel {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232ecc71' opacity='0.3'%3E%3Cpath d='M12,2C6.48,2,2,6.48,2,12c0,5.52,4.48,10,10,10s10-4.48,10-10C22,6.48,17.52,2,12,2z M7,7h7v7H7V7z M7,16h3v3H7V16z M17,17h-4v-3h4V17z M17,12h-2V7h2V12z'/%3E%3C/svg%3E");
+}
+
+/* Botones para el tema claro con los mismos iconos pero más visibles */
+body.light-theme .sport-buttons button.futbol,
+body.light-theme .sport-buttons button.tenis,
+body.light-theme .sport-buttons button.baloncesto,
+body.light-theme .sport-buttons button.padel {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232ecc71' opacity='0.3'%3E%3Cpath d='M12,2C6.48,2,2,6.48,2,12c0,5.52,4.48,10,10,10s10-4.48,10-10C22,6.48,17.52,2,12,2z M12,20c-4.42,0-8-3.58-8-8c0-4.42,3.58-8,8-8s8,3.58,8,8C20,16.42,16.42,20,12,20z'/%3E%3C/svg%3E");
+}
+
+/* Mejoras para el modo claro (Light Theme) */
+/* Estas reglas se añaden al final del archivo CSS */
+
+/* Mejora del contraste y legibilidad en modo claro */
+body.light-theme {
+    /* Colores de texto mejorados */
+    --light-text: #333;
+    --light-text-secondary: #555;
+    --light-accent: #2ecc71;
+    --light-border: rgba(0, 0, 0, 0.1);
+    --light-shadow: rgba(0, 0, 0, 0.1);
+    --light-background: rgba(250, 250, 250, 0.95);
+    --light-card-bg: rgba(255, 255, 255, 0.9);
+}
+
+/* Corregir el color de texto en componentes específicos */
+body.light-theme .left-sidebar h3, 
+body.light-theme .right-sidebar h3,
+body.light-theme .section-title,
+body.light-theme .ai-chat-title h4 {
+    color: var(--light-text);
+}
+
+/* Mejorar contraste en botones y elementos interactivos */
+body.light-theme .sport-buttons button {
+    color: var(--light-text);
+    background: linear-gradient(145deg, #f5f5f5, #e6e6e6);
+    border: 1px solid var(--light-border);
+    box-shadow: 0 4px 10px var(--light-shadow);
+}
+
+/* Mejorar la visibilidad de las tarjetas en modo claro */
+body.light-theme .match-card,
+body.light-theme .event-card, 
+body.light-theme .news-card,
+body.light-theme .promotion-card {
+    background: var(--light-card-bg);
+    border: 1px solid var(--light-border);
+    box-shadow: 0 4px 15px var(--light-shadow);
+}
+
+/* Asegurar que los textos en tarjetas sean legibles */
+body.light-theme .match-card *,
+body.light-theme .event-card *, 
+body.light-theme .news-card *,
+body.light-theme .promotion-card * {
+    color: var(--light-text);
+}
+
+/* Mejorar la visibilidad de elementos específicos */
+body.light-theme .team-name,
+body.light-theme .odd-value,
+body.light-theme .match-time,
+body.light-theme .match-date {
+    color: var(--light-text);
+}
+
+/* Asegurar que las tablas y listas tengan buen contraste */
+body.light-theme table,
+body.light-theme .list-item {
+    background: var(--light-card-bg);
+    color: var(--light-text);
+    border-color: var(--light-border);
+}
+
+/* Mejorar contraste en encabezados de tabla */
+body.light-theme thead th,
+body.light-theme .list-header {
+    background: rgba(230, 230, 230, 0.9);
+    color: var(--light-text);
+}
+
+/* Asegurar que los botones de acción sean visibles */
+body.light-theme .btn,
+body.light-theme .action-button {
+    background: linear-gradient(145deg, #f0f0f0, #e0e0e0);
+    color: var(--light-text);
+    border: 1px solid var(--light-border);
+}
+
+body.light-theme .btn:hover,
+body.light-theme .action-button:hover {
+    background: linear-gradient(145deg, #e8e8e8, #d8d8d8);
+    color: var(--light-accent);
+}
+
+/* Mejorar contraste en elementos de navegación */
+body.light-theme .nav__main a:hover,
+body.light-theme .nav__main a.active {
+    color: var(--light-accent);
+    background: rgba(240, 240, 240, 0.7);
+}
+
+/* Asegurar que los iconos sean visibles */
+body.light-theme .icon,
+body.light-theme .nav-icon,
+body.light-theme .action-icon {
+    color: var(--light-text);
+}
+
+/* Mejorar chat AI en modo claro */
+body.light-theme .ai-chat-container {
+    background: var(--light-card-bg);
+    border: 1px solid var(--light-border);
+}
+
+body.light-theme .ai-message {
+    background: rgba(240, 240, 240, 0.8);
+    color: var(--light-text);
+}
+
+body.light-theme .ai-chat-input input {
+    background: white;
+    color: var(--light-text);
+    border: 1px solid var(--light-border);
+}
+
+/* Hacer todas las líneas y bordes más visibles */
+body.light-theme .divider,
+body.light-theme hr,
+body.light-theme .separator {
+    background-color: var(--light-border);
+}
+
+/* Asegurar que las notificaciones y badges sean visibles */
+body.light-theme .badge,
+body.light-theme .notification-badge {
+    background: var(--light-accent);
+    color: white;
+}
+
+/* Mejoras específicas para el modo claro - problemas de legibilidad */
+
+/* Arreglar el contraste del título principal "PARTIDOS DESTACADOS" */
+body.light-theme .main-content h2, 
+body.light-theme .section-title,
+body.light-theme .card-title {
+    color: #222 !important;
+    text-shadow: none;
+}
+
+/* Mejorar la visibilidad del texto en las cajas laterales */
+body.light-theme .left-sidebar h3, 
+body.light-theme .right-sidebar h3 {
+    color: #222 !important;
+    font-weight: 600;
+}
+
+/* Mejorar el texto en los botones de deportes */
+body.light-theme .sport-buttons button {
+    color: #333 !important;
+    font-weight: 600;
+}
+
+/* Mejorar el color del texto en tarjetas de partidos */
+body.light-theme .match-card .team-name {
+    color: #222 !important;
+    font-weight: 500;
+}
+
+/* Mejorar el contraste de las cuotas */
+body.light-theme .odd-value {
+    color: #222 !important;
+    font-weight: 600;
+    background-color: rgba(230, 230, 230, 0.7);
+}
+
+/* Mejorar texto de promociones */
+body.light-theme .promotions li {
+    color: #333 !important;
+}
+
+/* Mejorar texto de apuestas recientes */
+body.light-theme .right-sidebar .list-item {
+    color: #333 !important;
+}
+
+/* Asegurar que los contenedores también tengan buen contraste */
+body.light-theme .sport-buttons, 
+body.light-theme .promotions ul {
+    background-color: #f0f0f0 !important;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Mejorar la apariencia de los paneles laterales completos */
+body.light-theme .left-sidebar, 
+body.light-theme .right-sidebar {
+    background-color: rgba(245, 245, 245, 0.5);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Mejorar los elementos de cuotas en tiempo real */
+body.light-theme .live-odds-container {
+    background-color: #f5f5f5;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Asegurar que el fondo principal tenga un color adecuado */
+body.light-theme {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Mejorar la barra de navegación principal */
+body.light-theme .nav__main {
+    background-color: rgba(250, 250, 250, 0.95);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+body.light-theme .nav__main a {
+    color: #333 !important;
+}
+
+body.light-theme .nav__main a.active {
+    color: #2ecc71 !important;
+    font-weight: 600;
+}
+
+/* Mejorar la visualización de la barra superior */
+body.light-theme .top-bar {
+    background-color: rgba(250, 250, 250, 0.95);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Solución completa para los problemas de legibilidad en modo claro */
+
+/* Forzar colores oscuros para textos en general */
+body.light-theme h1, 
+body.light-theme h2, 
+body.light-theme h3, 
+body.light-theme h4, 
+body.light-theme p, 
+body.light-theme span, 
+body.light-theme div,
+body.light-theme li,
+body.light-theme a {
+    color: #222 !important;
+}
+
+/* Excepciones para botones, enlaces e iconos con fondos oscuros */
+body.light-theme button:not(.sport-buttons button),
+body.light-theme .btn,
+body.light-theme .nav__main a.active {
+    color: inherit !important;
+}
+
+/* Contenido principal - arreglar específicamente el título de partidos destacados */
+body.light-theme .main-content h2 {
+    color: #000 !important;
+    text-shadow: none !important;
+    font-weight: 700 !important;
+    background-color: rgba(255, 255, 255, 0.7) !important;
+    padding: 10px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Tarjetas de partidos */
+body.light-theme .match-card {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid rgba(0, 0, 0, 0.2) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Nombres de equipos */
+body.light-theme .team-name {
+    color: #000 !important;
+    font-weight: 600 !important;
+    text-shadow: none !important;
+}
+
+/* Botones de cuotas */
+body.light-theme .odd-value {
+    background-color: #e0e0e0 !important;
+    color: #000 !important;
+    font-weight: 700 !important;
+    border: 1px solid rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Títulos de paneles laterales */
+body.light-theme .left-sidebar h3, 
+body.light-theme .right-sidebar h3 {
+    color: #000 !important;
+    background-color: rgba(240, 240, 240, 0.9) !important;
+    font-weight: 700 !important;
+    padding: 8px !important;
+    border-radius: 6px !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05) !important;
+    text-shadow: none !important;
+}
+
+/* Botones de deportes */
+body.light-theme .sport-buttons button {
+    background: linear-gradient(145deg, #ffffff, #e6e6e6) !important;
+    color: #000 !important;
+    font-weight: 700 !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    text-shadow: none !important;
+}
+
+/* Panel de promociones */
+body.light-theme .promotions ul {
+    background-color: #ffffff !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+body.light-theme .promotions li {
+    color: #000 !important;
+    font-weight: 500 !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+    padding: 10px 0 !important;
+}
+
+/* Cuotas en vivo */
+body.light-theme .live-odds-container {
+    background-color: #ffffff !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+body.light-theme .live-odds-container * {
+    color: #000 !important;
+}
+
+/* Apuestas recientes */
+body.light-theme .bet-list-container {
+    background-color: #ffffff !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Fondo general de la página */
+body.light-theme {
+    background-color: #f0f0f0 !important;
+    background-image: none !important;
+}
+
+/* Menú de navegación principal */
+body.light-theme .nav__main {
+    background-color: white !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+body.light-theme .nav__main a {
+    color: #333 !important;
+    font-weight: 600 !important;
+}
+
+body.light-theme .nav__main a.active {
+    color: #2ecc71 !important;
+    background-color: rgba(46, 204, 113, 0.1) !important;
+    font-weight: 700 !important;
+}
+
+/* Barra superior */
+body.light-theme .top-bar {
+    background-color: white !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+body.light-theme .top-bar a,
+body.light-theme .top-bar span {
+    color: #333 !important;
+    font-weight: 600 !important;
+}
+
+/* Iconos de los botones de deporte */
+body.light-theme .sport-buttons button:nth-child(1),
+body.light-theme .sport-buttons button:nth-child(2),
+body.light-theme .sport-buttons button:nth-child(3),
+body.light-theme .sport-buttons button:nth-child(4) {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232ecc71' opacity='0.5'%3E%3Cpath d='M12,2C6.48,2,2,6.48,2,12c0,5.52,4.48,10,10,10s10-4.48,10-10C22,6.48,17.52,2,12,2z M12,20c-4.42,0-8-3.58-8-8c0-4.42,3.58-8,8-8s8,3.58,8,8C20,16.42,16.42,20,12,20z'/%3E%3C/svg%3E") !important;
+    background-size: 50px 50px !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+/* Botones del toggle de tema */
+body.light-theme #theme-switch {
+    background-color: white !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Resetear cualquier sombra o efecto de brillo que interfiera */
+body.light-theme * {
+    text-shadow: none;
+}
+
+/* Mejora de bordes para el modo claro - mejor identificación de paneles */
+
+/* Paneles laterales con bordes más definidos */
+body.light-theme .left-sidebar, 
+body.light-theme .right-sidebar {
+    border: 2px solid rgba(0, 0, 0, 0.2) !important;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Panel central con borde más definido */
+body.light-theme .main-content {
+    border: 2px solid rgba(0, 0, 0, 0.2) !important;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Mejorar bordes de las tarjetas de partidos */
+body.light-theme .match-card {
+    border: 2px solid rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Mejorar los bordes de los botones de deportes */
+body.light-theme .sport-buttons {
+    border: 2px solid rgba(0, 0, 0, 0.15) !important;
+}
+
+body.light-theme .sport-buttons button {
+    border: 2px solid rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Mejorar los bordes del panel de promociones */
+body.light-theme .promotions ul {
+    border: 2px solid rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Mejorar los bordes de los contenedores de cuotas */
+body.light-theme .live-odds-container,
+body.light-theme .bet-list-container {
+    border: 2px solid rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Mejorar el borde de la barra de navegación */
+body.light-theme .nav__main {
+    border: 2px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Mejorar el borde de la barra superior */
+body.light-theme .top-bar {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Agregar un marco negro fino alrededor de toda la página en modo claro */
+body.light-theme .container {
+    border: 3px solid rgba(0, 0, 0, 0.2) !important;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Nuevo enfoque para el modo claro - fondo oscuro con paneles blancos */
+
+/* Mantener el fondo oscuro en modo claro */
+body.light-theme {
+    background-color: #121212 !important; /* Mismo fondo que el modo oscuro */
+    background-image: var(--bg-pattern) !important; /* Mantener el patrón de fondo */
+    color: #333 !important; /* Color de texto por defecto para contenido sobre fondo blanco */
+}
+
+/* Hacer que los paneles sean blancos */
+body.light-theme .left-sidebar,
+body.light-theme .right-sidebar,
+body.light-theme .main-content,
+body.light-theme .match-card,
+body.light-theme .sport-buttons,
+body.light-theme .promotions ul,
+body.light-theme .live-odds-container,
+body.light-theme .bet-list-container,
+body.light-theme table {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border: 2px solid rgba(0, 0, 0, 0.2) !important;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Color de texto oscuro para contenido sobre fondos blancos */
+body.light-theme .left-sidebar *,
+body.light-theme .right-sidebar *,
+body.light-theme .main-content *,
+body.light-theme .match-card *,
+body.light-theme .sport-buttons *,
+body.light-theme .promotions ul * {
+    color: #222 !important;
+    text-shadow: none !important;
+}
+
+/* Estilos específicos para títulos */
+body.light-theme h1,
+body.light-theme h2,
+body.light-theme h3,
+body.light-theme .section-title {
+    color: #111 !important;
+    font-weight: 700 !important;
+    text-shadow: none !important;
+}
+
+/* Ajustar el color de los íconos en los botones de deportes */
+body.light-theme .sport-buttons button {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    color: #222 !important;
+    border: 2px solid rgba(0, 0, 0, 0.15) !important;
+}
+
+body.light-theme .sport-buttons button:hover {
+    background-color: rgba(240, 240, 240, 0.9) !important;
+    color: #2ecc71 !important;
+    border-color: rgba(46, 204, 113, 0.5) !important;
+}
+
+/* Mantener la barra superior y navegación con estilo claro */
+body.light-theme .top-bar,
+body.light-theme .nav__main {
+    background-color: white !important;
+    color: #333 !important;
+    border: 2px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+body.light-theme .nav__main a {
+    color: #333 !important;
+}
+
+body.light-theme .nav__main a.active {
+    color: #2ecc71 !important;
+    background-color: rgba(46, 204, 113, 0.1) !important;
+}
+
+/* Hacer excepciones para elementos que deben permanecer con colores específicos */
+body.light-theme .odd-value {
+    background-color: #e0e0e0 !important;
+    color: #000 !important;
+    font-weight: 600 !important;
+}
+
+/* Eliminar las reglas anteriores que puedan interferir */
+body.light-theme * {
+    text-shadow: none !important;
+}
+
+body.light-theme .container {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Versión simplificada del modo claro - solo cambiamos los paneles y navbar */
+
+/* Resetear cualquier regla anterior de modo claro */
+body.light-theme {
+    /* Mantener el fondo tecnológico */
+    background-color: inherit !important;
+    background-image: inherit !important;
+}
+
+/* Cambiar solo los paneles principales y navbar a blanco */
+body.light-theme .left-sidebar,
+body.light-theme .right-sidebar,
+body.light-theme .main-content,
+body.light-theme .nav__main {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(0, 0, 0, 0.2) !important;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Color de texto oscuro para estos paneles */
+body.light-theme .left-sidebar *,
+body.light-theme .right-sidebar *,
+body.light-theme .main-content *,
+body.light-theme .nav__main a {
+    color: #222 !important;
+    text-shadow: none !important;
+}
+
+/* Estilos específicos para navbar */
+body.light-theme .nav__main a.active {
+    color: #2ecc71 !important;
+    font-weight: 600 !important;
+}
+
+/* Mantener los fondos oscuros de las tarjetas interiores */
+body.light-theme .sport-buttons,
+body.light-theme .match-card,
+body.light-theme .promotions ul,
+body.light-theme .live-odds-container,
+body.light-theme .bet-list-container {
+    background-color: #2A2A2A !important;
+    color: white !important;
+}
+
+/* Restaurar el color de texto en las tarjetas interiores */
+body.light-theme .sport-buttons *,
+body.light-theme .match-card *,
+body.light-theme .promotions ul *,
+body.light-theme .live-odds-container *,
+body.light-theme .bet-list-container * {
+    color: white !important;
+}
+
+/* RESET COMPLETO DEL TEMA CLARO - eliminar todas las reglas anteriores */
+body.light-theme {
+    /* Estas reglas se eliminan */
+}
+
+/* Nuevas reglas SIMPLIFICADAS para el tema claro */
+
+/* Asegurar que el fondo tecnológico permanezca visible */
+body.light-theme {
+    background-image: url(../img/fondomain.jpg) !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+    background-color: #121212 !important;
+}
+
+/* Solo cambiar color de los 3 paneles principales y navbar */
+body.light-theme .left-sidebar,
+body.light-theme .right-sidebar,
+body.light-theme .main-content,
+body.light-theme .nav__main {
+    background-color: white !important;
+    color: #222 !important;
+    border: 1px solid rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Color oscuro para el texto dentro de estos paneles */
+body.light-theme .left-sidebar h3,
+body.light-theme .right-sidebar h3,
+body.light-theme .main-content h2,
+body.light-theme .nav__main a {
+    color: #222 !important;
+}
+
+/* Botón activo en navbar */
+body.light-theme .nav__main a.active {
+    color: #2ecc71 !important;
+}
+
+/* Los demás elementos interiores mantienen su aspecto oscuro */
+body.light-theme .match-card,
+body.light-theme .sport-buttons,
+body.light-theme .promotions ul,
+body.light-theme .live-odds-container,
+body.light-theme .bet-list-container {
+    background-color: #2A2A2A !important;
+}
+
+/* Mantener el texto blanco dentro de los elementos oscuros */
+body.light-theme .match-card *,
+body.light-theme .sport-buttons *,
+body.light-theme .promotions ul *,
+body.light-theme .live-odds-container *,
+body.light-theme .bet-list-container * {
+    color: white !important;
+}
+
+/* RESET DEFINITIVO DEL TEMA CLARO */
+/* Eliminar cualquier regla previa que pueda estar causando conflictos */
+
+/* IMPORTANTE: Hacer que TODOS los elementos que podrían tapar el fondo sean transparentes */
+body.light-theme,
+body.light-theme .container,
+body.light-theme .wrapper,
+body.light-theme .bg-overlay,
+body.light-theme .background-container,
+body.light-theme > div {
+    background-color: transparent !important;
+    background: transparent !important;
+}
+
+/* Aplicar correctamente la imagen de fondo */
+body.light-theme {
+    background-image: url(../img/fondomain.jpg) !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-attachment: fixed !important;
+    background-repeat: no-repeat !important;
+}
+
+/* Estilos específicos y simples SOLO para los paneles y navbar */
+body.light-theme .left-sidebar,
+body.light-theme .right-sidebar,
+body.light-theme .main-content {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Navbar con fondo blanco */
+body.light-theme .nav__main {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Color de texto oscuro solo para estos elementos */
+body.light-theme .left-sidebar h3,
+body.light-theme .right-sidebar h3,
+body.light-theme .main-content h2,
+body.light-theme .main-content .section-title,
+body.light-theme .nav__main a {
+    color: #222 !important;
+    text-shadow: none !important;
+}
+
+/* Botón activo en navbar */
+body.light-theme .nav__main a.active {
+    color: #2ecc71 !important;
+}
+
+/* Elementos interiores permanecen oscuros */
+body.light-theme .match-card,
+body.light-theme .sport-buttons,
+body.light-theme .promotions ul,
+body.light-theme .live-odds-container,
+body.light-theme .bet-list-container {
+    background-color: #2A2A2A !important;
+}
+
+/* Texto blanco para elementos sobre fondo oscuro */
+body.light-theme .match-card *,
+body.light-theme .sport-buttons *,
+body.light-theme .promotions ul *,
+body.light-theme .live-odds-container *,
+body.light-theme .bet-list-container * {
+    color: white !important;
+}
+
+/* Asegurar que la tabla de rankings tenga fondo transparente */
+body.light-theme #rankings-container,
+body.light-theme .rankings-container {
+    background-color: transparent !important;
+}
+
+/* VERSIÓN FINAL DEL TEMA CLARO - Header y paneles externos negros, contenido interior blanco */
+
+/* Resetear todas las reglas anteriores del tema claro */
+body.light-theme {
+    /* Mantener el fondo tecnológico */
+    background-color: transparent !important;
+    background-image: url(../img/fondomain.jpg) !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-attachment: fixed !important;
+    background-repeat: no-repeat !important;
+}
+
+/* Mantener el header y la barra de navegación en negro como en modo oscuro */
+body.light-theme .top-bar,
+body.light-theme header,
+body.light-theme .nav__main {
+    background-color: rgba(0, 0, 0, 0.9) !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Mantener el color blanco del texto en el header y navbar */
+body.light-theme .top-bar *,
+body.light-theme header *,
+body.light-theme .nav__main a {
+    color: white !important;
+}
+
+/* Mantener el color verde para el elemento activo de la navegación */
+body.light-theme .nav__main a.active {
+    color: #2ecc71 !important;
+}
+
+/* Mantener los paneles exteriores (los contenedores negros) con fondo negro */
+body.light-theme .left-sidebar,
+body.light-theme .right-sidebar,
+body.light-theme .main-content {
+    background-color: rgba(0, 0, 0, 0.85) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Solo los paneles interiores con contenido (dentro de los sidebar) serán blancos */
+body.light-theme .sport-buttons,
+body.light-theme .promotions ul,
+body.light-theme .live-odds-container,
+body.light-theme .bet-list-container {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) !important;
+    color: #222 !important;
+}
+
+/* Color oscuro para el texto en los paneles blancos */
+body.light-theme .sport-buttons *,
+body.light-theme .promotions ul *,
+body.light-theme .live-odds-container *,
+body.light-theme .bet-list-container * {
+    color: #222 !important;
+    text-shadow: none !important;
+}
+
+/* Los títulos de los paneles exteriores se mantienen en blanco */
+body.light-theme .left-sidebar > h3,
+body.light-theme .right-sidebar > h3,
+body.light-theme .main-content > h2 {
+    color: white !important;
+}
+
+/* Las tarjetas de partidos también se vuelven blancas */
+body.light-theme .match-card {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+body.light-theme .match-card * {
+    color: #222 !important;
+    text-shadow: none !important;
+}
+
+/* Eliminar todas las reglas anteriores que puedan interferir */
+body.light-theme .container,
+body.light-theme .wrapper,
+body.light-theme .bg-overlay,
+body.light-theme .background-container {
+    background-color: transparent !important;
+    background: transparent !important;
 }

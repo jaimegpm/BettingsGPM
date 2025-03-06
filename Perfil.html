@@ -7,10 +7,21 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="profile-page">
+    <!-- Añadir justo después de la etiqueta <body> -->
+    <div id="page-loader" class="page-loader">
+        <div class="loader-spinner"></div>
+    </div>
+
     <!-- Barra superior -->
     <div class="top-bar">
         <div class="logo">
             <img src="img/logo.png" alt="BettingsGPM">
+        </div>
+        <div class="theme-toggle">
+            <button id="theme-switch" aria-label="Cambiar tema">
+                <span class="theme-icon light">☀️</span>
+                <span class="theme-icon dark">🌙</span>
+            </button>
         </div>
         
         <!-- Botones hamburguesa -->

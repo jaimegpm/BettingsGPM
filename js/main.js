@@ -288,7 +288,179 @@ document.addEventListener('DOMContentLoaded', function() {
     minimizeButton.addEventListener('click', function() {
         chatContainer.classList.remove('active');
     });
-}); 
+
+    hidePageLoader();
+    
+    // Función para determinar si estamos en la página principal sin sesión
+    function isIndexPageWithoutSession() {
+        const currentPage = window.location.pathname.split('/').pop();
+        // Verificar si estamos en index.html o en la raíz del sitio
+        const isIndexPage = currentPage === 'index.html' || 
+                           currentPage === '' || 
+                           currentPage === '/';
+        
+        // Verificar si no hay sesión iniciada
+        const hasNoSession = !document.querySelector('.logout-btn') && 
+                            !document.querySelector('.user-profile-menu');
+        
+        return isIndexPage && hasNoSession;
+    }
+    
+    // Modificar la función handleNavWithLoader para excluir index.html sin sesión
+    function handleNavWithLoader(selector) {
+        const elements = document.querySelectorAll(selector);
+        
+        elements.forEach(element => {
+            element.addEventListener('click', function(e) {
+                // No aplicar loader si estamos en index.html sin sesión
+                if (isIndexPageWithoutSession()) {
+                    return true; // Permitir comportamiento normal sin loader
+                }
+                
+                // No aplicar a enlaces con comportamiento especial
+                if (this.classList.contains('no-loader') || 
+                    this.closest('.sport-buttons') || 
+                    this.id === 'theme-switch') {
+                    return true;
+                }
+                
+                // Prevenir navegación inmediata
+                e.preventDefault();
+                
+                // Obtener la URL de destino
+                const href = this.getAttribute('href');
+                if (!href || href === '#') return true;
+                
+                // Mostrar el loader
+                const loader = document.getElementById('page-loader');
+                if (loader) {
+                    loader.style.display = 'flex';
+                    loader.classList.remove('active');
+                    void loader.offsetWidth;
+                    loader.classList.add('active');
+                }
+                
+                // Navegar después del retraso
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 800);
+                
+                return false;
+            });
+        });
+    }
+    
+    // Aplicar a todos los enlaces de navegación
+    handleNavWithLoader('a[href]:not([href^="#"]):not([href^="javascript"]):not([href^="mailto"])');
+    handleNavWithLoader('.nav__main a');
+    handleNavWithLoader('.logo a');
+    handleNavWithLoader('.guest-login');
+    handleNavWithLoader('.register-link');
+    handleNavWithLoader('.register-login-link');
+    
+    // Modificar el evento de clic global para excluir index.html sin sesión
+    document.addEventListener('click', function(e) {
+        // No mostrar loader si estamos en index.html sin sesión
+        if (isIndexPageWithoutSession()) {
+            return true; // Permitir comportamiento normal sin loader
+        }
+        
+        // Resto del código de manejo de clics...
+    });
+    
+    // Modificar el evento beforeunload para excluir index.html sin sesión
+    window.addEventListener('beforeunload', function(e) {
+        // No mostrar loader si estamos en index.html sin sesión
+        if (isIndexPageWithoutSession()) {
+            return;
+        }
+        
+        const loader = document.getElementById('page-loader');
+        if (loader && !document.querySelector('.sport-buttons:hover')) {
+            loader.style.display = 'flex';
+            loader.classList.add('active');
+        }
+    });
+
+    // Desactivar el loader para los botones de deportes específicamente
+    const sportButtons = document.querySelectorAll('.sport-buttons button');
+    
+    sportButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            // Prevenir comportamiento por defecto
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Asegurarse de que el loader NO se muestre para estos botones
+            const loader = document.getElementById('page-loader');
+            if (loader) {
+                loader.style.display = 'none';
+                loader.classList.remove('active');
+            }
+            
+            // Aquí puedes añadir la lógica que quieras para estos botones
+            // Por ejemplo, filtrar contenido sin recargar la página
+            
+            return false;
+        }, true); // Usar captura para asegurarse de que este evento se ejecuta primero
+    });
+
+    // Eliminar cualquier código existente para estos botones y reemplazarlo con una solución directa y específica
+    document.addEventListener('DOMContentLoaded', function() {
+        // 1. Encontrar los botones específicos por su selector exacto
+        const guestLoginLinks = document.querySelectorAll('a.guest-login');
+        const registerLinks = document.querySelectorAll('a.register-link');
+        const loginLinks = document.querySelectorAll('a.register-login-link');
+        
+        // 2. Función específica para agregar el loader a un enlace
+        function addLoaderToLink(link) {
+            if (!link) return;
+            
+            // Eliminar cualquier evento previo
+            const newLink = link.cloneNode(true);
+            link.parentNode.replaceChild(newLink, link);
+            
+            // Agregar el nuevo evento
+            newLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Obtener la URL de destino
+                const href = this.getAttribute('href');
+                
+                // Mostrar el loader de forma forzada
+                const loader = document.getElementById('page-loader');
+                if (loader) {
+                    // Forzar la visualización del loader
+                    loader.style.display = 'flex';
+                    loader.style.opacity = '1';
+                    loader.classList.add('active');
+                    
+                    // Asegurarse de que permanezca visible
+                    document.body.style.overflow = 'hidden';
+                }
+                
+                // Navegar después de un retraso visible
+                setTimeout(function() {
+                    window.location.href = href;
+                }, 800);
+                
+                return false;
+            });
+        }
+        
+        // 3. Aplicar a cada enlace encontrado
+        guestLoginLinks.forEach(addLoaderToLink);
+        registerLinks.forEach(addLoaderToLink);
+        loginLinks.forEach(addLoaderToLink);
+        
+        console.log('✅ Loader aplicado a:', 
+            guestLoginLinks.length, 'enlaces de invitado,', 
+            registerLinks.length, 'enlaces de registro,', 
+            loginLinks.length, 'enlaces de inicio de sesión');
+    });
+});
+
 // Manejo del modal de cierre de sesión
 const logoutModal = document.getElementById('logout-popup__modal');
 const cancelLogout = document.getElementById('cancel-logout');
@@ -445,3 +617,313 @@ if (languageButton && languageMenu) {
         e.stopPropagation();
     });
 }
+
+// Función mejorada para detectar si estamos en una página con sesión iniciada
+function isLoggedInPage() {
+    // Verificar si estamos en una página con sesión iniciada
+    // Comprobamos múltiples indicadores posibles
+    const currentPage = window.location.pathname.split('/').pop();
+    const isLoggedInByPage = currentPage === 'InicioConSesion.html' || 
+                             currentPage === 'Apuestas.html' || 
+                             currentPage === 'Rankings.html' || 
+                             currentPage === 'Social.html' || 
+                             currentPage === 'Perfil.html' || 
+                             currentPage === 'Historial.html';
+    
+    // También verificamos elementos del DOM que solo existen en páginas con sesión
+    const hasLogoutBtn = document.querySelector('.logout-btn') !== null;
+    const hasNotificationCount = document.querySelector('.notifications-count') !== null;
+    
+    return isLoggedInByPage || hasLogoutBtn || hasNotificationCount;
+}
+
+// Función para mostrar el spinner de carga
+function showPageLoader() {
+    const pageLoader = document.getElementById('page-loader');
+    if (pageLoader) {
+        pageLoader.classList.add('active');
+    }
+}
+
+// Función para ocultar el spinner de carga
+function hidePageLoader() {
+    const pageLoader = document.getElementById('page-loader');
+    if (pageLoader) {
+        setTimeout(() => {
+            pageLoader.classList.remove('active');
+        }, 500);
+    }
+}
+
+// Mostrar el spinner al iniciar la navegación
+window.addEventListener('beforeunload', function(e) {
+    if (isLoggedInPage()) {
+        showPageLoader();
+    }
+});
+
+// Función para animar transiciones entre secciones
+function setupSectionTransitions() {
+    const sections = document.querySelectorAll('.content-section, .tab-content');
+    const tabs = document.querySelectorAll('.tab, .nav-item');
+    
+    // Ocultar todas las secciones excepto la activa
+    sections.forEach(section => {
+        if (!section.classList.contains('active')) {
+            section.style.display = 'none';
+            section.style.opacity = '0';
+        } else {
+            section.style.opacity = '1';
+        }
+    });
+    
+    // Manejar clics en pestañas
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function(e) {
+            // Si ya está activo, no hacer nada
+            if (this.classList.contains('active')) return;
+            
+            // Prevenir navegación si es un enlace
+            if (this.tagName === 'A') {
+                e.preventDefault();
+            }
+            
+            // Obtener el target
+            const targetId = this.getAttribute('data-target') || this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            
+            if (!targetSection) return;
+            
+            // Desactivar pestañas activas
+            tabs.forEach(t => t.classList.remove('active'));
+            
+            // Activar esta pestaña
+            this.classList.add('active');
+            
+            // Ocultar secciones activas con fade out
+            sections.forEach(section => {
+                if (section.classList.contains('active')) {
+                    section.style.opacity = '0';
+                    setTimeout(() => {
+                        section.style.display = 'none';
+                        section.classList.remove('active');
+                        
+                        // Mostrar la sección objetivo
+                        targetSection.style.display = 'block';
+                        targetSection.classList.add('active');
+                        
+                        // Pequeño retraso para la animación
+                        setTimeout(() => {
+                            targetSection.style.opacity = '1';
+                        }, 50);
+                    }, 300);
+                }
+            });
+        });
+    });
+}
+
+// Ejecutar cuando el DOM esté listo
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setupSectionTransitions);
+} else {
+    setupSectionTransitions();
+}
+
+// Configuración de partículas
+function setupParticles() {
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 30, density: { enable: true, value_area: 800 } },
+                color: { value: "#2ecc71" },
+                shape: { type: "circle" },
+                opacity: { value: 0.2, random: true },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#2ecc71",
+                    opacity: 0.1,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 1,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "grab" },
+                    onclick: { enable: true, mode: "push" },
+                    resize: true
+                },
+                modes: {
+                    grab: { distance: 140, line_linked: { opacity: 0.3 } },
+                    push: { particles_nb: 3 }
+                }
+            },
+            retina_detect: true
+        });
+    }
+}
+
+// Ejecutar cuando el DOM esté listo
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setupParticles);
+} else {
+    setupParticles();
+}
+
+// Añadir efecto de carga para imágenes
+function setupImageLoadEffects() {
+    const images = document.querySelectorAll('img:not(.loaded)');
+    
+    images.forEach(img => {
+        // Añadir clase de carga
+        img.classList.add('loading');
+        
+        // Cuando la imagen carga
+        img.onload = function() {
+            // Pequeño retraso para el efecto visual
+            setTimeout(() => {
+                img.classList.remove('loading');
+                img.classList.add('loaded');
+            }, 100);
+        };
+        
+        // Si la imagen ya estaba cargada
+        if (img.complete) {
+            img.classList.remove('loading');
+            img.classList.add('loaded');
+        }
+    });
+}
+
+// Ejecutar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', setupImageLoadEffects);
+
+// Funcionalidad del toggle de tema
+document.addEventListener('DOMContentLoaded', function() {
+    const themeSwitch = document.getElementById('theme-switch');
+    
+    if (themeSwitch) {
+        // Verificar si hay una preferencia guardada
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            document.body.classList.add('light-theme');
+        }
+        
+        themeSwitch.addEventListener('click', function(e) {
+            // Prevenir comportamiento por defecto
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Asegurarse de que el loader no se muestre
+            const loader = document.getElementById('page-loader');
+            if (loader) {
+                loader.style.display = 'none';
+                loader.classList.remove('active');
+            }
+            
+            // Toggle de la clase en el body
+            document.body.classList.toggle('light-theme');
+            
+            // Guardar preferencia
+            if (document.body.classList.contains('light-theme')) {
+                localStorage.setItem('theme', 'light');
+            } else {
+                localStorage.setItem('theme', 'dark');
+            }
+            
+            return false;
+        });
+    }
+});
+
+// Agregar este código al final del archivo main.js - enfoque directo con setTimeout
+setTimeout(function() {
+    // Botón "Iniciar sesión como invitado"
+    var guestLoginElement = document.querySelector('.guest-login');
+    if (guestLoginElement) {
+        guestLoginElement.onclick = function(e) {
+            e.preventDefault();
+            
+            // Obtener la URL
+            var href = this.getAttribute('href');
+            
+            // Activar el loader manualmente
+            var loader = document.getElementById('page-loader');
+            if (loader) {
+                loader.style.display = 'flex';
+                loader.classList.add('active');
+            }
+            
+            // Redirigir después de un retraso
+            setTimeout(function() {
+                window.location.href = href;
+            }, 800);
+            
+            return false;
+        };
+        console.log('✓ Iniciar sesión como invitado - Loader activado');
+    }
+    
+    // Enlace "Regístrate aquí"
+    var registerElement = document.querySelector('.register-link');
+    if (registerElement) {
+        registerElement.onclick = function(e) {
+            e.preventDefault();
+            
+            // Obtener la URL
+            var href = this.getAttribute('href');
+            
+            // Activar el loader manualmente
+            var loader = document.getElementById('page-loader');
+            if (loader) {
+                loader.style.display = 'flex';
+                loader.classList.add('active');
+            }
+            
+            // Redirigir después de un retraso
+            setTimeout(function() {
+                window.location.href = href;
+            }, 800);
+            
+            return false;
+        };
+        console.log('✓ Regístrate aquí - Loader activado');
+    }
+    
+    // Enlace "Inicia sesión aquí"
+    var loginElement = document.querySelector('.register-login-link');
+    if (loginElement) {
+        loginElement.onclick = function(e) {
+            e.preventDefault();
+            
+            // Obtener la URL
+            var href = this.getAttribute('href');
+            
+            // Activar el loader manualmente
+            var loader = document.getElementById('page-loader');
+            if (loader) {
+                loader.style.display = 'flex';
+                loader.classList.add('active');
+            }
+            
+            // Redirigir después de un retraso
+            setTimeout(function() {
+                window.location.href = href;
+            }, 800);
+            
+            return false;
+        };
+        console.log('✓ Inicia sesión aquí - Loader activado');
+    }
+}, 500); // Retraso para asegurar que la página esté completamente cargada
