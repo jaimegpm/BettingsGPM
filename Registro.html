@@ -148,5 +148,124 @@
     <div id="page-loader" class="page-loader">
         <div class="loader-spinner"></div>
     </div>
+
+    <!-- Modal de confirmación para versión móvil -->
+    <div id="mobile-version-modal">
+        <div class="mobile-modal-content">
+            <h3>Versión Móvil Disponible</h3>
+            <p>Estás accediendo desde un dispositivo móvil. Para una mejor experiencia, te redirigiremos a nuestra versión optimizada para móviles.</p>
+            <div class="mobile-modal-buttons">
+                <button class="btn-primary" id="confirm-mobile">Ir a versión móvil</button>
+            </div>
+            <div class="auto-redirect-text">
+                Auto redirigiendo en <span id="countdown">5</span> segundos
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Código para el modal de versión móvil
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileVersionModal = document.getElementById('mobile-version-modal');
+            const confirmMobileBtn = document.getElementById('confirm-mobile');
+            const countdownElement = document.getElementById('countdown');
+            let countdownValue = 5;
+            let countdownInterval;
+            
+            // Función para mostrar el modal
+            function showMobileModal() {
+                mobileVersionModal.classList.add('active');
+                // Bloquear el scroll del body
+                document.body.style.overflow = 'hidden';
+                document.body.classList.add('modal-open');
+                
+                // Iniciar el contador
+                startCountdown();
+            }
+            
+            // Función para iniciar el contador
+            function startCountdown() {
+                // Reiniciar el contador
+                countdownValue = 5;
+                countdownElement.textContent = countdownValue;
+                
+                // Limpiar intervalo anterior si existe
+                if (countdownInterval) {
+                    clearInterval(countdownInterval);
+                }
+                
+                // Iniciar nuevo intervalo
+                countdownInterval = setInterval(function() {
+                    countdownValue--;
+                    countdownElement.textContent = countdownValue;
+                    
+                    if (countdownValue <= 0) {
+                        clearInterval(countdownInterval);
+                        // Redirigir a la versión móvil
+                        window.location.href = 'mobile/mobile-registro.html';
+                    }
+                }, 1000);
+            }
+            
+            // Evento para el botón de confirmar
+            if (confirmMobileBtn) {
+                confirmMobileBtn.addEventListener('click', function() {
+                    // Detener el contador
+                    clearInterval(countdownInterval);
+                    // Redirigir a la versión móvil
+                    window.location.href = 'mobile/mobile-registro.html';
+                });
+            }
+            
+            // Comprobar si estamos en un dispositivo móvil
+            function checkMobileView() {
+                if (window.innerWidth <= 768) {
+                    showMobileModal();
+                } else {
+                    mobileVersionModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                    document.body.classList.remove('modal-open');
+                    // Detener el contador
+                    if (countdownInterval) {
+                        clearInterval(countdownInterval);
+                    }
+                }
+            }
+            
+            // Comprobar al cargar la página
+            checkMobileView();
+            
+            // Comprobar al cambiar el tamaño de la ventana
+            window.addEventListener('resize', checkMobileView);
+            
+            // Prevenir que el usuario cierre el modal haciendo clic fuera
+            mobileVersionModal.addEventListener('click', function(e) {
+                if (e.target === mobileVersionModal) {
+                    e.stopPropagation();
+                    return false;
+                }
+            });
+            
+            // Prevenir que el usuario use la tecla Escape para cerrar el modal
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && window.innerWidth <= 768) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+            
+            // Prevenir que el usuario use el botón de retroceso
+            window.addEventListener('popstate', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    history.pushState(null, document.title, window.location.href);
+                    return false;
+                }
+            });
+            
+            // Añadir un estado a la historia para prevenir el retroceso
+            history.pushState(null, document.title, window.location.href);
+        });
+    </script>
 </body>
 </html> 

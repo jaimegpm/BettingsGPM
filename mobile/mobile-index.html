@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BettingsGPM</title>
+    <!-- Anti-caché -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, private">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <!-- CSS con hash de versión -->
+    <link rel="stylesheet" href="css/mobile-styles.css?v=1.0.0">
+</head>
+<body>
+    <!-- Spinner de carga -->
+    <div id="page-loader" class="page-loader">
+        <div class="loader-spinner"></div>
+    </div>
+    
+    <!-- Barra superior -->
+    <div class="top-bar">
+        <div class="logo">
+            <img src="../img/logo.png" alt="BettingsGPM">
+        </div>
+        <div class="theme-toggle">
+            <button id="theme-switch" aria-label="Cambiar tema">
+                <span class="theme-icon light">☀️</span>
+                <span class="theme-icon dark">🌙</span>
+            </button>
+        </div>
+        
+        <!-- Botones hamburguesa -->
+        <div class="mobile-buttons">
+            <button class="hamburger-header" aria-label="Menú de opciones">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <button class="hamburger-nav" aria-label="Menú de navegación">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <!-- Overlays para móvil -->
+        <div class="nav-overlay"></div>
+        <div class="header-overlay"></div>
+
+        <div class="top-menu">
+            <button class="close-menu-btn" id="close-top-menu"></button>
+            <div class="top-menu-items">
+                <div class="notifications">
+                    Notificaciones
+                </div>
+                <div class="notifications-menu">
+                    <div class="notifications-header">
+                        <h4>Notificaciones</h4>
+                    </div>
+                    <div class="notifications-list">
+                        <div class="notification-item login-required-notice">
+                            <div class="notification-icon">🔒</div>
+                            <div class="notification-content">
+                                <p>Inicia sesión para ver tus notificaciones</p>
+                                <a href="#" class="login-now-btn show-login-modal">Iniciar Sesión</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="language">
+                    Idioma: Español
+                </div>
+                <div class="language-menu">
+                    <div class="language-list">
+                        <div class="language-item">
+                            <div class="language-name">
+                                <span class="language-flag">🇪🇸</span>
+                                <span class="language-text">Español</span>
+                            </div>
+                            <span class="language-status">Activo</span>
+                        </div>
+                        <div class="language-item">
+                            <div class="language-name">
+                                <span class="language-flag">🇬🇧</span>
+                                <span class="language-text">English</span>
+                            </div>
+                            <span class="language-status">No disponible</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="deposit">
+                    Depositar
+                </div>
+                <div class="deposit-menu">
+                    <div class="deposit-header">
+                        <h4>Depósitos</h4>
+                    </div>
+                    <div class="deposit-list">
+                        <div class="deposit-item login-required-notice">
+                            <div class="deposit-icon">🔒</div>
+                            <div class="deposit-content">
+                                <p>Inicia sesión para realizar depósitos</p>
+                                <a href="#" class="login-now-btn show-login-modal">Iniciar Sesión</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="balance">Saldo: No disponible</div>
+            </div>
+            
+            <div class="menu-spacer"></div>
+            
+            <div class="top-menu-buttons">
+                <button class="login-btn">Iniciar Sesión</button>
+                <button class="register-btn">Registrarse</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menú principal -->
+    <nav class="main-nav">
+        <button class="close-menu-btn" id="close-main-nav"></button>
+        <div class="nav-container">
+            <ul>
+                <li><a href="mobile-index.html" class="active">Inicio</a></li>
+                <li><a href="#" class="session-required" data-target="mobile-Apuestas.html">Apuestas</a></li>
+                <li><a href="#" class="session-required" data-target="mobile-Rankings.html">Rankings</a></li>
+                <li><a href="#" class="session-required" data-target="mobile-Social.html">Social</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="main-content">
+        <!-- Contenido central -->
+        <main class="center-content">
+            <div class="title-container">
+                <h2>PARTIDOS DESTACADOS</h2>
+            </div>
+            <div class="matches-grid">
+                <!-- Partido 1 -->
+                <div class="match-card">
+                    <div class="match-teams">
+                        <div class="team">
+                            <img src="../img/MallorcaCamiseta.webp" alt="Mallorca">
+                            <span>Mallorca</span>
+                        </div>
+                        <div class="match-odds">
+                            <button>2,1</button>
+                            <button>3,01</button>
+                            <button>3,9</button>
+                        </div>
+                        <div class="team">
+                            <img src="../img/OsasunaCamiseta.webp" alt="Osasuna">
+                            <span>Osasuna</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Partido 2 -->
+                <div class="match-card">
+                    <div class="match-teams">
+                        <div class="team">
+                            <img src="../img/MallorcaCamiseta.webp" alt="Mallorca">
+                            <span>Mallorca</span>
+                        </div>
+                        <div class="match-odds">
+                            <button>2,1</button>
+                            <button>3,01</button>
+                            <button>3,9</button>
+                        </div>
+                        <div class="team">
+                            <img src="../img/OsasunaCamiseta.webp" alt="Osasuna">
+                            <span>Osasuna</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Partido 3 -->
+                <div class="match-card">
+                    <div class="match-teams">
+                        <div class="team">
+                            <img src="../img/MallorcaCamiseta.webp" alt="Mallorca">
+                            <span>Mallorca</span>
+                        </div>
+                        <div class="match-odds">
+                            <button>2,1</button>
+                            <button>3,01</button>
+                            <button>3,9</button>
+                        </div>
+                        <div class="team">
+                            <img src="../img/OsasunaCamiseta.webp" alt="Osasuna">
+                            <span>Osasuna</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Partido 4 -->
+                <div class="match-card">
+                    <div class="match-teams">
+                        <div class="team">
+                            <img src="../img/MallorcaCamiseta.webp" alt="Mallorca">
+                            <span>Mallorca</span>
+                        </div>
+                        <div class="match-odds">
+                            <button>2,1</button>
+                            <button>3,01</button>
+                            <button>3,9</button>
+                        </div>
+                        <div class="team">
+                            <img src="../img/OsasunaCamiseta.webp" alt="Osasuna">
+                            <span>Osasuna</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Partido 5 -->
+                <div class="match-card">
+                    <div class="match-teams">
+                        <div class="team">
+                            <img src="../img/MallorcaCamiseta.webp" alt="Barcelona">
+                            <span>Barcelona</span>
+                        </div>
+                        <div class="match-odds">
+                            <button>1,8</button>
+                            <button>3,5</button>
+                            <button>4,2</button>
+                        </div>
+                        <div class="team">
+                            <img src="../img/OsasunaCamiseta.webp" alt="Real Madrid">
+                            <span>Real Madrid</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Partido 6 -->
+                <div class="match-card">
+                    <div class="match-teams">
+                        <div class="team">
+                            <img src="../img/MallorcaCamiseta.webp" alt="Atlético">
+                            <span>Atlético</span>
+                        </div>
+                        <div class="match-odds">
+                            <button>2,3</button>
+                            <button>3,1</button>
+                            <button>3,5</button>
+                        </div>
+                        <div class="team">
+                            <img src="../img/OsasunaCamiseta.webp" alt="Sevilla">
+                            <span>Sevilla</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Partido 7 -->
+                <div class="match-card">
+                    <div class="match-teams">
+                        <div class="team">
+                            <img src="../img/MallorcaCamiseta.webp" alt="Valencia">
+                            <span>Valencia</span>
+                        </div>
+                        <div class="match-odds">
+                            <button>2,5</button>
+                            <button>3,2</button>
+                            <button>3,0</button>
+                        </div>
+                        <div class="team">
+                            <img src="../img/OsasunaCamiseta.webp" alt="Betis">
+                            <span>Betis</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Partido 8 -->
+                <div class="match-card">
+                    <div class="match-teams">
+                        <div class="team">
+                            <img src="../img/MallorcaCamiseta.webp" alt="Villarreal">
+                            <span>Villarreal</span>
+                        </div>
+                        <div class="match-odds">
+                            <button>2,2</button>
+                            <button>3,3</button>
+                            <button>3,4</button>
+                        </div>
+                        <div class="team">
+                            <img src="../img/OsasunaCamiseta.webp" alt="Athletic">
+                            <span>Athletic</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Indicador de scroll -->
+            <div class="scroll-indicator">
+                <div class="scroll-dot active"></div>
+                <div class="scroll-dot"></div>
+                <div class="scroll-dot"></div>
+                <div class="scroll-dot"></div>
+                <div class="scroll-dot"></div>
+                <div class="scroll-dot"></div>
+                <div class="scroll-dot"></div>
+                <div class="scroll-dot"></div>
+            </div>
+
+            <!-- Primera fila de paneles -->
+            <div class="title-container">
+                <h2 class="panels-title">INFORMACIÓN DESTACADA</h2>
+            </div>
+            <div class="panels-row">
+                <!-- Panel de Promociones -->
+                <div class="mobile-panel mobile-promotions">
+                    <h3>Promociones & Bonos</h3>
+                    <ul>
+                        <li>🎁 Bono de Bienvenida = $150</li>
+                        <li>⚡ Apuesta Gratis = $10 sin riesgo</li>
+                        <li>🔥 Super Cuotas - Para Champions</li>
+                        <li>🔒 Cashback Semanal - Recupera 10%</li>
+                    </ul>
+                </div>
+                
+                <!-- Panel de Highlights -->
+                <div class="mobile-panel mobile-highlights">
+                    <h3>Highlights</h3>
+                    <div class="highlights-content">
+                        <div class="highlight-item">
+                            <span class="highlight-icon">⚽</span>
+                            <span class="highlight-text">Fútbol</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">🎾</span>
+                            <span class="highlight-text">Tenis</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">🏀</span>
+                            <span class="highlight-text">Baloncesto</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">🏓</span>
+                            <span class="highlight-text">Pádel</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Indicador de scroll para primera fila -->
+            <div class="panels-indicator">
+                <div class="panel-dot active"></div>
+                <div class="panel-dot"></div>
+            </div>
+
+            <!-- Segunda fila de paneles -->
+            <div class="panels-row">
+                <!-- Panel de Cuotas en Vivo -->
+                <div class="mobile-panel mobile-live-odds">
+                    <h3>Cuotas en Vivo</h3>
+                    <div class="live-match">
+                        <p>Manchester United vs Chelsea</p>
+                        <p>Gana Manchester: 2.10 ⚽</p>
+                        <p>Empate: 3.50 ⚽</p>
+                        <p>Gana Chelsea: 2.90 ⚽</p>
+                    </div>
+                </div>
+                
+                <!-- Panel de Apuestas Recientes -->
+                <div class="mobile-panel mobile-recent-bets">
+                    <h3>Mis apuestas recientes</h3>
+                    <div class="login-required">
+                        <span class="login-icon">🔒</span>
+                        <p>Es necesario iniciar sesión</p>
+                        <button class="login-now-btn">Iniciar Sesión</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Indicador de scroll para segunda fila -->
+            <div class="panels-indicator">
+                <div class="panel-dot active"></div>
+                <div class="panel-dot"></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>© 2024 BettingsGPM. Todos los derechos reservados.</p>
+            <nav>
+                <a href="#">Contacto</a>
+                <a href="#">Redes</a>
+                <a href="#">Privacidad</a>
+                <a href="#">Términos</a>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- Widget de Chat IA -->
+    <div class="ai-chat-widget">
+        <button class="ai-chat-button">
+            <svg class="ai-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6M12,8A4,4 0 0,0 8,12A4,4 0 0,0 12,16A4,4 0 0,0 16,12A4,4 0 0,0 12,8Z"/>
+            </svg>
+        </button>
+        <div class="ai-chat-container">
+            <div class="ai-chat-header">
+                <div class="ai-chat-title">
+                    <span class="ai-icon">🤖</span>
+                    <div class="ai-info">
+                        <h4>Asistente BettingsGPM</h4>
+                        <div class="ai-status-wrapper">
+                            <span class="ai-status-text">En línea</span>
+                            <span class="ai-loading"></span>
+                        </div>
+                    </div>
+                </div>
+                <button class="ai-chat-minimize">−</button>
+            </div>
+            <div class="ai-chat-messages">
+                <div class="ai-message">
+                    <span class="ai-icon small">🤖</span>
+                    <div class="ai-message-content">
+                        <p>¡Hola! Soy el asistente de BettingsGPM. ¿En qué puedo ayudarte hoy?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="ai-chat-input">
+                <input type="text" placeholder="Escribe tu mensaje..." disabled>
+                <button class="ai-send-button" disabled>
+                    <span>📤</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de inicio de sesión requerido -->
+    <div id="login-required-modal" class="modal">
+        <div class="modal-content">
+            <h3>Iniciar Sesión Requerido</h3>
+            <p>Para acceder a esta sección necesitas iniciar sesión en tu cuenta. ¿Deseas hacerlo ahora?</p>
+            <div class="modal-buttons">
+                <button class="btn-primary" id="confirm-login">Iniciar Sesión</button>
+                <button class="btn-secondary" id="cancel-login">Continuar sin iniciar sesión</button>
+            </div>
+            <div class="guest-login-container">
+                <span class="guest-login-divider"></span>
+                <button class="guest-login-btn" id="guest-login">Iniciar sesión como invitado</button>
+                <p class="guest-login-info">Acceso directo a la demostración (sin registro)</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal de confirmación para versión de escritorio -->
+    <div id="desktop-version-modal">
+        <div class="desktop-modal-content">
+            <h3>Versión de Escritorio Disponible</h3>
+            <p>Estás accediendo desde un dispositivo de mayor resolución. Para una mejor experiencia, te redirigiremos a nuestra versión optimizada para escritorio.</p>
+            <div class="desktop-modal-buttons">
+                <button class="btn-primary" id="confirm-desktop">Ir a versión de escritorio</button>
+            </div>
+            <div class="auto-redirect-text">
+                Auto redirigiendo en <span id="desktop-countdown">5</span> segundos
+            </div>
+        </div>
+    </div>
+
+    <script src="js/mobile-main.js"></script>
+    <script src="js/mobile-session.js"></script>
+    
+    <script>
+        // Código para el modal de versión de escritorio
+        document.addEventListener('DOMContentLoaded', function() {
+            const desktopVersionModal = document.getElementById('desktop-version-modal');
+            const confirmDesktopBtn = document.getElementById('confirm-desktop');
+            const countdownElement = document.getElementById('desktop-countdown');
+            let countdownValue = 5;
+            let countdownInterval;
+            
+            // Función para mostrar el modal
+            function showDesktopModal() {
+                desktopVersionModal.classList.add('active');
+                // Bloquear el scroll del body
+                document.body.style.overflow = 'hidden';
+                document.body.classList.add('modal-open');
+                
+                // Iniciar el contador
+                startCountdown();
+            }
+            
+            // Función para iniciar el contador
+            function startCountdown() {
+                // Reiniciar el contador
+                countdownValue = 5;
+                countdownElement.textContent = countdownValue;
+                
+                // Limpiar intervalo anterior si existe
+                if (countdownInterval) {
+                    clearInterval(countdownInterval);
+                }
+                
+                // Iniciar nuevo intervalo
+                countdownInterval = setInterval(function() {
+                    countdownValue--;
+                    countdownElement.textContent = countdownValue;
+                    
+                    if (countdownValue <= 0) {
+                        clearInterval(countdownInterval);
+                        // Redirigir a la versión de escritorio
+                        window.location.href = '../index.html';
+                    }
+                }, 1000);
+            }
+            
+            // Evento para el botón de confirmar
+            if (confirmDesktopBtn) {
+                confirmDesktopBtn.addEventListener('click', function() {
+                    // Detener el contador
+                    clearInterval(countdownInterval);
+                    // Redirigir a la versión de escritorio
+                    window.location.href = '../index.html';
+                });
+            }
+            
+            // Comprobar si estamos en un dispositivo de escritorio
+            function checkDesktopView() {
+                if (window.innerWidth > 768) {
+                    showDesktopModal();
+                } else {
+                    desktopVersionModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                    document.body.classList.remove('modal-open');
+                    // Detener el contador
+                    if (countdownInterval) {
+                        clearInterval(countdownInterval);
+                    }
+                }
+            }
+            
+            // Comprobar al cargar la página
+            checkDesktopView();
+            
+            // Comprobar al cambiar el tamaño de la ventana
+            window.addEventListener('resize', checkDesktopView);
+            
+            // Prevenir que el usuario cierre el modal haciendo clic fuera
+            desktopVersionModal.addEventListener('click', function(e) {
+                if (e.target === desktopVersionModal) {
+                    e.stopPropagation();
+                    return false;
+                }
+            });
+            
+            // Prevenir que el usuario use la tecla Escape para cerrar el modal
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && window.innerWidth > 768) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+            
+            // Prevenir que el usuario use el botón de retroceso
+            window.addEventListener('popstate', function(e) {
+                if (window.innerWidth > 768) {
+                    e.preventDefault();
+                    history.pushState(null, document.title, window.location.href);
+                    return false;
+                }
+            });
+            
+            // Añadir un estado a la historia para prevenir el retroceso
+            history.pushState(null, document.title, window.location.href);
+        });
+    </script>
+</body>
+</html> 

@@ -459,6 +459,8 @@ document.addEventListener('DOMContentLoaded', function() {
             registerLinks.length, 'enlaces de registro,', 
             loginLinks.length, 'enlaces de inicio de sesión');
     });
+
+    setupMobileChat();
 });
 
 // Manejo del modal de cierre de sesión
@@ -927,3 +929,49 @@ setTimeout(function() {
         console.log('✓ Inicia sesión aquí - Loader activado');
     }
 }, 500); // Retraso para asegurar que la página esté completamente cargada
+
+// Función específica para el chat en móvil - Versión corregida
+function setupMobileChat() {
+    // Solo ejecutar en móvil
+    if (window.innerWidth <= 768) {
+        const chatButton = document.querySelector('.ai-chat-button');
+        const chatWidget = document.querySelector('.ai-chat-widget');
+        const minimizeButton = document.querySelector('.ai-chat-minimize');
+        
+        if (chatButton && chatWidget) {
+            // Eliminar eventos anteriores para evitar duplicados
+            chatButton.removeEventListener('click', handleChatButtonClick);
+            
+            // Manejar clic en el botón de chat
+            chatButton.addEventListener('click', handleChatButtonClick);
+            
+            function handleChatButtonClick() {
+                console.log('Botón de chat clickeado'); // Depuración
+                chatWidget.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevenir scroll
+            }
+            
+            // Manejar clic en el botón minimizar
+            if (minimizeButton) {
+                minimizeButton.removeEventListener('click', handleMinimizeClick);
+                minimizeButton.addEventListener('click', handleMinimizeClick);
+                
+                function handleMinimizeClick() {
+                    console.log('Botón minimizar clickeado'); // Depuración
+                    chatWidget.classList.remove('active');
+                    document.body.style.overflow = ''; // Restaurar scroll
+                }
+            }
+        }
+    }
+}
+
+// Ejecutar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', function() {
+    setupMobileChat();
+});
+
+// También ejecutar cuando se redimensiona la ventana
+window.addEventListener('resize', function() {
+    setupMobileChat();
+});
