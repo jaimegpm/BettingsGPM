@@ -44,6 +44,34 @@ El proyecto cuenta con una interfaz moderna inspirada en plataformas populares c
 
 ---
 
+## 🔧 **Cómo Clonar y Ejecutar el Proyecto**
+Si deseas obtener una copia local del proyecto, sigue estos pasos:
+
+### 📥 Clonar el Repositorio
+1. Asegúrate de tener **Git** instalado en tu computadora. Si no lo tienes, descárgalo desde [aquí](https://git-scm.com/).
+2. Abre una terminal o consola en tu computadora.
+3. Ejecuta el siguiente comando:
+   ```bash
+   git clone https://github.com/jaimegpm/BettingsGPM.git
+   ```
+4. Ingresa al directorio del proyecto:
+   ```bash
+   cd BettingsGPM
+   ```
+
+### 🚀 Ejecutar el Proyecto
+1. Si utilizas Windows, puedes hacer doble clic en el archivo `index.html` para abrirlo en tu navegador.
+2. Si prefieres usar un servidor local, puedes instalar **Live Server** en VS Code y ejecutar el proyecto desde ahí.
+3. Para usuarios avanzados, también puedes utilizar un servidor HTTP simple con Python:
+   ```bash
+   # En Python 3.x
+   python -m http.server
+   ```
+4. ¡Listo! Ahora puedes explorar la plataforma en tu entorno local.
+
+---
+
 ## 📜 **Licencia**
 Este proyecto está licenciado bajo la licencia **MIT**.  
 Consulta el archivo [LICENSE](LICENSE) para más detalles.
+
