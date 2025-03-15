@@ -15,12 +15,12 @@
     </div>
 
     <!-- Barra superior -->
-    <div class="top-bar">
+    <header class="top-bar">
         <div class="logo">
             <img src="img/logo.png" alt="BettingsGPM">
         </div>
         <div class="theme-toggle">
-            <button id="theme-switch" aria-label="Cambiar tema">
+            <button id="theme-switch" aria-label="Cambiar tema" title="Cambiar entre tema claro y oscuro">
                 <span class="theme-icon light">☀️</span>
                 <span class="theme-icon dark">🌙</span>
             </button>
@@ -28,53 +28,53 @@
         
         <!-- Botones hamburguesa -->
         <div class="mobile-buttons">
-            <button class="hamburger-header" aria-label="Menú de opciones">
+            <button class="hamburger-header" aria-label="Menú de opciones" title="Abrir menú de opciones">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            <button class="hamburger-nav" aria-label="Menú de navegación">
+            <button class="hamburger-nav" aria-label="Menú de navegación" title="Abrir menú de navegación">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
         </div>
 
-        <div class="top-menu">
+        <nav class="top-menu">
             <div class="top-menu-items">
-                <div class="notifications">
+                <div class="notifications" title="Ver tus notificaciones">
                     Notificaciones
                     <div class="notifications-menu">
-                        <div class="notifications-header">
+                        <header class="notifications-header">
                             <h4>Notificaciones</h4>
                             <span class="notifications-count">3</span>
-                        </div>
+                        </header>
                         <div class="notifications-list">
-                            <div class="notification-item unread">
+                            <article class="notification-item unread">
                                 <div class="notification-icon">🎉</div>
                                 <div class="notification-content">
                                     <p>¡Bono de bienvenida activado!</p>
                                     <span class="notification-time">Ahora</span>
                                 </div>
-                            </div>
-                            <div class="notification-item unread">
+                            </article>
+                            <article class="notification-item unread">
                                 <div class="notification-icon">💰</div>
                                 <div class="notification-content">
                                     <p>Tu apuesta fue ganadora</p>
                                     <span class="notification-time">Hace 5 min</span>
                                 </div>
-                            </div>
-                            <div class="notification-item">
+                            </article>
+                            <article class="notification-item">
                                 <div class="notification-icon">📊</div>
                                 <div class="notification-content">
                                     <p>Nuevas cuotas disponibles</p>
                                     <span class="notification-time">Hace 15 min</span>
                                 </div>
-                            </div>
+                            </article>
                         </div>
                     </div>
                 </div>
-                <div class="language">
+                <div class="language" title="Cambiar idioma de la plataforma">
                     Idioma: Español
                     <div class="language-menu">
                         <div class="language-list">
@@ -109,54 +109,54 @@
                         </div>
                     </div>
                 </div>
-                <div class="deposit">
+                <div class="deposit" title="Realizar un depósito en tu cuenta">
                     Depositar
                     <div class="deposit-menu">
-                        <div class="deposit-header">
+                        <header class="deposit-header">
                             <h4>Métodos de Depósito</h4>
-                        </div>
+                        </header>
                         <div class="deposit-list">
-                            <div class="deposit-item">
+                            <article class="deposit-item">
                                 <div class="deposit-icon">💳</div>
                                 <div class="deposit-content">
                                     <p>Tarjeta de Crédito/Débito</p>
                                     <span class="deposit-info">Instantáneo - Sin comisiones</span>
                                 </div>
-                            </div>
-                            <div class="deposit-item">
+                            </article>
+                            <article class="deposit-item">
                                 <div class="deposit-icon">🏦</div>
                                 <div class="deposit-content">
                                     <p>Transferencia Bancaria</p>
                                     <span class="deposit-info">24-48h - Sin comisiones</span>
                                 </div>
-                            </div>
-                            <div class="deposit-item">
+                            </article>
+                            <article class="deposit-item">
                                 <div class="deposit-icon">₿</div>
                                 <div class="deposit-content">
                                     <p>Criptomonedas</p>
                                     <span class="deposit-info">Instantáneo - Comisión 1%</span>
                                 </div>
-                            </div>
-                            <div class="deposit-item">
+                            </article>
+                            <article class="deposit-item">
                                 <div class="deposit-icon">📱</div>
                                 <div class="deposit-content">
                                     <p>Bizum</p>
                                     <span class="deposit-info">Instantáneo - Sin comisiones</span>
                                 </div>
-                            </div>
+                            </article>
                         </div>
                         <div class="deposit-footer">
-                            <button class="deposit-help-btn">
+                            <button class="deposit-help-btn" title="Obtener ayuda sobre los métodos de depósito">
                                 <span class="help-icon">❔</span>
                                 Ayuda con los depósitos
                             </button>
                         </div>
                     </div>
                 </div>
-                <div class="balance">Saldo: $7,450</div>
+                <div class="balance" title="Tu saldo actual">Saldo: $7,450</div>
             </div>
             <div class="user-profile">
-                <button class="user-btn">
+                <button class="user-btn" title="Ver tu perfil de usuario">
                     <span class="user-icon">●</span>
                     jaimegpm
                 </button>
@@ -164,22 +164,22 @@
                     <span class="logout-icon">⇥</span>
                 </button>
             </div>
-        </div>
-    </div>
+        </nav>
+    </header>
 
     <!-- Contenido principal -->
-    <div class="login-page">
+    <section class="login-page">
         <main class="center-content" id="profile-black-panel">
             <div class="profile-container">
-                <div class="profile-header">
+                <header class="profile-header">
                     <div class="profile-avatar">
                         <span class="avatar-icon">●</span>
                         <span class="profile-name">jaimegpm</span>
                         <span class="account-badge verified">Cuenta Verificada ✓</span>
                     </div>
-                </div>
+                </header>
 
-                <div class="profile-info">
+                <section class="profile-info">
                     <!-- Columna izquierda -->
                     <div class="profile-column">
                         <div class="info-group">
@@ -225,7 +225,7 @@
                             <div class="info-value">15 Marzo 2024</div>
                         </div>
                     </div>
-                </div>
+                </section>
 
                 <div class="profile-actions">
                     <button type="button" class="btn-secondary" onclick="window.location.href='InicioConSesion.html'">
@@ -237,7 +237,7 @@
                 </div>
             </div>
         </main>
-    </div>
+    </section>
 
     <!-- Footer -->
     <footer>
@@ -256,8 +256,8 @@
             <h3>Cerrar Sesión</h3>
             <p>¿Estás seguro de que quieres cerrar la sesión?</p>
             <div class="modal-buttons">
-                <button class="btn-secondary" id="cancel-logout">No, me quedo</button>
-                <button class="btn-primary" id="confirm-logout">Sí, quiero salir</button>
+                <button class="btn-secondary" id="cancel-logout" title="Continuar navegando sin cerrar sesión">No, me quedo</button>
+                <button class="btn-primary" id="confirm-logout" title="Confirmar cierre de sesión">Sí, quiero salir</button>
             </div>
         </div>
     </div>
@@ -268,7 +268,7 @@
             <h3>Versión Móvil Disponible</h3>
             <p>Estás accediendo desde un dispositivo móvil. Para una mejor experiencia, te redirigiremos a nuestra versión optimizada para móviles.</p>
             <div class="mobile-modal-buttons">
-                <button class="btn-primary" id="confirm-mobile">Ir a versión móvil</button>
+                <button class="btn-primary" id="confirm-mobile" title="Ir a la versión optimizada para móviles">Ir a versión móvil</button>
             </div>
             <div class="auto-redirect-text">
                 Auto redirigiendo en <span id="countdown">5</span> segundos
@@ -279,15 +279,15 @@
     <script src="js/main.js"></script>
 
     <!-- Widget de Chat IA -->
-    <div class="ai-chat-widget">
-        <button class="ai-chat-button">
+    <aside class="ai-chat-widget">
+        <button class="ai-chat-button" title="Habla con nuestro asistente virtual">
             <svg class="ai-icon" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6M12,8A4,4 0 0,0 8,12A4,4 0 0,0 12,16A4,4 0 0,0 16,12A4,4 0 0,0 12,8Z"/>
             </svg>
             <span class="ai-status">AI Assistant</span>
         </button>
         <div class="ai-chat-container">
-            <div class="ai-chat-header">
+            <header class="ai-chat-header">
                 <div class="ai-chat-title">
                     <span class="ai-icon">🤖</span>
                     <div class="ai-info">
@@ -298,8 +298,8 @@
                         </div>
                     </div>
                 </div>
-                <button class="ai-chat-minimize">−</button>
-            </div>
+                <button class="ai-chat-minimize" title="Minimizar chat">−</button>
+            </header>
             <div class="ai-chat-messages">
                 <div class="ai-message">
                     <span class="ai-icon small">🤖</span>
@@ -309,13 +309,13 @@
                 </div>
             </div>
             <div class="ai-chat-input">
-                <input type="text" placeholder="Escribe tu mensaje..." disabled>
-                <button class="ai-send-button" disabled>
+                <input type="text" placeholder="Escribe tu mensaje..." title="Escribe tu consulta al asistente">
+                <button class="ai-send-button" title="Enviar mensaje">
                     <span>📤</span>
                 </button>
             </div>
         </div>
-    </div>
+    </aside>
     
     <script>
         // Código para el modal de versión móvil

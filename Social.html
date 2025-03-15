@@ -15,12 +15,12 @@
     </div>
 
     <!-- Barra superior -->
-    <div class="top-bar">
+    <header class="top-bar">
         <div class="logo">
             <img src="img/logo.png" alt="BettingsGPM">
         </div>
         <div class="theme-toggle">
-            <button id="theme-switch" aria-label="Cambiar tema">
+            <button id="theme-switch" aria-label="Cambiar tema" title="Cambiar entre tema claro y oscuro">
                 <span class="theme-icon light">☀️</span>
                 <span class="theme-icon dark">🌙</span>
             </button>
@@ -28,53 +28,53 @@
         
         <!-- Botones hamburguesa -->
         <div class="mobile-buttons">
-            <button class="hamburger-header" aria-label="Menú de opciones">
+            <button class="hamburger-header" aria-label="Menú de opciones" title="Abrir menú de opciones">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            <button class="hamburger-nav" aria-label="Menú de navegación">
+            <button class="hamburger-nav" aria-label="Menú de navegación" title="Abrir menú de navegación">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
         </div>
 
-        <div class="top-menu">
+        <nav class="top-menu">
             <div class="top-menu-items">
-                <div class="notifications">
+                <div class="notifications" title="Ver tus notificaciones">
                     Notificaciones
                     <div class="notifications-menu">
-                        <div class="notifications-header">
+                        <header class="notifications-header">
                             <h4>Notificaciones</h4>
                             <span class="notifications-count">3</span>
-                        </div>
+                        </header>
                         <div class="notifications-list">
-                            <div class="notification-item unread">
+                            <article class="notification-item unread">
                                 <div class="notification-icon">🎉</div>
                                 <div class="notification-content">
                                     <p>¡Bono de bienvenida activado!</p>
                                     <span class="notification-time">Ahora</span>
                                 </div>
-                            </div>
-                            <div class="notification-item unread">
+                            </article>
+                            <article class="notification-item unread">
                                 <div class="notification-icon">💰</div>
                                 <div class="notification-content">
                                     <p>Tu apuesta fue ganadora</p>
                                     <span class="notification-time">Hace 5 min</span>
                                 </div>
-                            </div>
-                            <div class="notification-item">
+                            </article>
+                            <article class="notification-item">
                                 <div class="notification-icon">📊</div>
                                 <div class="notification-content">
                                     <p>Nuevas cuotas disponibles</p>
                                     <span class="notification-time">Hace 15 min</span>
                                 </div>
-                            </div>
+                            </article>
                         </div>
                     </div>
                 </div>
-                <div class="language">
+                <div class="language" title="Cambiar idioma de la plataforma">
                     Idioma: Español
                     <div class="language-menu">
                         <div class="language-list">
@@ -109,54 +109,54 @@
                         </div>
                     </div>
                 </div>
-                <div class="deposit">
+                <div class="deposit" title="Realizar un depósito en tu cuenta">
                     Depositar
                     <div class="deposit-menu">
-                        <div class="deposit-header">
+                        <header class="deposit-header">
                             <h4>Métodos de Depósito</h4>
-                        </div>
+                        </header>
                         <div class="deposit-list">
-                            <div class="deposit-item">
+                            <article class="deposit-item">
                                 <div class="deposit-icon">💳</div>
                                 <div class="deposit-content">
                                     <p>Tarjeta de Crédito/Débito</p>
                                     <span class="deposit-info">Instantáneo - Sin comisiones</span>
                                 </div>
-                            </div>
-                            <div class="deposit-item">
+                            </article>
+                            <article class="deposit-item">
                                 <div class="deposit-icon">🏦</div>
                                 <div class="deposit-content">
                                     <p>Transferencia Bancaria</p>
                                     <span class="deposit-info">24-48h - Sin comisiones</span>
                                 </div>
-                            </div>
-                            <div class="deposit-item">
+                            </article>
+                            <article class="deposit-item">
                                 <div class="deposit-icon">₿</div>
                                 <div class="deposit-content">
                                     <p>Criptomonedas</p>
                                     <span class="deposit-info">Instantáneo - Comisión 1%</span>
                                 </div>
-                            </div>
-                            <div class="deposit-item">
+                            </article>
+                            <article class="deposit-item">
                                 <div class="deposit-icon">📱</div>
                                 <div class="deposit-content">
                                     <p>Bizum</p>
                                     <span class="deposit-info">Instantáneo - Sin comisiones</span>
                                 </div>
-                            </div>
+                            </article>
                         </div>
                         <div class="deposit-footer">
-                            <button class="deposit-help-btn">
+                            <button class="deposit-help-btn" title="Obtener ayuda sobre los métodos de depósito">
                                 <span class="help-icon">❔</span>
                                 Ayuda con los depósitos
                             </button>
                         </div>
                     </div>
                 </div>
-                <div class="balance">Saldo: $7,450</div>
+                <div class="balance" title="Tu saldo actual">Saldo: $7,450</div>
             </div>
             <div class="user-profile">
-                <button class="user-btn">
+                <button class="user-btn" title="Ver tu perfil de usuario">
                     <span class="user-icon">●</span>
                     jaimegpm
                 </button>
@@ -164,18 +164,18 @@
                     <span class="logout-icon">⇥</span>
                 </button>
             </div>
-        </div>
-    </div>
+        </nav>
+    </header>
 
     <!-- Menú principal -->
     <nav class="main-nav">
         <div class="nav-container">
             <ul>
-                <li><a href="InicioConSesion.html">Inicio</a></li>
-                <li><a href="Apuestas.html">Apuestas</a></li>
-                <li><a href="Rankings.html">Rankings</a></li>
-                <li><a href="Social.html" class="active">Social</a></li>
-                <li><a href="#">Historial</a></li>
+                <li><a href="InicioConSesion.html" title="Página principal">Inicio</a></li>
+                <li><a href="Apuestas.html" title="Ver y realizar apuestas">Apuestas</a></li>
+                <li><a href="Rankings.html" title="Ver clasificaciones y estadísticas">Rankings</a></li>
+                <li><a href="Social.html" class="active" title="Conectar con otros usuarios">Social</a></li>
+                <li><a href="#" title="Ver tu historial de apuestas">Historial</a></li>
             </ul>
         </div>
     </nav>
@@ -186,21 +186,21 @@
         <aside class="left-sidebar">
             <h3>Highlights</h3>
             <div class="sport-buttons">
-                <button>Fútbol</button>
-                <button>Tenis</button>
-                <button>Baloncesto</button>
-                <button>Pádel</button>
+                <button title="Ver apuestas de fútbol">Fútbol</button>
+                <button title="Ver apuestas de tenis">Tenis</button>
+                <button title="Ver apuestas de baloncesto">Baloncesto</button>
+                <button title="Ver apuestas de pádel">Pádel</button>
             </div>
             
-            <div class="promotions">
+            <section class="promotions">
                 <h3>Promociones & Bonos</h3>
                 <ul>
-                    <li>🎁 Bono de Bienvenida = $150</li>
-                    <li>⚡ Apuesta Gratis = $10 sin riesgo</li>
-                    <li>🔥 Super Cuotas - Para Champions</li>
-                    <li>🔒 Cashback Semanal - Recupera 10%</li>
+                    <li title="Recibe hasta $150 en tu primer depósito">🎁 Bono de Bienvenida = $150</li>
+                    <li title="Apuesta $10 sin riesgo de pérdida">⚡ Apuesta Gratis = $10 sin riesgo</li>
+                    <li title="Cuotas mejoradas para partidos de Champions League">🔥 Super Cuotas - Para Champions</li>
+                    <li title="Recupera el 10% de tus pérdidas semanales">🔒 Cashback Semanal - Recupera 10%</li>
                 </ul>
-            </div>
+            </section>
         </aside>
 
         <!-- Contenido central -->
@@ -208,221 +208,221 @@
             <h2>SOCIAL</h2>
             
             <!-- Panel de Personas -->
-            <div class="social-panel active" id="people-panel">
-                <div class="social-header">
+            <section class="social-panel active" id="people-panel">
+                <header class="social-header">
                     <h3>Personas que quizás conozcas...</h3>
                     <button class="nav-arrow next" title="Ver grupos">
                         <span>→</span>
                     </button>
-                </div>
+                </header>
                 
                 <div class="users-grid">
                     <!-- Usuario 1 -->
-                    <div class="user-card">
+                    <article class="user-card" title="Perfil de usuario: Carlos_Bet">
                         <div class="user-avatar">👤</div>
                         <div class="user-info">
                             <h4>Carlos_Bet</h4>
                             <p>12 amigos en común</p>
                         </div>
-                        <button class="add-friend-btn">Agregar</button>
-                    </div>
+                        <button class="add-friend-btn" title="Enviar solicitud de amistad a Carlos_Bet">Agregar</button>
+                    </article>
                     
                     <!-- Usuario 2 -->
-                    <div class="user-card">
+                    <article class="user-card" title="Perfil de usuario: Maria_Sports">
                         <div class="user-avatar">👤</div>
                         <div class="user-info">
                             <h4>Maria_Sports</h4>
                             <p>8 amigos en común</p>
                         </div>
-                        <button class="add-friend-btn">Agregar</button>
-                    </div>
+                        <button class="add-friend-btn" title="Enviar solicitud de amistad a Maria_Sports">Agregar</button>
+                    </article>
                     
                     <!-- Usuario 3 -->
-                    <div class="user-card">
+                    <article class="user-card" title="Perfil de usuario: Betting_King">
                         <div class="user-avatar">👤</div>
                         <div class="user-info">
                             <h4>Betting_King</h4>
                             <p>15 amigos en común</p>
                         </div>
-                        <button class="add-friend-btn">Agregar</button>
-                    </div>
+                        <button class="add-friend-btn" title="Enviar solicitud de amistad a Betting_King">Agregar</button>
+                    </article>
                     
                     <!-- Usuario 4 -->
-                    <div class="user-card">
+                    <article class="user-card">
                         <div class="user-avatar">👤</div>
                         <div class="user-info">
                             <h4>Ana_Winner</h4>
                             <p>5 amigos en común</p>
                         </div>
                         <button class="add-friend-btn">Agregar</button>
-                    </div>
+                    </article>
 
                     <!-- Usuario 5 -->
-                    <div class="user-card">
+                    <article class="user-card">
                         <div class="user-avatar">👤</div>
                         <div class="user-info">
                             <h4>Pablo_Bets</h4>
                             <p>20 amigos en común</p>
                         </div>
                         <button class="add-friend-btn">Agregar</button>
-                    </div>
+                    </article>
 
                     <!-- Usuario 6 -->
-                    <div class="user-card">
+                    <article class="user-card">
                         <div class="user-avatar">👤</div>
                         <div class="user-info">
                             <h4>Laura_Win</h4>
                             <p>7 amigos en común</p>
                         </div>
                         <button class="add-friend-btn">Agregar</button>
-                    </div>
+                    </article>
 
                     <!-- Usuario 7 -->
-                    <div class="user-card">
+                    <article class="user-card">
                         <div class="user-avatar">👤</div>
                         <div class="user-info">
                             <h4>BetMaster_23</h4>
                             <p>18 amigos en común</p>
                         </div>
                         <button class="add-friend-btn">Agregar</button>
-                    </div>
+                    </article>
 
                     <!-- Usuario 8 -->
-                    <div class="user-card">
+                    <article class="user-card">
                         <div class="user-avatar">👤</div>
                         <div class="user-info">
                             <h4>Elena_Sports</h4>
                             <p>10 amigos en común</p>
                         </div>
                         <button class="add-friend-btn">Agregar</button>
-                    </div>
+                    </article>
                 </div>
-            </div>
+            </section>
 
             <!-- Panel de Grupos -->
-            <div class="social-panel" id="groups-panel">
-                <div class="social-header">
+            <section class="social-panel" id="groups-panel">
+                <header class="social-header">
                     <button class="nav-arrow prev" title="Ver personas">
                         <span>←</span>
                     </button>
                     <h3>Grupos a los que te interesaría unirte</h3>
-                </div>
+                </header>
                 
                 <div class="groups-grid">
                     <!-- Grupo 1 -->
-                    <div class="group-card">
+                    <article class="group-card">
                         <div class="group-avatar">👥</div>
                         <div class="group-info">
                             <h4>Expertos en LaLiga</h4>
                             <p>2.5k miembros</p>
                         </div>
                         <button class="join-group-btn">Unirse</button>
-                    </div>
+                    </article>
                     
                     <!-- Grupo 2 -->
-                    <div class="group-card">
+                    <article class="group-card">
                         <div class="group-avatar">👥</div>
                         <div class="group-info">
                             <h4>Premier League Fans</h4>
                             <p>1.8k miembros</p>
                         </div>
                         <button class="join-group-btn">Unirse</button>
-                    </div>
+                    </article>
                     
                     <!-- Grupo 3 -->
-                    <div class="group-card">
+                    <article class="group-card">
                         <div class="group-avatar">👥</div>
                         <div class="group-info">
                             <h4>Champions Predictions</h4>
                             <p>3.2k miembros</p>
                         </div>
                         <button class="join-group-btn">Unirse</button>
-                    </div>
+                    </article>
                     
                     <!-- Grupo 4 -->
-                    <div class="group-card">
+                    <article class="group-card">
                         <div class="group-avatar">👥</div>
                         <div class="group-info">
                             <h4>NBA Betting Pro</h4>
                             <p>1.5k miembros</p>
                         </div>
                         <button class="join-group-btn">Unirse</button>
-                    </div>
+                    </article>
 
                     <!-- Grupo 5 -->
-                    <div class="group-card">
+                    <article class="group-card">
                         <div class="group-avatar">👥</div>
                         <div class="group-info">
                             <h4>Serie A Masters</h4>
                             <p>2.1k miembros</p>
                         </div>
                         <button class="join-group-btn">Unirse</button>
-                    </div>
+                    </article>
 
                     <!-- Grupo 6 -->
-                    <div class="group-card">
+                    <article class="group-card">
                         <div class="group-avatar">👥</div>
                         <div class="group-info">
                             <h4>Tennis Elite Bets</h4>
                             <p>1.3k miembros</p>
                         </div>
                         <button class="join-group-btn">Unirse</button>
-                    </div>
+                    </article>
 
                     <!-- Grupo 7 -->
-                    <div class="group-card">
+                    <article class="group-card">
                         <div class="group-avatar">👥</div>
                         <div class="group-info">
                             <h4>Bundesliga Experts</h4>
                             <p>1.7k miembros</p>
                         </div>
                         <button class="join-group-btn">Unirse</button>
-                    </div>
+                    </article>
 
                     <!-- Grupo 8 -->
-                    <div class="group-card">
+                    <article class="group-card">
                         <div class="group-avatar">👥</div>
                         <div class="group-info">
                             <h4>F1 Betting Club</h4>
                             <p>950 miembros</p>
                         </div>
                         <button class="join-group-btn">Unirse</button>
-                    </div>
+                    </article>
                 </div>
-            </div>
+            </section>
         </main>
 
         <!-- Sidebar derecho -->
         <aside class="right-sidebar">
             <h3>Cuotas en Vivo</h3>
-            <div class="live-match">
+            <section class="live-match">
                 <p>Manchester United vs Chelsea</p>
                 <p>Gana Manchester: 2.10 ⚽</p>
                 <p>Empate: 3.50 ⚽</p>
                 <p>Gana Chelsea: 2.90 ⚽</p>
-            </div>
+            </section>
             
-            <div class="recent-bets">
+            <section class="recent-bets">
                 <h3>Mis apuestas recientes</h3>
                 <div class="bet-list">
-                    <div class="bet-item win">
+                    <article class="bet-item win">
                         <span class="bet-status">✓</span>
                         PSG vs Bayern - $50 → $110
-                    </div>
-                    <div class="bet-item loss">
+                    </article>
+                    <article class="bet-item loss">
                         <span class="bet-status">✕</span>
                         Lakers vs Heat - $20
-                    </div>
-                    <div class="bet-item loss">
+                    </article>
+                    <article class="bet-item loss">
                         <span class="bet-status">✕</span>
                         G.S. Warriors vs Miami Heat - $40
-                    </div>
-                    <div class="bet-item win">
+                    </article>
+                    <article class="bet-item win">
                         <span class="bet-status">✓</span>
                         M. United vs Chelsea - $30 → $75
-                    </div>
+                    </article>
                 </div>
-            </div>
+            </section>
         </aside>
     </div>
 
@@ -451,7 +451,7 @@
         </div>
     </div>
     <!-- Widget de Chat IA -->
-    <div class="ai-chat-widget">
+    <aside class="ai-chat-widget">
         <button class="ai-chat-button">
             <svg class="ai-icon" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6M12,8A4,4 0 0,0 8,12A4,4 0 0,0 12,16A4,4 0 0,0 16,12A4,4 0 0,0 12,8Z"/>
@@ -459,7 +459,7 @@
             <span class="ai-status">AI Assistant</span>
         </button>
         <div class="ai-chat-container">
-            <div class="ai-chat-header">
+            <header class="ai-chat-header">
                 <div class="ai-chat-title">
                     <span class="ai-icon">🤖</span>
                     <div class="ai-info">
@@ -471,7 +471,7 @@
                     </div>
                 </div>
                 <button class="ai-chat-minimize">−</button>
-            </div>
+            </header>
             <div class="ai-chat-messages">
                 <div class="ai-message">
                     <span class="ai-icon small">🤖</span>
@@ -487,7 +487,7 @@
                 </button>
             </div>
         </div>
-    </div>
+    </aside>
 
     <!-- Modal de confirmación para versión móvil -->
     <div id="mobile-version-modal">
