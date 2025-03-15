@@ -22,12 +22,12 @@
     </div>
     
     <!-- Barra superior -->
-    <div class="top-bar">
+    <header class="top-bar">
         <div class="logo">
             <img src="img/logo.png" alt="BettingsGPM">
         </div>
         <div class="theme-toggle">
-            <button id="theme-switch" aria-label="Cambiar tema">
+            <button id="theme-switch" aria-label="Cambiar tema" title="Cambiar entre tema claro y oscuro">
                 <span class="theme-icon light">☀️</span>
                 <span class="theme-icon dark">🌙</span>
             </button>
@@ -35,12 +35,12 @@
         
         <!-- Nuevo - Botones hamburguesa solo visibles en móvil -->
         <div class="mobile-buttons">
-            <button class="hamburger-header" aria-label="Menú de opciones">
+            <button class="hamburger-header" aria-label="Menú de opciones" title="Abrir menú de opciones">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            <button class="hamburger-nav" aria-label="Menú de navegación">
+            <button class="hamburger-nav" aria-label="Menú de navegación" title="Abrir menú de navegación">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -51,9 +51,9 @@
         <div class="nav-overlay"></div>
         <div class="header-overlay"></div>
 
-        <div class="top-menu">
+        <nav class="top-menu">
             <div class="top-menu-items">
-                <div class="notifications">
+                <div class="notifications" title="Ver tus notificaciones">
                     Notificaciones
                     <div class="notifications-menu">
                         <div class="notifications-header">
@@ -69,7 +69,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="language">
+                <div class="language" title="Cambiar idioma de la plataforma">
                     Idioma: Español
                     <div class="language-menu">
                         <div class="language-list">
@@ -104,7 +104,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="deposit">
+                <div class="deposit" title="Realizar un depósito en tu cuenta">
                     Depositar
                     <div class="deposit-menu">
                         <div class="deposit-header">
@@ -120,24 +120,24 @@
                         </div>
                     </div>
                 </div>
-                <div class="balance">Saldo: No disponible</div>
+                <div class="balance" title="Tu saldo actual">Saldo: No disponible</div>
             </div>
             <div class="top-menu-buttons">
-                <button class="login-btn">Iniciar Sesión</button>
-                <button class="register-btn">Registrarse</button>
+                <button class="login-btn" title="Acceder a tu cuenta">Iniciar Sesión</button>
+                <button class="register-btn" title="Crear una nueva cuenta">Registrarse</button>
             </div>
-        </div>
-    </div>
+        </nav>
+    </header>
 
     <!-- Menú principal -->
     <nav class="main-nav">
         <div class="nav-container">
             <ul>
-                <li><a href="index.html" class="active">Inicio</a></li>
-                <li><a href="InicioSesion.html">Apuestas</a></li>
-                <li><a href="InicioSesion.html">Rankings</a></li>
-                <li><a href="InicioSesion.html">Social</a></li>
-                <li><a href="InicioSesion.html">Historial</a></li>
+                <li><a href="index.html" class="active" title="Página principal">Inicio</a></li>
+                <li><a href="InicioSesion.html" title="Ver y realizar apuestas">Apuestas</a></li>
+                <li><a href="InicioSesion.html" title="Ver clasificaciones y estadísticas">Rankings</a></li>
+                <li><a href="InicioSesion.html" title="Conectar con otros usuarios">Social</a></li>
+                <li><a href="InicioSesion.html" title="Ver tu historial de apuestas">Historial</a></li>
             </ul>
         </div>
     </nav>
@@ -149,19 +149,19 @@
         <aside class="left-sidebar">
             <h3>Highlights</h3>
             <div class="sport-buttons">
-                <button>Fútbol</button>
-                <button>Tenis</button>
-                <button>Baloncesto</button>
-                <button>Pádel</button>
+                <button title="Ver apuestas de fútbol">Fútbol</button>
+                <button title="Ver apuestas de tenis">Tenis</button>
+                <button title="Ver apuestas de baloncesto">Baloncesto</button>
+                <button title="Ver apuestas de pádel">Pádel</button>
             </div>
             
             <div class="promotions">
                 <h3>Promociones & Bonos</h3>
                 <ul>
-                    <li>🎁 Bono de Bienvenida = $150</li>
-                    <li>⚡ Apuesta Gratis = $10 sin riesgo</li>
-                    <li>🔥 Super Cuotas - Para Champions</li>
-                    <li>🔒 Cashback Semanal - Recupera 10%</li>
+                    <li title="Recibe hasta $150 en tu primer depósito">🎁 Bono de Bienvenida = $150</li>
+                    <li title="Apuesta $10 sin riesgo de pérdida">⚡ Apuesta Gratis = $10 sin riesgo</li>
+                    <li title="Cuotas mejoradas para partidos de Champions League">🔥 Super Cuotas - Para Champions</li>
+                    <li title="Recupera el 10% de tus pérdidas semanales">🔒 Cashback Semanal - Recupera 10%</li>
                 </ul>
             </div>
         </aside>
@@ -169,155 +169,155 @@
         <!-- Contenido central -->
         <main class="center-content">
             <h2>PARTIDOS DESTACADOS</h2>
-            <div class="matches-grid">
+            <section class="matches-grid">
                 <!-- Fila 1 -->
-                <div class="match-card">
+                <article class="match-card">
                     <div class="match-teams">
                         <div class="team">
                             <img src="img/MallorcaCamiseta.webp" alt="Mallorca">
                             <span>Mallorca</span>
                         </div>
                         <div class="match-odds">
-                            <button>2,1</button>
-                            <button>3,01</button>
-                            <button>3,9</button>
+                            <button title="Cuota para victoria de Mallorca">2,1</button>
+                            <button title="Cuota para empate">3,01</button>
+                            <button title="Cuota para victoria de Osasuna">3,9</button>
                         </div>
                         <div class="team">
                             <img src="img/OsasunaCamiseta.webp" alt="Osasuna">
                             <span>Osasuna</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <div class="match-card">
+                <article class="match-card">
                     <div class="match-teams">
                         <div class="team">
                             <img src="img/MallorcaCamiseta.webp" alt="Mallorca">
                             <span>Mallorca</span>
                         </div>
                         <div class="match-odds">
-                            <button>2,1</button>
-                            <button>3,01</button>
-                            <button>3,9</button>
+                            <button title="Cuota para victoria de Mallorca">2,1</button>
+                            <button title="Cuota para empate">3,01</button>
+                            <button title="Cuota para victoria de Osasuna">3,9</button>
                         </div>
                         <div class="team">
                             <img src="img/OsasunaCamiseta.webp" alt="Osasuna">
                             <span>Osasuna</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- Fila 2 -->
-                <div class="match-card">
+                <article class="match-card">
                     <div class="match-teams">
                         <div class="team">
                             <img src="img/MallorcaCamiseta.webp" alt="Mallorca">
                             <span>Mallorca</span>
                         </div>
                         <div class="match-odds">
-                            <button>2,1</button>
-                            <button>3,01</button>
-                            <button>3,9</button>
+                            <button title="Cuota para victoria de Mallorca">2,1</button>
+                            <button title="Cuota para empate">3,01</button>
+                            <button title="Cuota para victoria de Osasuna">3,9</button>
                         </div>
                         <div class="team">
                             <img src="img/OsasunaCamiseta.webp" alt="Osasuna">
                             <span>Osasuna</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <div class="match-card">
+                <article class="match-card">
                     <div class="match-teams">
                         <div class="team">
                             <img src="img/MallorcaCamiseta.webp" alt="Mallorca">
                             <span>Mallorca</span>
                         </div>
                         <div class="match-odds">
-                            <button>2,1</button>
-                            <button>3,01</button>
-                            <button>3,9</button>
+                            <button title="Cuota para victoria de Mallorca">2,1</button>
+                            <button title="Cuota para empate">3,01</button>
+                            <button title="Cuota para victoria de Osasuna">3,9</button>
                         </div>
                         <div class="team">
                             <img src="img/OsasunaCamiseta.webp" alt="Osasuna">
                             <span>Osasuna</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- Fila 3 -->
-                <div class="match-card">
+                <article class="match-card">
                     <div class="match-teams">
                         <div class="team">
                             <img src="img/MallorcaCamiseta.webp" alt="Mallorca">
                             <span>Mallorca</span>
                         </div>
                         <div class="match-odds">
-                            <button>2,1</button>
-                            <button>3,01</button>
-                            <button>3,9</button>
+                            <button title="Cuota para victoria de Mallorca">2,1</button>
+                            <button title="Cuota para empate">3,01</button>
+                            <button title="Cuota para victoria de Osasuna">3,9</button>
                         </div>
                         <div class="team">
                             <img src="img/OsasunaCamiseta.webp" alt="Osasuna">
                             <span>Osasuna</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <div class="match-card">
+                <article class="match-card">
                     <div class="match-teams">
                         <div class="team">
                             <img src="img/MallorcaCamiseta.webp" alt="Mallorca">
                             <span>Mallorca</span>
                         </div>
                         <div class="match-odds">
-                            <button>2,1</button>
-                            <button>3,01</button>
-                            <button>3,9</button>
+                            <button title="Cuota para victoria de Mallorca">2,1</button>
+                            <button title="Cuota para empate">3,01</button>
+                            <button title="Cuota para victoria de Osasuna">3,9</button>
                         </div>
                         <div class="team">
                             <img src="img/OsasunaCamiseta.webp" alt="Osasuna">
                             <span>Osasuna</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- Fila 4 -->
-                <div class="match-card">
+                <article class="match-card">
                     <div class="match-teams">
                         <div class="team">
                             <img src="img/MallorcaCamiseta.webp" alt="Mallorca">
                             <span>Mallorca</span>
                         </div>
                         <div class="match-odds">
-                            <button>2,1</button>
-                            <button>3,01</button>
-                            <button>3,9</button>
+                            <button title="Cuota para victoria de Mallorca">2,1</button>
+                            <button title="Cuota para empate">3,01</button>
+                            <button title="Cuota para victoria de Osasuna">3,9</button>
                         </div>
                         <div class="team">
                             <img src="img/OsasunaCamiseta.webp" alt="Osasuna">
                             <span>Osasuna</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <div class="match-card">
+                <article class="match-card">
                     <div class="match-teams">
                         <div class="team">
                             <img src="img/MallorcaCamiseta.webp" alt="Mallorca">
                             <span>Mallorca</span>
                         </div>
                         <div class="match-odds">
-                            <button>2,1</button>
-                            <button>3,01</button>
-                            <button>3,9</button>
+                            <button title="Cuota para victoria de Mallorca">2,1</button>
+                            <button title="Cuota para empate">3,01</button>
+                            <button title="Cuota para victoria de Osasuna">3,9</button>
                         </div>
                         <div class="team">
                             <img src="img/OsasunaCamiseta.webp" alt="Osasuna">
                             <span>Osasuna</span>
                         </div>
                     </div>
-                </div>
-            </div>
+                </article>
+            </section>
 
             <!-- Separador -->
             <div class="matches-separator"></div>
@@ -326,19 +326,19 @@
         <!-- Sidebar derecho -->
         <aside class="right-sidebar">
             <h3>Cuotas en Vivo</h3>
-            <div class="live-match">
+            <section class="live-match" title="Partido en directo con cuotas actualizadas">
                 <p>Manchester United vs Chelsea</p>
                 <p>Gana Manchester: 2.10 ⚽</p>
                 <p>Empate: 3.50 ⚽</p>
                 <p>Gana Chelsea: 2.90 ⚽</p>
-            </div>
+            </section>
             
-            <div class="recent-bets">
+            <section class="recent-bets">
                 <h3>Mis apuestas recientes</h3>
-                <div class="login-required">
+                <div class="login-required" title="Necesitas iniciar sesión para ver tus apuestas recientes">
                     Es necesario iniciar sesión
                 </div>
-            </div>
+            </section>
         </aside>
     </div>
 
@@ -347,25 +347,25 @@
         <div class="footer-content">
             <p>© 2024 BettingsGPM. Todos los derechos reservados.</p>
             <nav>
-                <a href="#">Contacto atención al cliente</a>
-                <a href="#">Nuestras redes</a>
-                <a href="#">Política de privacidad</a>
-                <a href="#">Términos y condiciones</a>
+                <a href="#" title="Contacta con nuestro servicio de atención al cliente">Contacto atención al cliente</a>
+                <a href="#" title="Síguenos en nuestras redes sociales">Nuestras redes</a>
+                <a href="#" title="Consulta nuestra política de privacidad">Política de privacidad</a>
+                <a href="#" title="Consulta nuestros términos y condiciones">Términos y condiciones</a>
             </nav>
         </div>
     </footer>
     <script src="js/main.js"></script>
 
     <!-- Widget de Chat IA -->
-    <div class="ai-chat-widget">
-        <button class="ai-chat-button">
+    <aside class="ai-chat-widget">
+        <button class="ai-chat-button" title="Habla con nuestro asistente virtual">
             <svg class="ai-icon" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6M12,8A4,4 0 0,0 8,12A4,4 0 0,0 12,16A4,4 0 0,0 16,12A4,4 0 0,0 12,8Z"/>
             </svg>
             <span class="ai-status">AI Assistant</span>
         </button>
         <div class="ai-chat-container">
-            <div class="ai-chat-header">
+            <header class="ai-chat-header">
                 <div class="ai-chat-title">
                     <span class="ai-icon">🤖</span>
                     <div class="ai-info">
@@ -376,8 +376,8 @@
                         </div>
                     </div>
                 </div>
-                <button class="ai-chat-minimize">−</button>
-            </div>
+                <button class="ai-chat-minimize" title="Minimizar chat">−</button>
+            </header>
             <div class="ai-chat-messages">
                 <div class="ai-message">
                     <span class="ai-icon small">🤖</span>
@@ -388,12 +388,12 @@
             </div>
             <div class="ai-chat-input">
                 <input type="text" placeholder="Escribe tu mensaje..." disabled>
-                <button class="ai-send-button" disabled>
+                <button class="ai-send-button" disabled title="Enviar mensaje">
                     <span>📤</span>
                 </button>
             </div>
         </div>
-    </div>
+    </aside>
 
     <!-- Modal de inicio de sesión requerido -->
     <div id="login-required-modal" class="modal">
@@ -401,8 +401,8 @@
             <h3>Iniciar Sesión</h3>
             <p>No has iniciado sesión, ¿deseas hacerlo ahora?</p>
             <div class="modal-buttons">
-                <button class="btn-secondary" id="cancel-login">No, prefiero no hacerlo</button>
-                <button class="btn-primary" id="confirm-login">Sí, iniciar sesión</button>
+                <button class="btn-secondary" id="cancel-login" title="Continuar navegando sin iniciar sesión">No, prefiero no hacerlo</button>
+                <button class="btn-primary" id="confirm-login" title="Ir a la página de inicio de sesión">Sí, iniciar sesión</button>
             </div>
         </div>
     </div>
@@ -413,7 +413,7 @@
             <h3>Versión Móvil Disponible</h3>
             <p>Estás accediendo desde un dispositivo móvil. Para una mejor experiencia, te redirigiremos a nuestra versión optimizada para móviles.</p>
             <div class="mobile-modal-buttons">
-                <button class="btn-primary" id="confirm-mobile">Ir a versión móvil</button>
+                <button class="btn-primary" id="confirm-mobile" title="Ir a la versión optimizada para móviles">Ir a versión móvil</button>
             </div>
             <div class="auto-redirect-text">
                 Auto redirigiendo en <span id="countdown">5</span> segundos
